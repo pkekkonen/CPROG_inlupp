@@ -11,10 +11,10 @@
 		E1670E00239A591D008A2CA7 /* Session.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E1670DFE239A591D008A2CA7 /* Session.cpp */; };
 		E1670E03239A5951008A2CA7 /* System.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E1670E01239A5951008A2CA7 /* System.cpp */; };
 		E1670E06239A5A23008A2CA7 /* Component.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E1670E04239A5A23008A2CA7 /* Component.cpp */; };
-		E1670E0B239A5CA1008A2CA7 /* SDL2_ttf.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1670E08239A5CA1008A2CA7 /* SDL2_ttf.framework */; };
-		E1670E0C239A5CA1008A2CA7 /* SDL2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1670E09239A5CA1008A2CA7 /* SDL2.framework */; };
-		E1670E0D239A5CA1008A2CA7 /* SDL2_image.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1670E0A239A5CA1008A2CA7 /* SDL2_image.framework */; };
 		E1670E10239A6CCA008A2CA7 /* Sprite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E1670E0E239A6CCA008A2CA7 /* Sprite.cpp */; };
+		E16E46C823A97AAF006547DD /* SDL2_ttf.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E16E46C523A97AAF006547DD /* SDL2_ttf.framework */; };
+		E16E46C923A97AAF006547DD /* SDL2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E16E46C623A97AAF006547DD /* SDL2.framework */; };
+		E16E46CA23A97AAF006547DD /* SDL2_image.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E16E46C723A97AAF006547DD /* SDL2_image.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -37,13 +37,13 @@
 		E1670E01239A5951008A2CA7 /* System.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = System.cpp; sourceTree = "<group>"; };
 		E1670E02239A5951008A2CA7 /* System.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = System.h; sourceTree = "<group>"; };
 		E1670E04239A5A23008A2CA7 /* Component.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Component.cpp; sourceTree = "<group>"; };
-		E1670E08239A5CA1008A2CA7 /* SDL2_ttf.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDL2_ttf.framework; path = ../../../../../Library/Frameworks/SDL2_ttf.framework; sourceTree = "<group>"; };
-		E1670E09239A5CA1008A2CA7 /* SDL2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDL2.framework; path = ../../../../../Library/Frameworks/SDL2.framework; sourceTree = "<group>"; };
-		E1670E0A239A5CA1008A2CA7 /* SDL2_image.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDL2_image.framework; path = ../../../../../Library/Frameworks/SDL2_image.framework; sourceTree = "<group>"; };
 		E1670E0E239A6CCA008A2CA7 /* Sprite.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Sprite.cpp; sourceTree = "<group>"; };
 		E1670E0F239A6CCA008A2CA7 /* Sprite.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; path = Sprite.h; sourceTree = "<group>"; };
 		E16E46C323A82FAC006547DD /* Component.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Component.h; sourceTree = "<group>"; };
 		E16E46C423A9562D006547DD /* Ideas.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = Ideas.txt; sourceTree = "<group>"; };
+		E16E46C523A97AAF006547DD /* SDL2_ttf.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDL2_ttf.framework; path = ../../../../../Library/Frameworks/SDL2_ttf.framework; sourceTree = "<group>"; };
+		E16E46C623A97AAF006547DD /* SDL2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDL2.framework; path = ../../../../../Library/Frameworks/SDL2.framework; sourceTree = "<group>"; };
+		E16E46C723A97AAF006547DD /* SDL2_image.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDL2_image.framework; path = ../../../../../Library/Frameworks/SDL2_image.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,9 +51,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E1670E0C239A5CA1008A2CA7 /* SDL2.framework in Frameworks */,
-				E1670E0B239A5CA1008A2CA7 /* SDL2_ttf.framework in Frameworks */,
-				E1670E0D239A5CA1008A2CA7 /* SDL2_image.framework in Frameworks */,
+				E16E46C823A97AAF006547DD /* SDL2_ttf.framework in Frameworks */,
+				E16E46C923A97AAF006547DD /* SDL2.framework in Frameworks */,
+				E16E46CA23A97AAF006547DD /* SDL2_image.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -97,9 +97,9 @@
 		E1670E07239A5CA0008A2CA7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				E1670E0A239A5CA1008A2CA7 /* SDL2_image.framework */,
-				E1670E08239A5CA1008A2CA7 /* SDL2_ttf.framework */,
-				E1670E09239A5CA1008A2CA7 /* SDL2.framework */,
+				E16E46C723A97AAF006547DD /* SDL2_image.framework */,
+				E16E46C523A97AAF006547DD /* SDL2_ttf.framework */,
+				E16E46C623A97AAF006547DD /* SDL2.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";

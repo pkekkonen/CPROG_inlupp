@@ -69,11 +69,11 @@ void Session::run() {
         
         for(Component* c: addedComponents)
             comps.push_back(c);
-        addedComponents.clear(); //måste städas bort?
+        addedComponents.clear(); //TODO: måste städas bort?
         
         for(Sprite* s: addedSprites)
             sprites.push_back(s);
-        addedSprites.clear(); //måste städas bort?
+        addedSprites.clear(); //TODO: måste städas bort?
         
         for(Component* c: removedComponents) {
             for(std::vector<Component*>::iterator iter = comps.begin(); iter != comps.end();) {
@@ -83,16 +83,17 @@ void Session::run() {
                     iter++;
             }
         }
-        removedComponents.clear(); //måste städas bort?
+        removedComponents.clear(); //TODO: måste städas bort?
         
         for(Sprite* s: removedSprites) {
             for(std::vector<Sprite*>::iterator iter = sprites.begin(); iter != sprites.end();) {
                 if(*iter == s)
                     iter = sprites.erase(iter);
                 else
-                    iter;
+                    iter++;
             }
         }
+        removedSprites.clear(); //TODO: städa??
         
         SDL_SetRenderDrawColor(sys.ren, 255, 255, 255, 255);
         SDL_RenderClear(sys.ren);
