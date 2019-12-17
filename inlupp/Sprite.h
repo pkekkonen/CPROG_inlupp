@@ -13,6 +13,7 @@ public:
     virtual void downKeyDown();
     virtual void upKeyDown();
     virtual void draw() const = 0;
+    virtual void tick() = 0;
     SDL_Rect getRect() const { return rect;}
 protected:
     Sprite(int x, int y, int w, int h) : rect{x, y, w, h} {}

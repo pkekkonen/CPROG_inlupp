@@ -59,35 +59,64 @@ void Session::run() {
                     } // keyup switch end
                     
             } //slut på switch
-            
-            for(Component* c: added)
-                comps.push_back(c);
-            added.clear(); //måste städas bort?
-            
-            for(Component* c: removed) {
-                for(std::vector<Component*>::iterator iter = comps.begin(); iter != comps.end();) {
-                    if(*iter == c)
-                        iter = comps.erase(iter);
-                    else
-                        iter++;
-                }
-            }
-            removed.clear(); //måste städas bort?
-            
-            SDL_SetRenderDrawColor(sys.ren, 255, 255, 255, 255);
-            SDL_RenderClear(sys.ren);
-            for(Component* c: comps)
-                c -> draw();
-            SDL_RenderPresent(sys.ren);
-            
         } // inre while
+        
+        for(Component* c: comps)
+            c -> tick();
+        
+        for(Sprite* s: sprites)
+            s -> tick();
+        
+        for(Component* c: addedComponents)
+            comps.push_back(c);
+        addedComponents.clear(); //måste städas bort?
+        
+        for(Sprite* s: addedSprites)
+            sprites.push_back(s);
+        addedSprites.clear(); //måste städas bort?
+        
+        for(Component* c: removedComponents) {
+            for(std::vector<Component*>::iterator iter = comps.begin(); iter != comps.end();) {
+                if(*iter == c)
+                    iter = comps.erase(iter);
+                else
+                    iter++;
+            }
+        }
+        removedComponents.clear(); //måste städas bort?
+        
+        for(Sprite* s: removedSprites) {
+            for(std::vector<Sprite*>::iterator iter = sprites.begin(); iter != sprites.end();) {
+                if(*iter == s)
+                    iter = sprites.erase(iter);
+                else
+                    iter;
+            }
+        }
+        
+        SDL_SetRenderDrawColor(sys.ren, 255, 255, 255, 255);
+        SDL_RenderClear(sys.ren);
+        
+        for(Component* c: comps)
+            c -> draw();
+        for(Sprite* s: sprites)
+            s -> draw();
+        SDL_RenderPresent(sys.ren);
     } //yttre while
 }
 
-void Session::add(Component* comp) {
-    added.push_back(comp);
+void Session::addComponent(Component* comp) {
+    addedComponents.push_back(comp);
 }
 
-void Session::remove(Component* comp) {
-    removed.push_back(comp);
+void Session::removeComponent(Component* comp) {
+    removedComponents.push_back(comp);
+}
+
+void Session::addSprite(Sprite* s) {
+    addedSprites.push_back(s);
+}
+
+void Session::removeSprite(Sprite* s) {
+    removedSprites.push_back(s);
 }
