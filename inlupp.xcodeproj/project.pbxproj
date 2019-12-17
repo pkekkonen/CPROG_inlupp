@@ -43,6 +43,7 @@
 		E1670E0E239A6CCA008A2CA7 /* Sprite.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Sprite.cpp; sourceTree = "<group>"; };
 		E1670E0F239A6CCA008A2CA7 /* Sprite.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; path = Sprite.h; sourceTree = "<group>"; };
 		E16E46C323A82FAC006547DD /* Component.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Component.h; sourceTree = "<group>"; };
+		E16E46C423A9562D006547DD /* Ideas.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = Ideas.txt; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +63,7 @@
 		E1670DEB239A5877008A2CA7 = {
 			isa = PBXGroup;
 			children = (
+				E16E46C423A9562D006547DD /* Ideas.txt */,
 				E1670DF6239A5877008A2CA7 /* inlupp */,
 				E1670DF5239A5877008A2CA7 /* Products */,
 				E1670E07239A5CA0008A2CA7 /* Frameworks */,

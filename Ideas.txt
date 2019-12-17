@@ -1,0 +1,1 @@
+enemies (subklass till sprite) kan ha en array av pekare till par av tal över vilket mönster de ska röra sig i. tex {(-1, 0), (0, 1)}
