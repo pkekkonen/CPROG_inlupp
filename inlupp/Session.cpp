@@ -7,14 +7,6 @@
 
 #define FPS 80
 
-void Session::addComponent(Component* comp) {
-    addedComponents.push_back(comp);
-}
-
-void Session::removeComponent(Component* comp) {
-    removedComponents.push_back(comp);
-}
-
 void Session::addSprite(Sprite* s) {
     addedSprites.push_back(s);
 }
@@ -23,28 +15,24 @@ void Session::removeSprite(Sprite* s) {
     removedSprites.push_back(s);
 }
 
-void Session::addMainPlayer(Sprite* s) {
+void Session::addMainPlayer(MoveableByKeysSprite* s) {
     mainPlayer = s; //TODO: funkar som det ska?
+    //Räknas som tilldelning
 }
 
 void Session::run() {
     bool quit = false;
     
-    Uint32 tickInterval = 1000 / FPS;
+    const int tickInterval = 1000 / FPS;
+    Uint32 nextTick;
+    int delay;
+    
     while(!quit) {
-        Uint32 nextTick = SDL_GetTicks() + tickInterval;
+        nextTick = SDL_GetTicks() + tickInterval;
         SDL_Event event;
         while(SDL_PollEvent(&event)) {
             switch(event.type) {
                 case SDL_QUIT: quit = true; break;
-                case SDL_MOUSEBUTTONDOWN:
-                    for(Component* c: comps)
-                        c -> mouseButtonDown(event.button.x, event.button.y);
-                    break;
-                case SDL_MOUSEBUTTONUP:
-                    for(Component* c: comps)
-                        c -> mouseButtonUp(event.button.x, event.button.y);
-                    break;
                 case SDL_KEYDOWN:
                     switch (event.key.keysym.sym) {
                         case SDLK_LEFT:
@@ -82,6 +70,9 @@ void Session::run() {
                     
             } //slut på switch
         } // inre while
+        delay = nextTick - SDL_GetTicks();
+        if (delay > 0)
+            SDL_Delay(delay);
         
         for(Sprite* s : sprites) {
             if(Collision::collided(mainPlayer->getRect(), s->getRect())) {
@@ -89,29 +80,12 @@ void Session::run() {
             }
         }
         
-        for(Component* c: comps)
-            c -> tick();
-        
         for(Sprite* s: sprites)
             s -> tick();
-        
-        for(Component* c: addedComponents)
-            comps.push_back(c);
-        addedComponents.clear(); //TODO: måste städas bort?
         
         for(Sprite* s: addedSprites)
             sprites.push_back(s);
         addedSprites.clear(); //TODO: måste städas bort?
-        
-        for(Component* c: removedComponents) {
-            for(std::vector<Component*>::iterator iter = comps.begin(); iter != comps.end();) {
-                if(*iter == c)
-                    iter = comps.erase(iter);
-                else
-                    iter++;
-            }
-        }
-        removedComponents.clear(); //TODO: måste städas bort?
         
         for(Sprite* s: removedSprites) {
             for(std::vector<Sprite*>::iterator iter = sprites.begin(); iter != sprites.end();) {
@@ -126,8 +100,7 @@ void Session::run() {
         SDL_SetRenderDrawColor(sys.ren, 255, 255, 255, 255);
         SDL_RenderClear(sys.ren);
         
-        for(Component* c: comps)
-            c -> draw();
+
         for(Sprite* s: sprites)
             s -> draw();
         mainPlayer -> draw();

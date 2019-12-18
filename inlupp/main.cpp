@@ -42,10 +42,10 @@ private:
     
 };
 
-class MainPlayer: public Sprite {
+class MainPlayer: public MoveableByKeysSprite {
 public:
-    static MainPlayer* getInstance(int x, int y, int w, int h) {
-        return new MainPlayer(x, y, w, h);
+    static MainPlayer* getInstance(int x, int y, int width, int height, int speed) {
+        return new MainPlayer(x, y, width, height, speed);
     }
     void const draw() {
         SDL_Rect r = getRect();
@@ -77,7 +77,7 @@ public:
     
     
 private:
-    MainPlayer(int x, int y, int w, int h): Sprite(x, y, w, h) {
+    MainPlayer(int x, int y, int w, int h, int s): MoveableByKeysSprite(x, y, w, h, s) {
         texture = IMG_LoadTexture(sys.ren, "/Users/paulinakekkonen/Pictures/upBtn.jpeg");
     }
     int counter = 0;
@@ -88,7 +88,7 @@ private:
 
 int main(int argc, char** argv) {
     Enemy* e = Enemy::getInstance(10, 10, 200, 100);
-    MainPlayer* m = MainPlayer::getInstance(200, 400, 100, 100);
+    MainPlayer* m = MainPlayer::getInstance(200, 400, 100, 100, 2);
     ses.addSprite(e);
     ses.addMainPlayer(m);
     ses.run();

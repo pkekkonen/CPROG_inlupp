@@ -1,3 +1,7 @@
 enemies (subklass till sprite) kan ha en array av pekare till par av tal över vilket mönster de ska röra sig i. tex {(-1, 0), (0, 1)}
 
 TODO: se över så att de olika konstruktorerna samt destruktor är rätt implementerad för klasshierarkin
+
+"Kortkommandon knutna till fria funktioneri i tillämpningen" görs med funktionspekare. I gameengine (session) ska man säga att något ska hända när man trycker på den här knappen och vad som ska hända ska anges i tillämpningen
+
+K

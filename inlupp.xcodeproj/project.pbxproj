@@ -11,7 +11,6 @@
 		E1670DF8239A5877008A2CA7 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E1670DF7239A5877008A2CA7 /* main.cpp */; };
 		E1670E00239A591D008A2CA7 /* Session.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E1670DFE239A591D008A2CA7 /* Session.cpp */; };
 		E1670E03239A5951008A2CA7 /* System.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E1670E01239A5951008A2CA7 /* System.cpp */; };
-		E1670E06239A5A23008A2CA7 /* Component.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E1670E04239A5A23008A2CA7 /* Component.cpp */; };
 		E1670E10239A6CCA008A2CA7 /* Sprite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E1670E0E239A6CCA008A2CA7 /* Sprite.cpp */; };
 		E16E46C823A97AAF006547DD /* SDL2_ttf.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E16E46C523A97AAF006547DD /* SDL2_ttf.framework */; };
 		E16E46C923A97AAF006547DD /* SDL2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E16E46C623A97AAF006547DD /* SDL2.framework */; };
@@ -33,16 +32,16 @@
 /* Begin PBXFileReference section */
 		E1373A1A23AA22D7005B5E4A /* Collision.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Collision.h; sourceTree = "<group>"; };
 		E1373A1B23AA2715005B5E4A /* Collision.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Collision.cpp; sourceTree = "<group>"; };
+		E1373A1D23AA6236005B5E4A /* MoveableByKeysSprite.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MoveableByKeysSprite.h; sourceTree = "<group>"; };
+		E1373A1E23AA7256005B5E4A /* MovingSprite.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MovingSprite.h; sourceTree = "<group>"; };
 		E1670DF4239A5877008A2CA7 /* inlupp */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = inlupp; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1670DF7239A5877008A2CA7 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		E1670DFE239A591D008A2CA7 /* Session.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Session.cpp; sourceTree = "<group>"; };
 		E1670DFF239A591D008A2CA7 /* Session.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; path = Session.h; sourceTree = "<group>"; };
 		E1670E01239A5951008A2CA7 /* System.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = System.cpp; sourceTree = "<group>"; };
 		E1670E02239A5951008A2CA7 /* System.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = System.h; sourceTree = "<group>"; };
-		E1670E04239A5A23008A2CA7 /* Component.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Component.cpp; sourceTree = "<group>"; };
 		E1670E0E239A6CCA008A2CA7 /* Sprite.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Sprite.cpp; sourceTree = "<group>"; };
 		E1670E0F239A6CCA008A2CA7 /* Sprite.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; path = Sprite.h; sourceTree = "<group>"; };
-		E16E46C323A82FAC006547DD /* Component.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Component.h; sourceTree = "<group>"; };
 		E16E46C423A9562D006547DD /* Ideas.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = Ideas.txt; sourceTree = "<group>"; };
 		E16E46C523A97AAF006547DD /* SDL2_ttf.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDL2_ttf.framework; path = ../../../../../Library/Frameworks/SDL2_ttf.framework; sourceTree = "<group>"; };
 		E16E46C623A97AAF006547DD /* SDL2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDL2.framework; path = ../../../../../Library/Frameworks/SDL2.framework; sourceTree = "<group>"; };
@@ -84,7 +83,6 @@
 		E1670DF6239A5877008A2CA7 /* inlupp */ = {
 			isa = PBXGroup;
 			children = (
-				E16E46C323A82FAC006547DD /* Component.h */,
 				E1670DF7239A5877008A2CA7 /* main.cpp */,
 				E1670E0E239A6CCA008A2CA7 /* Sprite.cpp */,
 				E1670E0F239A6CCA008A2CA7 /* Sprite.h */,
@@ -92,9 +90,10 @@
 				E1670E01239A5951008A2CA7 /* System.cpp */,
 				E1670E02239A5951008A2CA7 /* System.h */,
 				E1670DFF239A591D008A2CA7 /* Session.h */,
-				E1670E04239A5A23008A2CA7 /* Component.cpp */,
 				E1373A1A23AA22D7005B5E4A /* Collision.h */,
 				E1373A1B23AA2715005B5E4A /* Collision.cpp */,
+				E1373A1D23AA6236005B5E4A /* MoveableByKeysSprite.h */,
+				E1373A1E23AA7256005B5E4A /* MovingSprite.h */,
 			);
 			path = inlupp;
 			sourceTree = "<group>";
@@ -167,7 +166,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				E1670E03239A5951008A2CA7 /* System.cpp in Sources */,
-				E1670E06239A5A23008A2CA7 /* Component.cpp in Sources */,
 				E1670E10239A6CCA008A2CA7 /* Sprite.cpp in Sources */,
 				E1670E00239A591D008A2CA7 /* Session.cpp in Sources */,
 				E1373A1C23AA2715005B5E4A /* Collision.cpp in Sources */,
