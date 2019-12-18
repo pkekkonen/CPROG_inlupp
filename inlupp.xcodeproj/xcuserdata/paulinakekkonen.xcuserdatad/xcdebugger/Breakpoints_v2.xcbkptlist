@@ -10,7 +10,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "inlupp/Sprite.h"
-            timestampString = "598369499.327831"
+            timestampString = "598380783.294924"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "6"
@@ -26,42 +26,42 @@
                   moduleName = "inlupp"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/paulinakekkonen/Documents/GitHub/inlupp/inlupp/Sprite.h"
-                  timestampString = "598369499.653555"
+                  timestampString = "598380783.653695"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "8"
+                  endingLineNumber = "8"
+                  offsetFromSymbolStart = "16">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Sprite::~Sprite()"
+                  moduleName = "inlupp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/paulinakekkonen/Documents/GitHub/inlupp/inlupp/Sprite.h"
+                  timestampString = "598380783.658425"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "8"
+                  endingLineNumber = "8"
+                  offsetFromSymbolStart = "16">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Sprite::~Sprite()"
+                  moduleName = "inlupp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/paulinakekkonen/Documents/GitHub/inlupp/inlupp/Sprite.h"
+                  timestampString = "598380783.661956"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "8"
                   endingLineNumber = "8"
                   offsetFromSymbolStart = "8">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Sprite::~Sprite()"
-                  moduleName = "inlupp"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/paulinakekkonen/Documents/GitHub/inlupp/inlupp/Sprite.h"
-                  timestampString = "598369499.658893"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "8"
-                  endingLineNumber = "8"
-                  offsetFromSymbolStart = "16">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Sprite::~Sprite()"
-                  moduleName = "inlupp"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/paulinakekkonen/Documents/GitHub/inlupp/inlupp/Sprite.h"
-                  timestampString = "598369499.666281"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "8"
-                  endingLineNumber = "8"
-                  offsetFromSymbolStart = "16">
                </Location>
             </Locations>
          </BreakpointContent>

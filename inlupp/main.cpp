@@ -5,10 +5,10 @@
 
 Session ses;
 
-class Enemy: public Sprite {
+class Enemy: public MovingSprite {
 public:
-    static Enemy* getInstance(int x, int y, int w, int h) {
-        return new Enemy(x, y, w, h);
+    static Enemy* getInstance(int x, int y, int width, int height, int speed) {
+        return new Enemy(x, y, width, height, speed);
     }
     void const draw() {
         SDL_Rect r = getRect();
@@ -18,11 +18,11 @@ public:
         counter++;
         if(counter % 5 == 0) {
             if(moveRight) {
-                rect.x++;
+                rect.x += getSpeed();
                 if(rect.x >= 50)
                     moveRight = false;
             } else {
-                rect.x--;
+                rect.x -= getSpeed();
                 if(rect.x <= 10)
                     moveRight = true;
             }
@@ -33,7 +33,7 @@ public:
         SDL_DestroyTexture(texture);
     }
 private:
-    Enemy(int x, int y, int w, int h): Sprite(x, y, w, h) {
+    Enemy(int x, int y, int w, int h, int s): MovingSprite(x, y, w, h, s) {
         texture = IMG_LoadTexture(sys.ren, "/Users/paulinakekkonen/Pictures/downBtn.jpeg");
     }
     int counter = 0;
@@ -56,19 +56,19 @@ public:
     }
     
     void leftKeyDown() {
-        rect.x -= 4;
+        rect.x -= getSpeed();
     }
     
     void rightKeyDown() {
-        rect.x += 4;
+        rect.x += getSpeed();
     }
     
     void downKeyDown() {
-        rect.y += 4;
+        rect.y += getSpeed();
     }
     
     void upKeyDown() {
-        rect.y -= 4;
+        rect.y -= getSpeed();
     }
     
     ~MainPlayer() {
@@ -87,9 +87,11 @@ private:
 
 
 int main(int argc, char** argv) {
-    Enemy* e = Enemy::getInstance(10, 10, 200, 100);
+    Enemy* e1 = Enemy::getInstance(10, 10, 200, 100, 2);
+    Enemy* e2 = Enemy::getInstance(500, 40, 30, 30, 6);
     MainPlayer* m = MainPlayer::getInstance(200, 400, 100, 100, 2);
-    ses.addSprite(e);
+    ses.addSprite(e1);
+    ses.addSprite(e2);
     ses.addMainPlayer(m);
     ses.run();
     return 0;

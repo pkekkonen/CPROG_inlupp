@@ -2,6 +2,7 @@
 #define Session_h
 #include "Sprite.h"
 #include "MoveableByKeysSprite.h"
+#include "MovingSprite.h"
 #include <vector>
 
 struct Session {

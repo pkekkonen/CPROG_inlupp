@@ -6,11 +6,12 @@
 class MoveableByKeysSprite: public Sprite {
 public:
     //static MoveableByKeysSprite*
+    int const getSpeed() {return speed;} //TODO: retunerar rätt va?
     virtual void leftKeyDown() {};
     virtual void rightKeyDown() {};
     virtual void downKeyDown() {};
     virtual void upKeyDown() {};
-    virtual ~MoveableByKeysSprite(); //TODO: kolla så implementering av desktruktion i hierarki är rätt implementerad
+    virtual ~MoveableByKeysSprite() {}; //TODO: kolla så implementering av desktruktion i hierarki är rätt implementerad
 private:
     int speed;
 protected:
