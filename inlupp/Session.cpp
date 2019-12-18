@@ -2,8 +2,25 @@
 #include "System.h"
 #include <SDL2/SDL.h>
 #include <iterator>
+#include <iostream>
 
 #define FPS 80
+
+void Session::addComponent(Component* comp) {
+    addedComponents.push_back(comp);
+}
+
+void Session::removeComponent(Component* comp) {
+    removedComponents.push_back(comp);
+}
+
+void Session::addSprite(Sprite* s) {
+    addedSprites.push_back(s);
+}
+
+void Session::removeSprite(Sprite* s) {
+    removedSprites.push_back(s);
+}
 
 void Session::run() {
     bool quit = false;
@@ -71,8 +88,10 @@ void Session::run() {
             comps.push_back(c);
         addedComponents.clear(); //TODO: måste städas bort?
         
-        for(Sprite* s: addedSprites)
+        for(Sprite* s: addedSprites) {
             sprites.push_back(s);
+            std::cout<<"HEJ";
+        }
         addedSprites.clear(); //TODO: måste städas bort?
         
         for(Component* c: removedComponents) {
@@ -106,18 +125,3 @@ void Session::run() {
     } //yttre while
 }
 
-void Session::addComponent(Component* comp) {
-    addedComponents.push_back(comp);
-}
-
-void Session::removeComponent(Component* comp) {
-    removedComponents.push_back(comp);
-}
-
-void Session::addSprite(Sprite* s) {
-    addedSprites.push_back(s);
-}
-
-void Session::removeSprite(Sprite* s) {
-    removedSprites.push_back(s);
-}
