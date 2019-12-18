@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E1373A1C23AA2715005B5E4A /* Collision.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E1373A1B23AA2715005B5E4A /* Collision.cpp */; };
 		E1670DF8239A5877008A2CA7 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E1670DF7239A5877008A2CA7 /* main.cpp */; };
 		E1670E00239A591D008A2CA7 /* Session.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E1670DFE239A591D008A2CA7 /* Session.cpp */; };
 		E1670E03239A5951008A2CA7 /* System.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E1670E01239A5951008A2CA7 /* System.cpp */; };
@@ -30,6 +31,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		E1373A1A23AA22D7005B5E4A /* Collision.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Collision.h; sourceTree = "<group>"; };
+		E1373A1B23AA2715005B5E4A /* Collision.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Collision.cpp; sourceTree = "<group>"; };
 		E1670DF4239A5877008A2CA7 /* inlupp */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = inlupp; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1670DF7239A5877008A2CA7 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		E1670DFE239A591D008A2CA7 /* Session.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Session.cpp; sourceTree = "<group>"; };
@@ -90,6 +93,8 @@
 				E1670E02239A5951008A2CA7 /* System.h */,
 				E1670DFF239A591D008A2CA7 /* Session.h */,
 				E1670E04239A5A23008A2CA7 /* Component.cpp */,
+				E1373A1A23AA22D7005B5E4A /* Collision.h */,
+				E1373A1B23AA2715005B5E4A /* Collision.cpp */,
 			);
 			path = inlupp;
 			sourceTree = "<group>";
@@ -165,6 +170,7 @@
 				E1670E06239A5A23008A2CA7 /* Component.cpp in Sources */,
 				E1670E10239A6CCA008A2CA7 /* Sprite.cpp in Sources */,
 				E1670E00239A591D008A2CA7 /* Session.cpp in Sources */,
+				E1373A1C23AA2715005B5E4A /* Collision.cpp in Sources */,
 				E1670DF8239A5877008A2CA7 /* main.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -3,6 +3,7 @@
 #include <SDL2/SDL.h>
 #include <iterator>
 #include <iostream>
+#include "Collision.h"
 
 #define FPS 80
 
@@ -20,6 +21,10 @@ void Session::addSprite(Sprite* s) {
 
 void Session::removeSprite(Sprite* s) {
     removedSprites.push_back(s);
+}
+
+void Session::addMainPlayer(Sprite* s) {
+    mainPlayer = s; //TODO: funkar som det ska?
 }
 
 void Session::run() {
@@ -43,16 +48,16 @@ void Session::run() {
                 case SDL_KEYDOWN:
                     switch (event.key.keysym.sym) {
                         case SDLK_LEFT:
-                            //squirrel.leftKeyDown();
+                            mainPlayer->leftKeyDown();
                             break;
                         case SDLK_RIGHT:
-                            //squirrel.rightKeyDown();
+                            mainPlayer->rightKeyDown();
                             break;
                         case SDLK_UP:
-                            //squirrel.upKeyDown();
+                            mainPlayer->upKeyDown();
                             break;
                         case SDLK_DOWN:
-                            //squirrel.downKeyDown();
+                            mainPlayer->downKeyDown();
                             break;
                         default:
                             break;
@@ -60,16 +65,16 @@ void Session::run() {
                 case SDL_KEYUP:
                     switch (event.key.keysym.sym) {
                         case SDLK_LEFT:
-                            //squirrel.leftKeyUp();
+                            //mainPlayer->leftKeyUp();
                             break;
                         case SDLK_RIGHT:
-                            //squirrel.rightKeyUp();
+                            //mainPlayer->rightKeyUp();
                             break;
                         case SDLK_UP:
-                            //squirrel.upKeyUp();
+                            //mainPlayer->upKeyUp();
                             break;
                         case SDLK_DOWN:
-                            //squirrel.downKeyUp();
+                            //mainPlayer->downKeyUp();
                             break;
                         default:
                             break;
@@ -77,6 +82,12 @@ void Session::run() {
                     
             } //slut på switch
         } // inre while
+        
+        for(Sprite* s : sprites) {
+            if(Collision::collided(mainPlayer->getRect(), s->getRect())) {
+                removeSprite(s);
+            }
+        }
         
         for(Component* c: comps)
             c -> tick();
@@ -88,10 +99,8 @@ void Session::run() {
             comps.push_back(c);
         addedComponents.clear(); //TODO: måste städas bort?
         
-        for(Sprite* s: addedSprites) {
+        for(Sprite* s: addedSprites)
             sprites.push_back(s);
-            std::cout<<"HEJ";
-        }
         addedSprites.clear(); //TODO: måste städas bort?
         
         for(Component* c: removedComponents) {
@@ -121,6 +130,7 @@ void Session::run() {
             c -> draw();
         for(Sprite* s: sprites)
             s -> draw();
+        mainPlayer -> draw();
         SDL_RenderPresent(sys.ren);
     } //yttre while
 }
