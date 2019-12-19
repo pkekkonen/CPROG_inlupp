@@ -20,6 +20,10 @@ void Session::addMainPlayer(MoveableByKeysSprite* s) {
     //Räknas som tilldelning
 }
 
+void Session::removeMainPlayer() {
+    delete mainPlayer;
+}
+
 void Session::run() {
     bool quit = false;
     

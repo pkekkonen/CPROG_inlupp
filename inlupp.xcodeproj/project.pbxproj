@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E135DAC923AB9FCA0075AEDC /* MoveableByKeysSprite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E135DAC823AB9FC90075AEDC /* MoveableByKeysSprite.cpp */; };
 		E1373A1C23AA2715005B5E4A /* Collision.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E1373A1B23AA2715005B5E4A /* Collision.cpp */; };
 		E1670DF8239A5877008A2CA7 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E1670DF7239A5877008A2CA7 /* main.cpp */; };
 		E1670E00239A591D008A2CA7 /* Session.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E1670DFE239A591D008A2CA7 /* Session.cpp */; };
@@ -30,6 +31,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		E135DAC823AB9FC90075AEDC /* MoveableByKeysSprite.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = MoveableByKeysSprite.cpp; sourceTree = "<group>"; };
 		E1373A1A23AA22D7005B5E4A /* Collision.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Collision.h; sourceTree = "<group>"; };
 		E1373A1B23AA2715005B5E4A /* Collision.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Collision.cpp; sourceTree = "<group>"; };
 		E1373A1D23AA6236005B5E4A /* MoveableByKeysSprite.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MoveableByKeysSprite.h; sourceTree = "<group>"; };
@@ -93,6 +95,7 @@
 				E1373A1A23AA22D7005B5E4A /* Collision.h */,
 				E1373A1B23AA2715005B5E4A /* Collision.cpp */,
 				E1373A1D23AA6236005B5E4A /* MoveableByKeysSprite.h */,
+				E135DAC823AB9FC90075AEDC /* MoveableByKeysSprite.cpp */,
 				E1373A1E23AA7256005B5E4A /* MovingSprite.h */,
 			);
 			path = inlupp;
@@ -165,6 +168,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E135DAC923AB9FCA0075AEDC /* MoveableByKeysSprite.cpp in Sources */,
 				E1670E03239A5951008A2CA7 /* System.cpp in Sources */,
 				E1670E10239A6CCA008A2CA7 /* Sprite.cpp in Sources */,
 				E1670E00239A591D008A2CA7 /* Session.cpp in Sources */,

@@ -9,7 +9,7 @@
 #include "System.h"
 
 System::System() {
-    win = SDL_CreateWindow("Game", 10, 10, 700, 500, 0); //TODO: ta reda på vad siffrorna innebär
+    win = SDL_CreateWindow("Game", 10, 10, 700, 400, 0); //TODO: ta reda på vad siffrorna innebär
     ren = SDL_CreateRenderer(win, -1, 0);
 }
 

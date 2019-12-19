@@ -7,8 +7,8 @@ Session ses;
 
 class Enemy: public MovingSprite {
 public:
-    static Enemy* getInstance(int x, int y, int width, int height, int speed) {
-        return new Enemy(x, y, width, height, speed);
+    static Enemy* getInstance(int x, int y, int width, int height, int speed, int left, int right) {
+        return new Enemy(x, y, width, height, speed, left, right);
     }
     void const draw() {
         SDL_Rect r = getRect();
@@ -19,28 +19,32 @@ public:
         if(counter % 5 == 0) {
             if(moveRight) {
                 rect.x += getSpeed();
-                if(rect.x >= 50)
+                if(rect.x >= right)
                     moveRight = false;
             } else {
                 rect.x -= getSpeed();
-                if(rect.x <= 10)
+                if(rect.x <= left)
                     moveRight = true;
             }
         }
     }
     
-    ~Enemy() {
-        SDL_DestroyTexture(texture);
-    }
+    ~Enemy();
+
 private:
-    Enemy(int x, int y, int w, int h, int s): MovingSprite(x, y, w, h, s) {
+    Enemy(int x, int y, int w, int h, int s, int left, int right): MovingSprite(x, y, w, h, s), left(left), right(right) {
         texture = IMG_LoadTexture(sys.ren, "/Users/paulinakekkonen/Pictures/downBtn.jpeg");
     }
     int counter = 0;
     SDL_Texture* texture;
     bool moveRight = true;
-    
+    int left;
+    int right;
 };
+
+Enemy::~Enemy() {
+    SDL_DestroyTexture(texture);
+}
 
 class MainPlayer: public MoveableByKeysSprite {
 public:
@@ -54,22 +58,7 @@ public:
     void tick() {
 
     }
-    
-    void leftKeyDown() {
-        rect.x -= getSpeed();
-    }
-    
-    void rightKeyDown() {
-        rect.x += getSpeed();
-    }
-    
-    void downKeyDown() {
-        rect.y += getSpeed();
-    }
-    
-    void upKeyDown() {
-        rect.y -= getSpeed();
-    }
+
     
     ~MainPlayer() {
         SDL_DestroyTexture(texture);
@@ -87,9 +76,9 @@ private:
 
 
 int main(int argc, char** argv) {
-    Enemy* e1 = Enemy::getInstance(10, 10, 200, 100, 2);
-    Enemy* e2 = Enemy::getInstance(500, 40, 30, 30, 6);
-    MainPlayer* m = MainPlayer::getInstance(200, 400, 100, 100, 2);
+    Enemy* e1 = Enemy::getInstance(10, 10, 200, 100, 2, 5, 200);
+    Enemy* e2 = Enemy::getInstance(500, 40, 30, 30, 6, 350, 500);
+    MainPlayer* m = MainPlayer::getInstance(200, 400, 100, 100, 20);
     ses.addSprite(e1);
     ses.addSprite(e2);
     ses.addMainPlayer(m);
