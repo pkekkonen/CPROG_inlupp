@@ -2,6 +2,7 @@
 #include "Session.h"
 #include <SDL2_image/SDL_image.h>
 #include "System.h"
+#include <vector>
 
 Session ses;
 
@@ -14,7 +15,7 @@ public:
         SDL_Rect r = getRect();
         SDL_RenderCopy(sys.ren, texture, NULL, &r);
     }
-    void tick() {
+    void tick(std::vector<Sprite*> sprites) {
         counter++;
         if(counter % 5 == 0) {
             if(moveRight) {
@@ -25,6 +26,13 @@ public:
                 rect.x -= getSpeed();
                 if(rect.x <= left)
                     moveRight = true;
+            }
+        }
+        for(Sprite* s: sprites) {
+            if(Collision::collided(this->getRect(), s->getRect())) {
+                if(MoveableByKeysSprite* m = dynamic_cast<MoveableByKeysSprite*>(s)){
+                    
+                }
             }
         }
     }
@@ -55,7 +63,7 @@ public:
         SDL_Rect r = getRect();
         SDL_RenderCopy(sys.ren, texture, NULL, &r);
     }
-    void tick() {
+    void tick(std::vector<Sprite*> sprites) {
 
     }
 
@@ -78,7 +86,7 @@ private:
 int main(int argc, char** argv) {
     Enemy* e1 = Enemy::getInstance(10, 10, 200, 100, 2, 5, 200);
     Enemy* e2 = Enemy::getInstance(500, 40, 30, 30, 6, 350, 500);
-    MainPlayer* m = MainPlayer::getInstance(200, 400, 100, 100, 20);
+    MainPlayer* m = MainPlayer::getInstance(200, 200, 30, 30, 20);
     ses.addSprite(e1);
     ses.addSprite(e2);
     ses.addMainPlayer(m);

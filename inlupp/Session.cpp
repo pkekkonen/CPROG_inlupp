@@ -84,8 +84,17 @@ void Session::run() {
             }
         }
         
+        if((mainPlayer->getRect().x+mainPlayer->getRect().w) >= sys.getWidth())
+            mainPlayer->setToPrevXPos();
+        if(mainPlayer->getRect().x <= 0)
+            mainPlayer->setToPrevXPos();
+        if((mainPlayer->getRect().y+mainPlayer->getRect().h) >= sys.getHeight())
+            mainPlayer->setToPrevYPos();
+        if(mainPlayer->getRect().y <= 0)
+                mainPlayer->setToPrevYPos();
+        
         for(Sprite* s: sprites)
-            s -> tick();
+            s -> tick(sprites);
         
         for(Sprite* s: addedSprites)
             sprites.push_back(s);

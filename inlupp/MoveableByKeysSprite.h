@@ -12,6 +12,8 @@ public:
     void downKeyDown();
     void upKeyDown();
     virtual ~MoveableByKeysSprite() {}; //TODO: kolla så implementering av desktruktion i hierarki är rätt implementerad
+    void setToPrevXPos();
+    void setToPrevYPos();
 private:
     int speed;
 protected:

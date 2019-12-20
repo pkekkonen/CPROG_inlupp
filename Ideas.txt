@@ -5,3 +5,8 @@ TODO: se över så att de olika konstruktorerna samt destruktor är rätt implem
 "Kortkommandon knutna till fria funktioneri i tillämpningen" görs med funktionspekare. I gameengine (session) ska man säga att något ska hända när man trycker på den här knappen och vad som ska hända ska anges i tillämpningen
 
 Kolla collision mellan rörande monster och andra objekt. Om den kolliderar med något ska den ändra riktningen som den går i
+
+Kan collision klassen retunera vilken typ av collision som sker eller hur ska vi veta vad som ska hända när de kolliderar? Hur och var ska de gås igenom? måste vi kolla hela listan i kombo med varenda annat element? kommer vara väldigt ineffektivt. Tick metoden ska ta emot värden så att det kan interageras? Så ska kollisionskontrollen ske där?
+
+Men om vi skickar in listan av sprites och den ska reagera på dem, kan den bara förändra sina egna egenskaper. Så om monster ska dö när de träffas av en viss typ av sprites så måste detta ske i monstrenas tick metod. Och inte i sprite metoden för alla de andra. Kanske snarare
+
