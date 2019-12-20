@@ -10,3 +10,6 @@ Kan collision klassen retunera vilken typ av collision som sker eller hur ska vi
 
 Men om vi skickar in listan av sprites och den ska reagera på dem, kan den bara förändra sina egna egenskaper. Så om monster ska dö när de träffas av en viss typ av sprites så måste detta ske i monstrenas tick metod. Och inte i sprite metoden för alla de andra. Kanske snarare
 
+Kan vi skapa en map där vi lägger in kortkommandot som nyckel och funktionen som värde och där man kan anropa funktionen genom att ange tangenten
+
+https://stackoverflow.com/questions/2298242/callback-functions-in-c

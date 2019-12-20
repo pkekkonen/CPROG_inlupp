@@ -15,13 +15,8 @@ void Session::removeSprite(Sprite* s) {
     removedSprites.push_back(s);
 }
 
-void Session::addMainPlayer(MoveableByKeysSprite* s) {
-    mainPlayer = s; //TODO: funkar som det ska?
-    //Räknas som tilldelning
-}
-
-void Session::removeMainPlayer() {
-    delete mainPlayer;
+void Session::addFunction(SDL_Keycode key, void(*f)()) {
+    functions[key] = f;
 }
 
 void Session::run() {
@@ -40,18 +35,30 @@ void Session::run() {
                 case SDL_KEYDOWN:
                     switch (event.key.keysym.sym) {
                         case SDLK_LEFT:
-                            mainPlayer->leftKeyDown();
+                            for(Sprite* s: sprites)
+                                if(MoveableByKeysSprite* m = dynamic_cast<MoveableByKeysSprite*>(s))
+                                    m->leftKeyDown();
                             break;
                         case SDLK_RIGHT:
-                            mainPlayer->rightKeyDown();
+                            for(Sprite* s: sprites)
+                                if(MoveableByKeysSprite* m = dynamic_cast<MoveableByKeysSprite*>(s))
+                                    m->rightKeyDown();
                             break;
                         case SDLK_UP:
-                            mainPlayer->upKeyDown();
+                            for(Sprite* s: sprites)
+                                if(MoveableByKeysSprite* m = dynamic_cast<MoveableByKeysSprite*>(s))
+                                    m->upKeyDown();
                             break;
                         case SDLK_DOWN:
-                            mainPlayer->downKeyDown();
+                            for(Sprite* s: sprites)
+                                if(MoveableByKeysSprite* m = dynamic_cast<MoveableByKeysSprite*>(s))
+                                    m->downKeyDown();
                             break;
                         default:
+            //annars så är det någon annan tangent och då kan vi kolla i vår unsorted map av functions om vi har någon sådan nyckel och i så fall anropa den funktionen med den tangenten (eller egentligen så behöver vi inte ens det argumentet)
+                            if(functions.find(event.key.keysym.sym) != functions.end()) {
+                                (functions.at(event.key.keysym.sym))();
+                            }
                             break;
                     } // keydown switch end
                 case SDL_KEYUP:
@@ -70,6 +77,7 @@ void Session::run() {
                             break;
                         default:
                             break;
+    
                     } // keyup switch end
                     
             } //slut på switch
@@ -78,20 +86,20 @@ void Session::run() {
         if (delay > 0)
             SDL_Delay(delay);
         
-        for(Sprite* s : sprites) {
-            if(Collision::collided(mainPlayer->getRect(), s->getRect())) {
-                removeSprite(s);
-            }
-        }
+//        for(Sprite* s : sprites) {
+  //          if(Collision::collided(mainPlayer->getRect(), s->getRect())) {
+    //            removeSprite(s);
+      //      }
+        //}
         
-        if((mainPlayer->getRect().x+mainPlayer->getRect().w) >= sys.getWidth())
-            mainPlayer->setToPrevXPos();
-        if(mainPlayer->getRect().x <= 0)
-            mainPlayer->setToPrevXPos();
-        if((mainPlayer->getRect().y+mainPlayer->getRect().h) >= sys.getHeight())
-            mainPlayer->setToPrevYPos();
-        if(mainPlayer->getRect().y <= 0)
-                mainPlayer->setToPrevYPos();
+//        if((mainPlayer->getRect().x+mainPlayer->getRect().w) >= sys.getWidth())
+//            mainPlayer->setToPrevXPos();
+//        if(mainPlayer->getRect().x <= 0)
+//            mainPlayer->setToPrevXPos();
+//        if((mainPlayer->getRect().y+mainPlayer->getRect().h) >= sys.getHeight())
+//            mainPlayer->setToPrevYPos();
+//        if(mainPlayer->getRect().y <= 0)
+//                mainPlayer->setToPrevYPos();
         
         for(Sprite* s: sprites)
             s -> tick(sprites);
@@ -116,7 +124,7 @@ void Session::run() {
 
         for(Sprite* s: sprites)
             s -> draw();
-        mainPlayer -> draw();
+
         SDL_RenderPresent(sys.ren);
     } //yttre while
 }

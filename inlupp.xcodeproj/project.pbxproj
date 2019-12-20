@@ -32,6 +32,7 @@
 
 /* Begin PBXFileReference section */
 		E135DAC823AB9FC90075AEDC /* MoveableByKeysSprite.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = MoveableByKeysSprite.cpp; sourceTree = "<group>"; };
+		E135DACA23AD05E30075AEDC /* StaticSprite.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StaticSprite.h; sourceTree = "<group>"; };
 		E1373A1A23AA22D7005B5E4A /* Collision.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Collision.h; sourceTree = "<group>"; };
 		E1373A1B23AA2715005B5E4A /* Collision.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Collision.cpp; sourceTree = "<group>"; };
 		E1373A1D23AA6236005B5E4A /* MoveableByKeysSprite.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MoveableByKeysSprite.h; sourceTree = "<group>"; };
@@ -95,6 +96,7 @@
 				E1373A1A23AA22D7005B5E4A /* Collision.h */,
 				E1373A1B23AA2715005B5E4A /* Collision.cpp */,
 				E1373A1D23AA6236005B5E4A /* MoveableByKeysSprite.h */,
+				E135DACA23AD05E30075AEDC /* StaticSprite.h */,
 				E135DAC823AB9FC90075AEDC /* MoveableByKeysSprite.cpp */,
 				E1373A1E23AA7256005B5E4A /* MovingSprite.h */,
 			);

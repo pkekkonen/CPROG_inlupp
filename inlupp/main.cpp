@@ -28,13 +28,7 @@ public:
                     moveRight = true;
             }
         }
-        for(Sprite* s: sprites) {
-            if(Collision::collided(this->getRect(), s->getRect())) {
-                if(MoveableByKeysSprite* m = dynamic_cast<MoveableByKeysSprite*>(s)){
-                    
-                }
-            }
-        }
+
     }
     
     ~Enemy();
@@ -64,14 +58,19 @@ public:
         SDL_RenderCopy(sys.ren, texture, NULL, &r);
     }
     void tick(std::vector<Sprite*> sprites) {
-
+        for(Sprite* s: sprites) {
+            if(Collision::collided(this->getRect(), s->getRect())) {
+                if(MovingSprite* m = dynamic_cast<MovingSprite*>(s)){
+                    ses.removeSprite(this);
+                }
+            }
+        }
     }
 
     
     ~MainPlayer() {
         SDL_DestroyTexture(texture);
     }
-    
     
 private:
     MainPlayer(int x, int y, int w, int h, int s): MoveableByKeysSprite(x, y, w, h, s) {
@@ -82,14 +81,18 @@ private:
     
 };
 
+void addEnemy() {
+    Enemy* e2 = Enemy::getInstance(500, 40, 30, 30, 6, 350, 500);
+    ses.addSprite(e2);
+
+}
 
 int main(int argc, char** argv) {
     Enemy* e1 = Enemy::getInstance(10, 10, 200, 100, 2, 5, 200);
-    Enemy* e2 = Enemy::getInstance(500, 40, 30, 30, 6, 350, 500);
     MainPlayer* m = MainPlayer::getInstance(200, 200, 30, 30, 20);
+    ses.addFunction(SDLK_t, addEnemy);
     ses.addSprite(e1);
-    ses.addSprite(e2);
-    ses.addMainPlayer(m);
+    ses.addSprite(m);
     ses.run();
     return 0;
 }

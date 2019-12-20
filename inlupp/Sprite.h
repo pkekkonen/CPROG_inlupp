@@ -7,7 +7,7 @@
 class Sprite {
 public:
     //Sprite();
-    virtual ~Sprite() {};
+    virtual ~Sprite() {}
     virtual void const draw() = 0;
     virtual void tick(std::vector<Sprite*> sprites) = 0;
     SDL_Rect getRect() const { return rect;}
@@ -19,7 +19,6 @@ protected:
 private:
     Sprite(const Sprite& other) = delete;
     const Sprite& operator=(const Sprite& other) = delete; //TODO: har vi nu gjort det omöjligt att skapa instanser av subklasser icke dynamiskt?
-
 };
 
 #endif 
