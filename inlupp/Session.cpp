@@ -5,7 +5,7 @@
 #include <iostream>
 #include "Collision.h"
 
-#define FPS 80
+#define FPS 60
 
 void Session::addSprite(Sprite* s) {
     addedSprites.push_back(s);
@@ -17,6 +17,17 @@ void Session::removeSprite(Sprite* s) {
 
 void Session::addFunction(SDL_Keycode key, void(*f)()) {
     functions[key] = f;
+}
+
+void Session::addMemberFunction(SDL_Keycode key, MemberFunctionPair funcPair) {
+    memberFunctions[key] = funcPair;
+}
+
+bool Session::isWithinWindow(SDL_Rect *rect) {
+    return(rect->x + rect->w <= sys.getWidth() &&
+           rect->x >= 0 &&
+           rect->y + rect->h <= sys.getHeight() &&
+           rect->y >= 0);
 }
 
 void Session::run() {
@@ -59,7 +70,11 @@ void Session::run() {
                             if(functions.find(event.key.keysym.sym) != functions.end()) {
                                 (functions.at(event.key.keysym.sym))();
                             }
-                            break;
+                            if(memberFunctions.find(event.key.keysym.sym) != memberFunctions.end()) {
+                                Sprite* spr = (memberFunctions.at(event.key.keysym.sym)).getSpriteObj();
+                                (spr->*(memberFunctions.at(event.key.keysym.sym)).getMemberFunction())();
+                           
+                            }break;
                     } // keydown switch end
                 case SDL_KEYUP:
                     switch (event.key.keysym.sym) {
@@ -82,9 +97,6 @@ void Session::run() {
                     
             } //slut på switch
         } // inre while
-        delay = nextTick - SDL_GetTicks();
-        if (delay > 0)
-            SDL_Delay(delay);
         
 //        for(Sprite* s : sprites) {
   //          if(Collision::collided(mainPlayer->getRect(), s->getRect())) {
@@ -126,6 +138,10 @@ void Session::run() {
             s -> draw();
 
         SDL_RenderPresent(sys.ren);
+        
+        delay = nextTick - SDL_GetTicks();
+        if (delay > 0)
+            SDL_Delay(delay);
     } //yttre while
 }
 

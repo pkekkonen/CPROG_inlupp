@@ -16,6 +16,7 @@
 		E16E46C823A97AAF006547DD /* SDL2_ttf.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E16E46C523A97AAF006547DD /* SDL2_ttf.framework */; };
 		E16E46C923A97AAF006547DD /* SDL2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E16E46C623A97AAF006547DD /* SDL2.framework */; };
 		E16E46CA23A97AAF006547DD /* SDL2_image.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E16E46C723A97AAF006547DD /* SDL2_image.framework */; };
+		E175105D23B0D9F40040BB0F /* MemberFunctionPair.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E175105C23B0D9F40040BB0F /* MemberFunctionPair.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -49,6 +50,8 @@
 		E16E46C523A97AAF006547DD /* SDL2_ttf.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDL2_ttf.framework; path = ../../../../../Library/Frameworks/SDL2_ttf.framework; sourceTree = "<group>"; };
 		E16E46C623A97AAF006547DD /* SDL2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDL2.framework; path = ../../../../../Library/Frameworks/SDL2.framework; sourceTree = "<group>"; };
 		E16E46C723A97AAF006547DD /* SDL2_image.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDL2_image.framework; path = ../../../../../Library/Frameworks/SDL2_image.framework; sourceTree = "<group>"; };
+		E175105B23B0D6ED0040BB0F /* MemberFunctionPair.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MemberFunctionPair.h; sourceTree = "<group>"; };
+		E175105C23B0D9F40040BB0F /* MemberFunctionPair.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = MemberFunctionPair.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +91,7 @@
 			children = (
 				E1670DF7239A5877008A2CA7 /* main.cpp */,
 				E1670E0E239A6CCA008A2CA7 /* Sprite.cpp */,
+				E175105B23B0D6ED0040BB0F /* MemberFunctionPair.h */,
 				E1670E0F239A6CCA008A2CA7 /* Sprite.h */,
 				E1670DFE239A591D008A2CA7 /* Session.cpp */,
 				E1670E01239A5951008A2CA7 /* System.cpp */,
@@ -99,6 +103,7 @@
 				E135DACA23AD05E30075AEDC /* StaticSprite.h */,
 				E135DAC823AB9FC90075AEDC /* MoveableByKeysSprite.cpp */,
 				E1373A1E23AA7256005B5E4A /* MovingSprite.h */,
+				E175105C23B0D9F40040BB0F /* MemberFunctionPair.cpp */,
 			);
 			path = inlupp;
 			sourceTree = "<group>";
@@ -171,6 +176,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E135DAC923AB9FCA0075AEDC /* MoveableByKeysSprite.cpp in Sources */,
+				E175105D23B0D9F40040BB0F /* MemberFunctionPair.cpp in Sources */,
 				E1670E03239A5951008A2CA7 /* System.cpp in Sources */,
 				E1670E10239A6CCA008A2CA7 /* Sprite.cpp in Sources */,
 				E1670E00239A591D008A2CA7 /* Session.cpp in Sources */,

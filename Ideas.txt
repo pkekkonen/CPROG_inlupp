@@ -1,6 +1,8 @@
 enemies (subklass till sprite) kan ha en array av pekare till par av tal över vilket mönster de ska röra sig i. tex {(-1, 0), (0, 1)}
 
 TODO: se över så att de olika konstruktorerna samt destruktor är rätt implementerad för klasshierarkin
+- kolla igenom att alla som ska vara const är det
+-typedef
 
 "Kortkommandon knutna till fria funktioneri i tillämpningen" görs med funktionspekare. I gameengine (session) ska man säga att något ska hända när man trycker på den här knappen och vad som ska hända ska anges i tillämpningen
 
@@ -13,3 +15,5 @@ Men om vi skickar in listan av sprites och den ska reagera på dem, kan den bara
 Kan vi skapa en map där vi lägger in kortkommandot som nyckel och funktionen som värde och där man kan anropa funktionen genom att ange tangenten
 
 https://stackoverflow.com/questions/2298242/callback-functions-in-c
+
+Vart kolla om collision med väggarna?

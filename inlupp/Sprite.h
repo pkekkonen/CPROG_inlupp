@@ -10,6 +10,7 @@ public:
     virtual ~Sprite() {}
     virtual void const draw() = 0;
     virtual void tick(std::vector<Sprite*> sprites) = 0;
+    void turnBlue();
     SDL_Rect getRect() const { return rect;}
 protected:
     Sprite(int x, int y, int w, int h) : rect{x, y, w, h}, prevX(x), prevY(y) {}

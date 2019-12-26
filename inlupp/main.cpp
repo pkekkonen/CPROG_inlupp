@@ -65,7 +65,15 @@ public:
                 }
             }
         }
+        if(!ses.isWithinWindow(&rect)) 
+            this->setToPrevPos();
+        
     }
+    
+//    void turnBlue() {
+  //      texture = IMG_LoadTexture(sys.ren, "/Users/paulinakekkonen/Pictures/downBtn.jpeg");
+ //   }
+    
 
     
     ~MainPlayer() {
@@ -87,12 +95,20 @@ void addEnemy() {
 
 }
 
+void addMainPlayer() {
+    MainPlayer* m = MainPlayer::getInstance(200, 200, 30, 30, 20);
+    ses.addSprite(m);
+   // typedef void(MainPlayer::*memPointer) () = &MainPlayer::turnBlue();
+    ses.addMemberFunction(SDLK_a, *MemberFunctionPair::create(m, (void &Sprite::turnBlue)() ));
+
+
+}
+
 int main(int argc, char** argv) {
     Enemy* e1 = Enemy::getInstance(10, 10, 200, 100, 2, 5, 200);
-    MainPlayer* m = MainPlayer::getInstance(200, 200, 30, 30, 20);
     ses.addFunction(SDLK_t, addEnemy);
+    ses.addFunction(SDLK_n, addMainPlayer);
     ses.addSprite(e1);
-    ses.addSprite(m);
     ses.run();
     return 0;
 }
