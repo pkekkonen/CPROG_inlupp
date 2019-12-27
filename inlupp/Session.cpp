@@ -19,8 +19,8 @@ void Session::addFunction(SDL_Keycode key, void(*f)()) {
     functions[key] = f;
 }
 
-void Session::addMemberFunction(SDL_Keycode key, MemberFunctionPair funcPair) {
-    memberFunctions[key] = funcPair;
+void Session::addMemberFunction(SDL_Keycode key, std::function<void()> memFunction) {
+    memberFunctions[key] = memFunction;
 }
 
 bool Session::isWithinWindow(SDL_Rect *rect) {
@@ -71,8 +71,7 @@ void Session::run() {
                                 (functions.at(event.key.keysym.sym))();
                             }
                             if(memberFunctions.find(event.key.keysym.sym) != memberFunctions.end()) {
-                                Sprite* spr = (memberFunctions.at(event.key.keysym.sym)).getSpriteObj();
-                                (spr->*(memberFunctions.at(event.key.keysym.sym)).getMemberFunction())();
+                                (memberFunctions.at(event.key.keysym.sym))();
                            
                             }break;
                     } // keydown switch end

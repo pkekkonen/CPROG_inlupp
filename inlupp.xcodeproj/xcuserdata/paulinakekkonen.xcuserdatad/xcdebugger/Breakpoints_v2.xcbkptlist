@@ -6,17 +6,17 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "inlupp/main.cpp"
-            timestampString = "599068305.8373359"
+            filePath = "inlupp/Session.h"
+            timestampString = "599129068.064211"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "73"
-            endingLineNumber = "73"
-            landmarkName = "MainPlayer"
-            landmarkType = "3">
+            startingLineNumber = "24"
+            endingLineNumber = "24"
+            landmarkName = "Session"
+            landmarkType = "14">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

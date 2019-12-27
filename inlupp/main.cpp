@@ -70,9 +70,9 @@ public:
         
     }
     
-//    void turnBlue() {
-  //      texture = IMG_LoadTexture(sys.ren, "/Users/paulinakekkonen/Pictures/downBtn.jpeg");
- //   }
+    void turnBlue() {
+        texture = IMG_LoadTexture(sys.ren, "/Users/paulinakekkonen/Pictures/downBtn.jpeg");
+    }
     
 
     
@@ -99,7 +99,7 @@ void addMainPlayer() {
     MainPlayer* m = MainPlayer::getInstance(200, 200, 30, 30, 20);
     ses.addSprite(m);
    // typedef void(MainPlayer::*memPointer) () = &MainPlayer::turnBlue();
-    ses.addMemberFunction(SDLK_a, *MemberFunctionPair::create(m, (void &Sprite::turnBlue)() ));
+    ses.addMemberFunction(SDLK_a, std::bind(&MainPlayer::turnBlue, m));
 
 
 }
