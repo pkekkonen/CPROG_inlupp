@@ -48,6 +48,49 @@ Enemy::~Enemy() {
     SDL_DestroyTexture(texture);
 }
 
+class Bullet: public MovingSprite {
+public:
+    static Bullet* getInstance(int x, int y, int speed, Direction dir) {
+        return new Bullet(x, y, 10, 10, speed, dir);
+    }
+    void const draw() {
+        SDL_Rect r = getRect();
+        SDL_RenderCopy(sys.ren, texture, NULL, &r);
+    }
+    void tick(std::vector<Sprite*> sprites) {
+        counter++;
+        if(counter % 5 == 0) {
+            switch(direction) {
+                case Up: rect.y -= getSpeed(); break;
+                case Right: rect.x += getSpeed(); break;
+                case Down: rect.y += getSpeed(); break;
+                case Left: rect.x -= getSpeed(); break;
+            }
+        }
+        for(Sprite* s: sprites) {
+            if(Collision::collided(this->rect, s->getRect()))
+                if(Enemy* e = dynamic_cast<Enemy*>(s))
+                    ses.removeSprite(e);
+        }
+        
+        if(rect.x < 0 || rect.x + rect.w > sys.getWidth() || rect.y < 0 || rect.y + rect.h > sys.getHeight())
+            ses.removeSprite(this);
+        
+    }
+    
+    ~Bullet() {
+        SDL_DestroyTexture(texture);
+    }
+    
+private:
+    Bullet(int x, int y, int w, int h, int s, Direction dir): MovingSprite(x, y, w, h, s), direction(dir) {
+        texture = IMG_LoadTexture(sys.ren, "/Users/paulinakekkonen/Pictures/downBtn.jpeg");
+    }
+    int counter = 0;
+    SDL_Texture* texture;
+    Direction direction;
+};
+
 class MainPlayer: public MoveableByKeysSprite {
 public:
     static MainPlayer* getInstance(int x, int y, int width, int height, int speed) {
@@ -60,7 +103,7 @@ public:
     void tick(std::vector<Sprite*> sprites) {
         for(Sprite* s: sprites) {
             if(Collision::collided(this->getRect(), s->getRect())) {
-                if(MovingSprite* m = dynamic_cast<MovingSprite*>(s)){
+                if(Enemy* e = dynamic_cast<Enemy*>(s)){
                     ses.removeSprite(this);
                 }
             }
@@ -70,8 +113,8 @@ public:
         
     }
     
-    void turnBlue() {
-        texture = IMG_LoadTexture(sys.ren, "/Users/paulinakekkonen/Pictures/downBtn.jpeg");
+    void shoot() {
+        ses.addSprite(Bullet::getInstance(rect.x, rect.y, 6, getFacing()));
     }
     
 
@@ -98,8 +141,8 @@ void addEnemy() {
 void addMainPlayer() {
     MainPlayer* m = MainPlayer::getInstance(200, 200, 30, 30, 20);
     ses.addSprite(m);
-   // typedef void(MainPlayer::*memPointer) () = &MainPlayer::turnBlue();
-    ses.addMemberFunction(SDLK_a, std::bind(&MainPlayer::turnBlue, m));
+    //TODO: modifiera lösningen så att tillämparen inte behöva binda utan bara kan skicka pointer och objektet?
+    ses.addMemberFunction(SDLK_a, std::bind(&MainPlayer::shoot, m));
 
 
 }

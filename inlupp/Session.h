@@ -8,6 +8,7 @@
 #include <utility>
 #include "MemberFunctionPair.h"
 
+//TODO: göra till klass?
 struct Session {
   //  Session(); //måste vi inte ha dessa?
    // ~Session();
