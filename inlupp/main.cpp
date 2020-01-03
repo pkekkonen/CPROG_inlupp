@@ -7,6 +7,32 @@
 
 Session ses;
 
+class Wall: public StaticSprite {
+public:
+    static Wall* getInstance(int x, int y, int w, int h) {
+        return new Wall(x, y, w, h);
+    }
+    void const draw() {
+        SDL_Rect r = getRect();
+        SDL_RenderCopy(sys.ren, texture, NULL, &r);
+    }
+    ~Wall() {
+        SDL_DestroyTexture(texture);
+    }
+    
+    void tick(std::vector<Sprite*> sprites) {
+        for(Sprite* s : sprites) {
+            if(Collision::collided(this->rect, s-> getRect())) {
+            }
+        }
+    }
+private:
+    Wall(int x, int y, int w, int h): StaticSprite(x,y,w,h) {
+        texture = IMG_LoadTexture(sys.ren, "/Users/paulinakekkonen/Pictures/wallVertical.jpg");
+    }
+    SDL_Texture* texture;
+};
+
 class Enemy: public MovingSprite {
 public:
     static Enemy* getInstance(int x, int y, int width, int height, int speed, int left, int right) {
@@ -17,6 +43,12 @@ public:
         SDL_RenderCopy(sys.ren, texture, NULL, &r);
     }
     void tick(std::vector<Sprite*> sprites) {
+        for(Sprite* s: sprites) {
+            if(Collision::collided(s->getRect(), getRect()))
+                if(Wall* w = dynamic_cast<Wall*>(s))
+                    moveRight = moveRight? false:true;
+        }
+        
         counter++;
         if(counter % 5 == 0) {
             if(moveRight) {
@@ -29,6 +61,7 @@ public:
                     moveRight = true;
             }
         }
+        
 
     }
     
@@ -49,26 +82,6 @@ Enemy::~Enemy() {
     SDL_DestroyTexture(texture);
 }
 
-class Wall: public StaticSprite {
-public:
-    static Wall* getInstance(int x, int y, int w, int h) {
-        return new Wall(x, y, w, h);
-    }
-    void const draw() {
-        SDL_Rect r = getRect();
-        SDL_RenderCopy(sys.ren, texture, NULL, &r);
-    }
-    ~Wall() {
-        SDL_DestroyTexture(texture);
-    }
-    
-    void tick(std::vector<Sprite*> sprites) {}
-private:
-    Wall(int x, int y, int w, int h): StaticSprite(x,y,w,h) {
-        //set texture
-    }
-    SDL_Texture* texture;
-};
 
 class Bullet: public MovingSprite {
 public:
@@ -90,9 +103,12 @@ public:
             }
         }
         for(Sprite* s: sprites) {
-            if(Collision::collided(this->rect, s->getRect()))
+            if(Collision::collided(this->rect, s->getRect())) {
                 if(Enemy* e = dynamic_cast<Enemy*>(s))
                     ses.removeSprite(e);
+                if(Wall* w = dynamic_cast<Wall*>(s))
+                    ses.removeSprite(this);
+            }
         }
         
         if(rect.x < 0 || rect.x + rect.w > sys.getWidth() || rect.y < 0 || rect.y + rect.h > sys.getHeight())
@@ -127,7 +143,10 @@ public:
             if(Collision::collided(this->getRect(), s->getRect())) {
                 if(Enemy* e = dynamic_cast<Enemy*>(s)){
                     ses.removeSprite(this);
+                } else if(Wall* w = dynamic_cast<Wall*>(s)){
+                    this -> setToPrevPos();
                 }
+                
             }
         }
         if(!ses.isWithinWindow(&rect)) 
@@ -173,6 +192,7 @@ int main(int argc, char** argv) {
     Enemy* e1 = Enemy::getInstance(10, 10, 200, 100, 2, 5, 200);
     ses.addFunction(SDLK_t, addEnemy);
     ses.addFunction(SDLK_n, addMainPlayer);
+    ses.addSprite(Wall::getInstance(300, 0, 20, 200));
     ses.addSprite(e1);
     ses.run();
     return 0;
