@@ -10,8 +10,7 @@
 
 //TODO: göra till klass?
 struct Session {
-  //  Session(); //måste vi inte ha dessa?
-   // ~Session();
+   // ~Session(); måste städa bort vector
 
     void addSprite(Sprite* sprite);
     void removeSprite(Sprite* sprite);

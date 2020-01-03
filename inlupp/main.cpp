@@ -3,6 +3,7 @@
 #include <SDL2_image/SDL_image.h>
 #include "System.h"
 #include <vector>
+#include "StaticSprite.h"
 
 Session ses;
 
@@ -47,6 +48,27 @@ private:
 Enemy::~Enemy() {
     SDL_DestroyTexture(texture);
 }
+
+class Wall: public StaticSprite {
+public:
+    static Wall* getInstance(int x, int y, int w, int h) {
+        return new Wall(x, y, w, h);
+    }
+    void const draw() {
+        SDL_Rect r = getRect();
+        SDL_RenderCopy(sys.ren, texture, NULL, &r);
+    }
+    ~Wall() {
+        SDL_DestroyTexture(texture);
+    }
+    
+    void tick(std::vector<Sprite*> sprites) {}
+private:
+    Wall(int x, int y, int w, int h): StaticSprite(x,y,w,h) {
+        //set texture
+    }
+    SDL_Texture* texture;
+};
 
 class Bullet: public MovingSprite {
 public:
