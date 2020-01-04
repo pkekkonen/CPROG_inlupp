@@ -18,6 +18,7 @@ struct Session {
     void addFunction(SDL_Keycode key, void(*f)() );
     void addMemberFunction(SDL_Keycode key, std::function<void()> memFunction);
     bool isWithinWindow(SDL_Rect* rect);
+    static const int SQUARE_SIZE = 40;
 private:
     std::vector<Sprite*> sprites; //TODO: måste städas bort?
     std::vector<Sprite*> addedSprites, removedSprites;

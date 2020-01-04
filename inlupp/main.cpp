@@ -86,7 +86,7 @@ Enemy::~Enemy() {
 class Bullet: public MovingSprite {
 public:
     static Bullet* getInstance(int x, int y, int speed, Direction dir) {
-        return new Bullet(x, y, 10, 10, speed, dir);
+        return new Bullet(x/Session::SQUARE_SIZE, y/Session::SQUARE_SIZE, 1, 1, speed, dir);
     }
     void const draw() {
         SDL_Rect r = getRect();
@@ -104,8 +104,10 @@ public:
         }
         for(Sprite* s: sprites) {
             if(Collision::collided(this->rect, s->getRect())) {
-                if(Enemy* e = dynamic_cast<Enemy*>(s))
+                if(Enemy* e = dynamic_cast<Enemy*>(s)) {
                     ses.removeSprite(e);
+                    ses.removeSprite(this);
+                }
                 if(Wall* w = dynamic_cast<Wall*>(s))
                     ses.removeSprite(this);
             }
@@ -174,13 +176,13 @@ private:
 };
 
 void addEnemy() {
-    Enemy* e2 = Enemy::getInstance(500, 40, 30, 30, 6, 350, 500);
+    Enemy* e2 = Enemy::getInstance(10, 1, 1, 1, 6, 350, 500);
     ses.addSprite(e2);
 
 }
 
 void addMainPlayer() {
-    MainPlayer* m = MainPlayer::getInstance(200, 200, 30, 30, 20);
+    MainPlayer* m = MainPlayer::getInstance(5, 5, 1, 1, 40);
     ses.addSprite(m);
     //TODO: modifiera lösningen så att tillämparen inte behöva binda utan bara kan skicka pointer och objektet?
     ses.addMemberFunction(SDLK_a, std::bind(&MainPlayer::shoot, m));
@@ -189,10 +191,10 @@ void addMainPlayer() {
 }
 
 int main(int argc, char** argv) {
-    Enemy* e1 = Enemy::getInstance(10, 10, 200, 100, 2, 5, 200);
+    Enemy* e1 = Enemy::getInstance(0, 0, 2, 2, 2, 0, 40);
     ses.addFunction(SDLK_t, addEnemy);
     ses.addFunction(SDLK_n, addMainPlayer);
-    ses.addSprite(Wall::getInstance(300, 0, 20, 200));
+    ses.addSprite(Wall::getInstance(8, 0, 1, 5));
     ses.addSprite(e1);
     ses.run();
     return 0;

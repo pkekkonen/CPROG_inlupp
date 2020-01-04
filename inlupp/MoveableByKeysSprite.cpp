@@ -29,6 +29,8 @@ void MoveableByKeysSprite::upKeyDown() {
 }
 
 void MoveableByKeysSprite::setToPrevPos() {
-    rect.x = prevX;
-    rect.y = prevY;
+    if(facing == Right || facing == Left)
+        rect.x = prevX;
+    else if(facing == Up || facing == Down)
+        rect.y = prevY;
 }

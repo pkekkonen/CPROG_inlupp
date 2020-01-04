@@ -13,7 +13,7 @@ public:
     void rightKeyDown();
     void downKeyDown();
     void upKeyDown();
-    virtual ~MoveableByKeysSprite() {}; //TODO: kolla så implementering av desktruktion i hierarki är rätt implementerad
+    virtual ~MoveableByKeysSprite() {} //TODO: kolla så implementering av desktruktion i hierarki är rätt implementerad
     void setToPrevPos();
     Direction getFacing() const {return facing;} //inte implementera i header?
 private:

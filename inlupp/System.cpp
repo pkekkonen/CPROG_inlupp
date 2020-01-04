@@ -2,10 +2,10 @@
 #include "System.h"
 
 System::System() {
-    win = SDL_CreateWindow("Game", 10, 10, 500, 600, 0); //TODO: ta reda på vad siffrorna innebär
+    win = SDL_CreateWindow("Game", 10, 10, 25*40, 20*40, 0); //TODO: ta reda på vad siffrorna innebär
     ren = SDL_CreateRenderer(win, -1, 0);
-    width = 500;
-    height = 600;
+    width = 1000;
+    height = 800;
 }
 
 System::~System() {

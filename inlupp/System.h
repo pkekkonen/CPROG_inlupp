@@ -9,8 +9,8 @@ public:
     
     SDL_Window* win;
     SDL_Renderer* ren;
-    int const getHeight() {return height;}
-    int const getWidth() {return width;}
+    int getHeight() const {return height;}
+    int getWidth() const {return width;}
 private:
     int width;
     int height;
