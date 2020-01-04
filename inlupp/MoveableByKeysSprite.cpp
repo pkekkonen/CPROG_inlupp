@@ -1,36 +1,18 @@
 #include "MoveableByKeysSprite.h"
 
 void MoveableByKeysSprite::leftKeyDown() {
-    prevX = rect.x;
-    prevY = rect.y;
-    rect.x -= getSpeed();
-    facing = Left;
+    moveLeft();
 }
 
 void MoveableByKeysSprite::rightKeyDown() {
-    prevX = rect.x;
-    prevY = rect.y;
-    rect.x += getSpeed();
-    facing = Right;
+    moveRight();
 }
 
 void MoveableByKeysSprite::downKeyDown() {
-    prevY = rect.y;
-    prevX = rect.x;
-    rect.y += getSpeed();
-    facing = Down;
+    moveDown();
 }
 
 void MoveableByKeysSprite::upKeyDown() {
-    prevY = rect.y;
-    prevX = rect.x;
-    rect.y -= getSpeed();
-    facing = Up;
+    moveUp();
 }
 
-void MoveableByKeysSprite::setToPrevPos() {
-    if(facing == Right || facing == Left)
-        rect.x = prevX;
-    else if(facing == Up || facing == Down)
-        rect.y = prevY;
-}

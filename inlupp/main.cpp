@@ -43,24 +43,29 @@ public:
         SDL_RenderCopy(sys.ren, texture, NULL, &r);
     }
     void tick(std::vector<Sprite*> sprites) {
-        for(Sprite* s: sprites) {
-            if(Collision::collided(s->getRect(), getRect()))
-                if(Wall* w = dynamic_cast<Wall*>(s))
-                    moveRight = moveRight? false:true;
-        }
-        
         counter++;
         if(counter % 5 == 0) {
-            if(moveRight) {
-                rect.x += getSpeed();
+            if(getFacing() == Right) {
+                moveRight();
                 if(rect.x >= right)
-                    moveRight = false;
+                    setFacing(Left);
             } else {
-                rect.x -= getSpeed();
+                moveLeft();
                 if(rect.x <= left)
-                    moveRight = true;
+                    setFacing(Right);
             }
         }
+        for(Sprite* s: sprites) {
+            if(Collision::collided(s->getRect(), getRect()))
+                if(Wall* w = dynamic_cast<Wall*>(s)) {
+                    if(getFacing() == Right)
+                        setFacing(Left);
+                    else if(getFacing() == Left)
+                        setFacing(Right);
+                    setToPrevPos();
+                }
+        }
+        
         
 
     }
@@ -73,7 +78,6 @@ private:
     }
     int counter = 0;
     SDL_Texture* texture;
-    bool moveRight = true;
     int left;
     int right;
 };
@@ -191,7 +195,7 @@ void addMainPlayer() {
 }
 
 int main(int argc, char** argv) {
-    Enemy* e1 = Enemy::getInstance(0, 0, 2, 2, 2, 0, 40);
+    Enemy* e1 = Enemy::getInstance(0, 0, 2, 2, 20, 0, 400);
     ses.addFunction(SDLK_t, addEnemy);
     ses.addFunction(SDLK_n, addMainPlayer);
     ses.addSprite(Wall::getInstance(8, 0, 1, 5));
