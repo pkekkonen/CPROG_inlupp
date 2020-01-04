@@ -7,6 +7,52 @@
 
 Session ses;
 
+class MainPlayer: public MoveableByKeysSprite {
+public:
+    static MainPlayer* getInstance(int x, int y, int width, int height, int speed) {
+        return new MainPlayer(x, y, width, height, speed);
+    }
+    void const draw();
+    void tick(std::vector<Sprite*> sprites);
+    
+    void shoot();
+    
+    
+    
+    ~MainPlayer();
+    
+private:
+    MainPlayer(int x, int y, int w, int h, int s);
+    int counter = 0;
+    SDL_Texture* texture;
+    
+};
+
+class Ammo: public CollectableSprite {
+public:
+    static Ammo* getInstance(int x, int y, int w, int h) {
+        return new Ammo(x, y, w, h);
+    }
+    
+    void const draw() {
+        SDL_Rect r = getRect();
+        SDL_RenderCopy(sys.ren, texture, NULL, &r);
+    }
+    
+    void tick(std::vector<Sprite*> sprites) {
+            for(Sprite* s: sprites) {
+                if(Collision::collided(getRect(), s -> getRect()))
+                    if(MainPlayer* m = dynamic_cast<MainPlayer*>(s))
+                        ses.removeSprite(this);
+        }
+        
+    }
+    ~Ammo() {SDL_DestroyTexture(texture);}
+private:
+    Ammo(int x, int y, int w, int h): CollectableSprite(x, y, w, h, BULLET) { texture = IMG_LoadTexture(sys.ren, "/Users/paulinakekkonen/Pictures/bullet.jpg");}
+    SDL_Texture* texture;
+};
+
 class Wall: public StaticSprite {
 public:
     static Wall* getInstance(int x, int y, int w, int h) {
@@ -28,7 +74,7 @@ public:
     }
 private:
     Wall(int x, int y, int w, int h): StaticSprite(x,y,w,h) {
-        texture = IMG_LoadTexture(sys.ren, "/Users/paulinakekkonen/Pictures/wallVertical.jpg");
+        texture = IMG_LoadTexture(sys.ren, "/Users/paulinakekkonen/Pictures/squareBrick.jpg");
     }
     SDL_Texture* texture;
 };
@@ -91,6 +137,7 @@ class Bullet: public MovingSprite {
 public:
     static Bullet* getInstance(int x, int y, int speed, Direction dir) {
         return new Bullet(x/Session::SQUARE_SIZE, y/Session::SQUARE_SIZE, 1, 1, speed, dir);
+        //TODO: vackrare lösning
     }
     void const draw() {
         SDL_Rect r = getRect();
@@ -135,22 +182,21 @@ private:
     Direction direction;
 };
 
-class MainPlayer: public MoveableByKeysSprite {
-public:
-    static MainPlayer* getInstance(int x, int y, int width, int height, int speed) {
-        return new MainPlayer(x, y, width, height, speed);
-    }
-    void const draw() {
+
+void const MainPlayer::draw() {
         SDL_Rect r = getRect();
         SDL_RenderCopy(sys.ren, texture, NULL, &r);
     }
-    void tick(std::vector<Sprite*> sprites) {
+
+void MainPlayer::tick(std::vector<Sprite*> sprites) {
         for(Sprite* s: sprites) {
             if(Collision::collided(this->getRect(), s->getRect())) {
                 if(Enemy* e = dynamic_cast<Enemy*>(s)){
                     ses.removeSprite(this);
                 } else if(Wall* w = dynamic_cast<Wall*>(s)){
                     this -> setToPrevPos();
+                } else if(CollectableSprite* c = dynamic_cast<CollectableSprite*>(s)) {
+                    this -> addToBag(c->getCollectType());
                 }
                 
             }
@@ -160,27 +206,25 @@ public:
         
     }
     
-    void shoot() {
-        ses.addSprite(Bullet::getInstance(rect.x, rect.y, 6, getFacing()));
+void MainPlayer::shoot() {
+        if(this->hasThing(BULLET))
+            ses.addSprite(Bullet::getInstance(rect.x, rect.y, 6, getFacing()));
     }
     
 
     
-    ~MainPlayer() {
+MainPlayer::~MainPlayer() {
         SDL_DestroyTexture(texture);
     }
     
-private:
-    MainPlayer(int x, int y, int w, int h, int s): MoveableByKeysSprite(x, y, w, h, s) {
+MainPlayer::MainPlayer(int x, int y, int w, int h, int s): MoveableByKeysSprite(x, y, w, h, s) {
         texture = IMG_LoadTexture(sys.ren, "/Users/paulinakekkonen/Pictures/upBtn.jpeg");
     }
-    int counter = 0;
-    SDL_Texture* texture;
-    
-};
+
+
 
 void addEnemy() {
-    Enemy* e2 = Enemy::getInstance(10, 1, 1, 1, 6, 350, 500);
+    Enemy* e2 = Enemy::getInstance(10, 1, 1, 1, 10, 1, 500);
     ses.addSprite(e2);
 
 }
@@ -198,8 +242,13 @@ int main(int argc, char** argv) {
     Enemy* e1 = Enemy::getInstance(0, 0, 2, 2, 20, 0, 400);
     ses.addFunction(SDLK_t, addEnemy);
     ses.addFunction(SDLK_n, addMainPlayer);
-    ses.addSprite(Wall::getInstance(8, 0, 1, 5));
+    for(int i = 0; i < 6; i++)
+        ses.addSprite(Wall::getInstance(8, i, 1, 1));
+    for(int i = 0; i < 7; i++)
+        ses.addSprite(Wall::getInstance(3+i, 6, 1, 1));
     ses.addSprite(e1);
+    ses.addSprite(Ammo::getInstance(10, 10, 1, 1));
+    ses.addSprite(Ammo::getInstance(12, 15, 1, 1));
     ses.run();
     return 0;
 }

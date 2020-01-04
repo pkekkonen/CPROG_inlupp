@@ -1,6 +1,8 @@
 #ifndef StaticSprite_h
 #define StaticSprite_h
 
+#include "Sprite.h"
+
 class StaticSprite: public Sprite {
 public:
     virtual ~StaticSprite() {}

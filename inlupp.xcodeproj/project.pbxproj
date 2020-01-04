@@ -10,6 +10,7 @@
 		E135DAC923AB9FCA0075AEDC /* MoveableByKeysSprite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E135DAC823AB9FC90075AEDC /* MoveableByKeysSprite.cpp */; };
 		E1373A1C23AA2715005B5E4A /* Collision.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E1373A1B23AA2715005B5E4A /* Collision.cpp */; };
 		E159993323C0FB77005CB8EE /* MovingSprite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E159993223C0FB77005CB8EE /* MovingSprite.cpp */; };
+		E159993623C104A8005CB8EE /* CollectableSprite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E159993423C104A8005CB8EE /* CollectableSprite.cpp */; };
 		E1670DF8239A5877008A2CA7 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E1670DF7239A5877008A2CA7 /* main.cpp */; };
 		E1670E00239A591D008A2CA7 /* Session.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E1670DFE239A591D008A2CA7 /* Session.cpp */; };
 		E1670E03239A5951008A2CA7 /* System.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E1670E01239A5951008A2CA7 /* System.cpp */; };
@@ -40,6 +41,8 @@
 		E1373A1D23AA6236005B5E4A /* MoveableByKeysSprite.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MoveableByKeysSprite.h; sourceTree = "<group>"; };
 		E1373A1E23AA7256005B5E4A /* MovingSprite.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MovingSprite.h; sourceTree = "<group>"; };
 		E159993223C0FB77005CB8EE /* MovingSprite.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = MovingSprite.cpp; sourceTree = "<group>"; };
+		E159993423C104A8005CB8EE /* CollectableSprite.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = CollectableSprite.cpp; sourceTree = "<group>"; };
+		E159993523C104A8005CB8EE /* CollectableSprite.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CollectableSprite.h; sourceTree = "<group>"; };
 		E1670DF4239A5877008A2CA7 /* inlupp */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = inlupp; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1670DF7239A5877008A2CA7 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		E1670DFE239A591D008A2CA7 /* Session.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Session.cpp; sourceTree = "<group>"; };
@@ -107,6 +110,8 @@
 				E1373A1E23AA7256005B5E4A /* MovingSprite.h */,
 				E175105C23B0D9F40040BB0F /* MemberFunctionPair.cpp */,
 				E159993223C0FB77005CB8EE /* MovingSprite.cpp */,
+				E159993423C104A8005CB8EE /* CollectableSprite.cpp */,
+				E159993523C104A8005CB8EE /* CollectableSprite.h */,
 			);
 			path = inlupp;
 			sourceTree = "<group>";
@@ -181,6 +186,7 @@
 				E159993323C0FB77005CB8EE /* MovingSprite.cpp in Sources */,
 				E135DAC923AB9FCA0075AEDC /* MoveableByKeysSprite.cpp in Sources */,
 				E175105D23B0D9F40040BB0F /* MemberFunctionPair.cpp in Sources */,
+				E159993623C104A8005CB8EE /* CollectableSprite.cpp in Sources */,
 				E1670E03239A5951008A2CA7 /* System.cpp in Sources */,
 				E1670E10239A6CCA008A2CA7 /* Sprite.cpp in Sources */,
 				E1670E00239A591D008A2CA7 /* Session.cpp in Sources */,
