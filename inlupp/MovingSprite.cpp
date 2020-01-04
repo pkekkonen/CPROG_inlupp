@@ -1,9 +1,9 @@
 #include "MovingSprite.h"
 
 void MovingSprite::setToPrevPos() {
-    if(facing == Right || facing == Left)
+   // if(facing == Right || facing == Left)
         rect.x = prevX;
-    else if(facing == Up || facing == Down)
+ //   else if(facing == Up || facing == Down)
         rect.y = prevY;
 }
 

@@ -17,8 +17,6 @@ public:
     
     void shoot();
     
-    
-    
     ~MainPlayer();
     
 private:

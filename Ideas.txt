@@ -3,6 +3,7 @@ enemies (subklass till sprite) kan ha en array av pekare till par av tal över v
 TODO: se över så att de olika konstruktorerna samt destruktor är rätt implementerad för klasshierarkin
 - kolla igenom att alla som ska vara const är det
 -typedef
+- buggar om man klickar upp och höger/vänster samtidigt
 
 "Kortkommandon knutna till fria funktioneri i tillämpningen" görs med funktionspekare. I gameengine (session) ska man säga att något ska hända när man trycker på den här knappen och vad som ska hända ska anges i tillämpningen
 
@@ -17,3 +18,6 @@ Kan vi skapa en map där vi lägger in kortkommandot som nyckel och funktionen s
 https://stackoverflow.com/questions/2298242/callback-functions-in-c
 
 Vart kolla om collision med väggarna?
+
+
+

@@ -37,6 +37,9 @@ void Session::run() {
     Uint32 nextTick;
     int delay;
     
+  //  SDL_SetRenderDrawColor(sys.ren, 168, 230, 255, 255); // ha kvar dessa två rader? Finns ju under
+   // SDL_RenderClear(sys.ren);
+    
     while(!quit) {
         nextTick = SDL_GetTicks() + tickInterval;
         SDL_Event event;
@@ -70,7 +73,7 @@ void Session::run() {
                             if(functions.find(event.key.keysym.sym) != functions.end()) {
                                 (functions.at(event.key.keysym.sym))();
                             }
-                            if(memberFunctions.find(event.key.keysym.sym) != memberFunctions.end()) {
+                            else if(memberFunctions.find(event.key.keysym.sym) != memberFunctions.end()) {
                                 (memberFunctions.at(event.key.keysym.sym))();
                            
                             }break;
