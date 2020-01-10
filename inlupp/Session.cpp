@@ -66,7 +66,6 @@ void Session::run() {
                                     m->downKeyDown();
                             break;
                         default:
-            //annars så är det någon annan tangent och då kan vi kolla i vår unsorted map av functions om vi har någon sådan nyckel och i så fall anropa den funktionen med den tangenten (eller egentligen så behöver vi inte ens det argumentet)
                             if(functions.find(event.key.keysym.sym) != functions.end()) {
                                 (functions.at(event.key.keysym.sym))();
                             }

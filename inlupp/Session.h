@@ -9,7 +9,6 @@
 #include <unordered_map>
 #include <utility>
 
-//class Game;
 
 //TODO: göra till klass?
 struct Session {

@@ -25,6 +25,10 @@ bool MainPlayer::hasThing(CollectType c) {
     return true;
 }
 
+MainPlayer::~MainPlayer() {
+    //delete unordered_map??
+}
+
 void MainPlayer::addToBag(CollectType c) {
     bag[c]++;
 }

@@ -25,6 +25,8 @@ int main(int argc, char** argv) {
         ses.addSprite(Wall::getInstance(3+i, 6, 1, 1));
     for(int i = 0; i < 7; i++)
         ses.addSprite(Wall::getInstance(3, 6+i, 1, 1));
+    for(int i = 0; i < 7; i++)
+        ses.addSprite(Wall::getInstance(3+i, 13, 1, 1));
     ses.addSprite(e1);
     ses.addSprite(Ammo::getInstance(10, 10, 1, 1));
     ses.addSprite(Ammo::getInstance(12, 15, 1, 1));
