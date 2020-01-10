@@ -31,12 +31,14 @@ private:
     std::unordered_map<CollectType, int> bag;
     int life;
     int counter = 0;
+    int startPosX;
+    int startPosY;
     SDL_Texture* texture;
     SDL_Surface* upSurface;
     SDL_Surface* downSurface;
     SDL_Surface* rightSurface;
     SDL_Surface* leftSurface;
-    
+    void setToStartPos();
 };
 
 #endif /* MainPlayer_h */

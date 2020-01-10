@@ -40,7 +40,12 @@ void MainPlayer::tick(std::vector<Sprite*> sprites) {
     for(Sprite* s: sprites) {
         if(Collision::collided(this->getRect(), s->getRect())) {
             if(Enemy* e = dynamic_cast<Enemy*>(s)){
-                ses.removeSprite(this);
+                if(--life == 0) {
+                    //vad som ska hända om man dör helt
+                    ses.removeSprite(this);
+                } else {
+                    setToStartPos();
+                }
             } else if(Wall* w = dynamic_cast<Wall*>(s)){
                 this -> setToPrevPos();
             } else if(CollectableSprite* c = dynamic_cast<CollectableSprite*>(s)) {
@@ -65,6 +70,10 @@ void MainPlayer::shoot() {
         ses.addSprite(Bullet::getInstance(rect.x, rect.y, 6, getFacing()));
 }
 
+void MainPlayer::setToStartPos() {
+    rect.x = startPosX*40;
+    rect.y = startPosY*40; //TODO: vackrare lösning
+}
 
 
 MainPlayer::~MainPlayer() {
@@ -76,7 +85,7 @@ MainPlayer::~MainPlayer() {
     
 }
 
-MainPlayer::MainPlayer(int x, int y, int w, int h, int s, int l): MovingSprite(x, y, w, h, s), life(l) {
+MainPlayer::MainPlayer(int x, int y, int w, int h, int s, int l): MovingSprite(x, y, w, h, s), life(l), startPosX(x), startPosY(y) {
     downSurface = IMG_Load("/Users/paulinakekkonen/Pictures/ratFacingFront.png");
     Uint32 dWhite = SDL_MapRGB(downSurface->format, 255, 255, 255);
     SDL_SetColorKey(downSurface, true, dWhite);
