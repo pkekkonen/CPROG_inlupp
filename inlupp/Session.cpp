@@ -1,10 +1,8 @@
 #include "Session.h"
-#include "System.h"
+
 #include <SDL2/SDL.h>
 #include <iterator>
 #include <iostream>
-#include "Collision.h"
-
 #define FPS 60
 
 void Session::addSprite(Sprite* s) {
@@ -41,6 +39,8 @@ void Session::run() {
    // SDL_RenderClear(sys.ren);
     
     while(!quit) {
+
+        
         nextTick = SDL_GetTicks() + tickInterval;
         SDL_Event event;
         while(SDL_PollEvent(&event)) {
@@ -50,22 +50,22 @@ void Session::run() {
                     switch (event.key.keysym.sym) {
                         case SDLK_LEFT:
                             for(Sprite* s: sprites)
-                                if(MoveableByKeysSprite* m = dynamic_cast<MoveableByKeysSprite*>(s))
+                                if(MainPlayer* m = dynamic_cast<MainPlayer*>(s))
                                     m->leftKeyDown();
                             break;
                         case SDLK_RIGHT:
                             for(Sprite* s: sprites)
-                                if(MoveableByKeysSprite* m = dynamic_cast<MoveableByKeysSprite*>(s))
+                                if(MainPlayer* m = dynamic_cast<MainPlayer*>(s))
                                     m->rightKeyDown();
                             break;
                         case SDLK_UP:
                             for(Sprite* s: sprites)
-                                if(MoveableByKeysSprite* m = dynamic_cast<MoveableByKeysSprite*>(s))
+                                if(MainPlayer* m = dynamic_cast<MainPlayer*>(s))
                                     m->upKeyDown();
                             break;
                         case SDLK_DOWN:
                             for(Sprite* s: sprites)
-                                if(MoveableByKeysSprite* m = dynamic_cast<MoveableByKeysSprite*>(s))
+                                if(MainPlayer* m = dynamic_cast<MainPlayer*>(s))
                                     m->downKeyDown();
                             break;
                         default:
@@ -138,12 +138,14 @@ void Session::run() {
 
         for(Sprite* s: sprites)
             s -> draw();
-
+        
         SDL_RenderPresent(sys.ren);
         
         delay = nextTick - SDL_GetTicks();
         if (delay > 0)
             SDL_Delay(delay);
     } //yttre while
+    
+    //TODO: ha med att rensa session typ alla sprites och så
 }
 

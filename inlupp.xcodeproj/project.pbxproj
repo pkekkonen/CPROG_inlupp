@@ -7,10 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		E135DAC923AB9FCA0075AEDC /* MoveableByKeysSprite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E135DAC823AB9FC90075AEDC /* MoveableByKeysSprite.cpp */; };
+		E135DAC923AB9FCA0075AEDC /* MainPlayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E135DAC823AB9FC90075AEDC /* MainPlayer.cpp */; };
 		E1373A1C23AA2715005B5E4A /* Collision.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E1373A1B23AA2715005B5E4A /* Collision.cpp */; };
 		E159993323C0FB77005CB8EE /* MovingSprite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E159993223C0FB77005CB8EE /* MovingSprite.cpp */; };
 		E159993623C104A8005CB8EE /* CollectableSprite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E159993423C104A8005CB8EE /* CollectableSprite.cpp */; };
+		E159993823C8A38E005CB8EE /* Game.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E159993723C8A38D005CB8EE /* Game.cpp */; };
+		E159993B23C8A7BD005CB8EE /* Bullet.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E159993A23C8A7BD005CB8EE /* Bullet.cpp */; };
+		E159994323C8ACD8005CB8EE /* Enemy.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E159994123C8ACD8005CB8EE /* Enemy.cpp */; };
+		E159994623C8AF50005CB8EE /* Ammo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E159994423C8AF50005CB8EE /* Ammo.cpp */; };
+		E159994923C8B0C1005CB8EE /* Wall.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E159994723C8B0C0005CB8EE /* Wall.cpp */; };
 		E1670DF8239A5877008A2CA7 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E1670DF7239A5877008A2CA7 /* main.cpp */; };
 		E1670E00239A591D008A2CA7 /* Session.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E1670DFE239A591D008A2CA7 /* Session.cpp */; };
 		E1670E03239A5951008A2CA7 /* System.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E1670E01239A5951008A2CA7 /* System.cpp */; };
@@ -18,7 +23,6 @@
 		E16E46C823A97AAF006547DD /* SDL2_ttf.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E16E46C523A97AAF006547DD /* SDL2_ttf.framework */; };
 		E16E46C923A97AAF006547DD /* SDL2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E16E46C623A97AAF006547DD /* SDL2.framework */; };
 		E16E46CA23A97AAF006547DD /* SDL2_image.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E16E46C723A97AAF006547DD /* SDL2_image.framework */; };
-		E175105D23B0D9F40040BB0F /* MemberFunctionPair.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E175105C23B0D9F40040BB0F /* MemberFunctionPair.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -34,15 +38,25 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		E135DAC823AB9FC90075AEDC /* MoveableByKeysSprite.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = MoveableByKeysSprite.cpp; sourceTree = "<group>"; };
+		E135DAC823AB9FC90075AEDC /* MainPlayer.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = MainPlayer.cpp; sourceTree = "<group>"; };
 		E135DACA23AD05E30075AEDC /* StaticSprite.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StaticSprite.h; sourceTree = "<group>"; };
 		E1373A1A23AA22D7005B5E4A /* Collision.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Collision.h; sourceTree = "<group>"; };
 		E1373A1B23AA2715005B5E4A /* Collision.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Collision.cpp; sourceTree = "<group>"; };
-		E1373A1D23AA6236005B5E4A /* MoveableByKeysSprite.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MoveableByKeysSprite.h; sourceTree = "<group>"; };
+		E1373A1D23AA6236005B5E4A /* MainPlayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainPlayer.h; sourceTree = "<group>"; };
 		E1373A1E23AA7256005B5E4A /* MovingSprite.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MovingSprite.h; sourceTree = "<group>"; };
 		E159993223C0FB77005CB8EE /* MovingSprite.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = MovingSprite.cpp; sourceTree = "<group>"; };
 		E159993423C104A8005CB8EE /* CollectableSprite.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = CollectableSprite.cpp; sourceTree = "<group>"; };
 		E159993523C104A8005CB8EE /* CollectableSprite.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CollectableSprite.h; sourceTree = "<group>"; };
+		E159993723C8A38D005CB8EE /* Game.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Game.cpp; sourceTree = "<group>"; };
+		E159993923C8A3A0005CB8EE /* Game.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Game.h; sourceTree = "<group>"; };
+		E159993A23C8A7BD005CB8EE /* Bullet.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Bullet.cpp; sourceTree = "<group>"; };
+		E159993D23C8A7F2005CB8EE /* Bullet.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Bullet.h; sourceTree = "<group>"; };
+		E159994023C8ACAB005CB8EE /* Enemy.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Enemy.h; sourceTree = "<group>"; };
+		E159994123C8ACD8005CB8EE /* Enemy.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Enemy.cpp; sourceTree = "<group>"; };
+		E159994423C8AF50005CB8EE /* Ammo.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Ammo.cpp; sourceTree = "<group>"; };
+		E159994523C8AF50005CB8EE /* Ammo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Ammo.h; sourceTree = "<group>"; };
+		E159994723C8B0C0005CB8EE /* Wall.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Wall.cpp; sourceTree = "<group>"; };
+		E159994823C8B0C0005CB8EE /* Wall.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Wall.h; sourceTree = "<group>"; };
 		E1670DF4239A5877008A2CA7 /* inlupp */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = inlupp; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1670DF7239A5877008A2CA7 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		E1670DFE239A591D008A2CA7 /* Session.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Session.cpp; sourceTree = "<group>"; };
@@ -55,8 +69,6 @@
 		E16E46C523A97AAF006547DD /* SDL2_ttf.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDL2_ttf.framework; path = ../../../../../Library/Frameworks/SDL2_ttf.framework; sourceTree = "<group>"; };
 		E16E46C623A97AAF006547DD /* SDL2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDL2.framework; path = ../../../../../Library/Frameworks/SDL2.framework; sourceTree = "<group>"; };
 		E16E46C723A97AAF006547DD /* SDL2_image.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDL2_image.framework; path = ../../../../../Library/Frameworks/SDL2_image.framework; sourceTree = "<group>"; };
-		E175105B23B0D6ED0040BB0F /* MemberFunctionPair.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MemberFunctionPair.h; sourceTree = "<group>"; };
-		E175105C23B0D9F40040BB0F /* MemberFunctionPair.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = MemberFunctionPair.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,22 +108,30 @@
 			children = (
 				E1670DF7239A5877008A2CA7 /* main.cpp */,
 				E1670E0E239A6CCA008A2CA7 /* Sprite.cpp */,
-				E175105B23B0D6ED0040BB0F /* MemberFunctionPair.h */,
 				E1670E0F239A6CCA008A2CA7 /* Sprite.h */,
 				E1670DFE239A591D008A2CA7 /* Session.cpp */,
+				E1670DFF239A591D008A2CA7 /* Session.h */,
 				E1670E01239A5951008A2CA7 /* System.cpp */,
 				E1670E02239A5951008A2CA7 /* System.h */,
-				E1670DFF239A591D008A2CA7 /* Session.h */,
 				E1373A1A23AA22D7005B5E4A /* Collision.h */,
 				E1373A1B23AA2715005B5E4A /* Collision.cpp */,
-				E1373A1D23AA6236005B5E4A /* MoveableByKeysSprite.h */,
+				E1373A1D23AA6236005B5E4A /* MainPlayer.h */,
+				E135DAC823AB9FC90075AEDC /* MainPlayer.cpp */,
 				E135DACA23AD05E30075AEDC /* StaticSprite.h */,
-				E135DAC823AB9FC90075AEDC /* MoveableByKeysSprite.cpp */,
 				E1373A1E23AA7256005B5E4A /* MovingSprite.h */,
-				E175105C23B0D9F40040BB0F /* MemberFunctionPair.cpp */,
 				E159993223C0FB77005CB8EE /* MovingSprite.cpp */,
 				E159993423C104A8005CB8EE /* CollectableSprite.cpp */,
 				E159993523C104A8005CB8EE /* CollectableSprite.h */,
+				E159993723C8A38D005CB8EE /* Game.cpp */,
+				E159993923C8A3A0005CB8EE /* Game.h */,
+				E159993A23C8A7BD005CB8EE /* Bullet.cpp */,
+				E159993D23C8A7F2005CB8EE /* Bullet.h */,
+				E159994023C8ACAB005CB8EE /* Enemy.h */,
+				E159994123C8ACD8005CB8EE /* Enemy.cpp */,
+				E159994423C8AF50005CB8EE /* Ammo.cpp */,
+				E159994523C8AF50005CB8EE /* Ammo.h */,
+				E159994723C8B0C0005CB8EE /* Wall.cpp */,
+				E159994823C8B0C0005CB8EE /* Wall.h */,
 			);
 			path = inlupp;
 			sourceTree = "<group>";
@@ -184,14 +204,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				E159993323C0FB77005CB8EE /* MovingSprite.cpp in Sources */,
-				E135DAC923AB9FCA0075AEDC /* MoveableByKeysSprite.cpp in Sources */,
-				E175105D23B0D9F40040BB0F /* MemberFunctionPair.cpp in Sources */,
+				E135DAC923AB9FCA0075AEDC /* MainPlayer.cpp in Sources */,
 				E159993623C104A8005CB8EE /* CollectableSprite.cpp in Sources */,
+				E159994923C8B0C1005CB8EE /* Wall.cpp in Sources */,
+				E159994623C8AF50005CB8EE /* Ammo.cpp in Sources */,
 				E1670E03239A5951008A2CA7 /* System.cpp in Sources */,
 				E1670E10239A6CCA008A2CA7 /* Sprite.cpp in Sources */,
+				E159993B23C8A7BD005CB8EE /* Bullet.cpp in Sources */,
 				E1670E00239A591D008A2CA7 /* Session.cpp in Sources */,
 				E1373A1C23AA2715005B5E4A /* Collision.cpp in Sources */,
 				E1670DF8239A5877008A2CA7 /* main.cpp in Sources */,
+				E159994323C8ACD8005CB8EE /* Enemy.cpp in Sources */,
+				E159993823C8A38E005CB8EE /* Game.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

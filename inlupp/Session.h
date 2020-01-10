@@ -1,12 +1,15 @@
 #ifndef Session_h
 #define Session_h
 #include "Sprite.h"
-#include "MoveableByKeysSprite.h"
-#include "MovingSprite.h"
+#include "MainPlayer.h"
+#include "System.h"
+#include "Collision.h"
+//#include "MovingSprite.h"
 #include <vector>
 #include <unordered_map>
 #include <utility>
-#include "MemberFunctionPair.h"
+
+//class Game;
 
 //TODO: göra till klass?
 struct Session {
