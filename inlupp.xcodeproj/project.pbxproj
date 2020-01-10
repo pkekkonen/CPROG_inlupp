@@ -85,6 +85,39 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E159994B23C8BA1D005CB8EE /* GameSpecifics */ = {
+			isa = PBXGroup;
+			children = (
+				E1373A1D23AA6236005B5E4A /* MainPlayer.h */,
+				E135DAC823AB9FC90075AEDC /* MainPlayer.cpp */,
+				E159993723C8A38D005CB8EE /* Game.cpp */,
+				E159993923C8A3A0005CB8EE /* Game.h */,
+				E159993A23C8A7BD005CB8EE /* Bullet.cpp */,
+				E159993D23C8A7F2005CB8EE /* Bullet.h */,
+				E159994023C8ACAB005CB8EE /* Enemy.h */,
+				E159994123C8ACD8005CB8EE /* Enemy.cpp */,
+				E159994423C8AF50005CB8EE /* Ammo.cpp */,
+				E159994523C8AF50005CB8EE /* Ammo.h */,
+				E159994723C8B0C0005CB8EE /* Wall.cpp */,
+				E159994823C8B0C0005CB8EE /* Wall.h */,
+			);
+			path = GameSpecifics;
+			sourceTree = "<group>";
+		};
+		E159994C23C8BAF6005CB8EE /* SpriteHierarchy */ = {
+			isa = PBXGroup;
+			children = (
+				E1670E0E239A6CCA008A2CA7 /* Sprite.cpp */,
+				E1670E0F239A6CCA008A2CA7 /* Sprite.h */,
+				E135DACA23AD05E30075AEDC /* StaticSprite.h */,
+				E1373A1E23AA7256005B5E4A /* MovingSprite.h */,
+				E159993223C0FB77005CB8EE /* MovingSprite.cpp */,
+				E159993423C104A8005CB8EE /* CollectableSprite.cpp */,
+				E159993523C104A8005CB8EE /* CollectableSprite.h */,
+			);
+			path = SpriteHierarchy;
+			sourceTree = "<group>";
+		};
 		E1670DEB239A5877008A2CA7 = {
 			isa = PBXGroup;
 			children = (
@@ -107,31 +140,14 @@
 			isa = PBXGroup;
 			children = (
 				E1670DF7239A5877008A2CA7 /* main.cpp */,
-				E1670E0E239A6CCA008A2CA7 /* Sprite.cpp */,
-				E1670E0F239A6CCA008A2CA7 /* Sprite.h */,
 				E1670DFE239A591D008A2CA7 /* Session.cpp */,
 				E1670DFF239A591D008A2CA7 /* Session.h */,
 				E1670E01239A5951008A2CA7 /* System.cpp */,
 				E1670E02239A5951008A2CA7 /* System.h */,
 				E1373A1A23AA22D7005B5E4A /* Collision.h */,
 				E1373A1B23AA2715005B5E4A /* Collision.cpp */,
-				E1373A1D23AA6236005B5E4A /* MainPlayer.h */,
-				E135DAC823AB9FC90075AEDC /* MainPlayer.cpp */,
-				E135DACA23AD05E30075AEDC /* StaticSprite.h */,
-				E1373A1E23AA7256005B5E4A /* MovingSprite.h */,
-				E159993223C0FB77005CB8EE /* MovingSprite.cpp */,
-				E159993423C104A8005CB8EE /* CollectableSprite.cpp */,
-				E159993523C104A8005CB8EE /* CollectableSprite.h */,
-				E159993723C8A38D005CB8EE /* Game.cpp */,
-				E159993923C8A3A0005CB8EE /* Game.h */,
-				E159993A23C8A7BD005CB8EE /* Bullet.cpp */,
-				E159993D23C8A7F2005CB8EE /* Bullet.h */,
-				E159994023C8ACAB005CB8EE /* Enemy.h */,
-				E159994123C8ACD8005CB8EE /* Enemy.cpp */,
-				E159994423C8AF50005CB8EE /* Ammo.cpp */,
-				E159994523C8AF50005CB8EE /* Ammo.h */,
-				E159994723C8B0C0005CB8EE /* Wall.cpp */,
-				E159994823C8B0C0005CB8EE /* Wall.h */,
+				E159994C23C8BAF6005CB8EE /* SpriteHierarchy */,
+				E159994B23C8BA1D005CB8EE /* GameSpecifics */,
 			);
 			path = inlupp;
 			sourceTree = "<group>";
