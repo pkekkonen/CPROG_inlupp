@@ -1,13 +1,7 @@
 #include <iostream>
-#include "Session.h"
-#include <SDL2_image/SDL_image.h>
-#include "System.h"
-#include <vector>
-#include "StaticSprite.h"
-#include "MovingSprite.h"
-#include "Ammo.h" //se över dessa
-
-Session ses;
+//#include "Session.h"
+#include "Game.h"
+ //se över dessa
 
 void addEnemy() {
     Enemy* e2 = Enemy::getInstance(10, 1, 1, 1, 10, 1, 500);

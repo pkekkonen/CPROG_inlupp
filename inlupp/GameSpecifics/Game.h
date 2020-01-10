@@ -6,12 +6,17 @@
 #include "Wall.h"
 #include "Enemy.h"
 #include "Bullet.h"
+#include <vector>
+#include "StaticSprite.h"
+#include "MovingSprite.h"
+#include "Ammo.h"
+#include <SDL2_image/SDL_image.h>
+
 
 class Game {
 //private:
 //    friend class MainPlayer;
 public:
-   // Session ses; //TODO: gör private
     //TODO: varför funkar inte???
 };
 

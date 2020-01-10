@@ -35,9 +35,6 @@ void Session::run() {
     Uint32 nextTick;
     int delay;
     
-  //  SDL_SetRenderDrawColor(sys.ren, 168, 230, 255, 255); // ha kvar dessa två rader? Finns ju under
-   // SDL_RenderClear(sys.ren);
-    
     while(!quit) {
 
         
@@ -99,21 +96,6 @@ void Session::run() {
                     
             } //slut på switch
         } // inre while
-        
-//        for(Sprite* s : sprites) {
-  //          if(Collision::collided(mainPlayer->getRect(), s->getRect())) {
-    //            removeSprite(s);
-      //      }
-        //}
-        
-//        if((mainPlayer->getRect().x+mainPlayer->getRect().w) >= sys.getWidth())
-//            mainPlayer->setToPrevXPos();
-//        if(mainPlayer->getRect().x <= 0)
-//            mainPlayer->setToPrevXPos();
-//        if((mainPlayer->getRect().y+mainPlayer->getRect().h) >= sys.getHeight())
-//            mainPlayer->setToPrevYPos();
-//        if(mainPlayer->getRect().y <= 0)
-//                mainPlayer->setToPrevYPos();
         
         for(Sprite* s: sprites)
             s -> tick(sprites);

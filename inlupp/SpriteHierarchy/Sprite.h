@@ -6,7 +6,6 @@
 
 class Sprite {
 public:
-    //Sprite();
     virtual ~Sprite() {}
     virtual void const draw() = 0;
     virtual void tick(std::vector<Sprite*> sprites) = 0;

@@ -71,8 +71,8 @@ void MainPlayer::shoot() {
 }
 
 void MainPlayer::setToStartPos() {
-    rect.x = startPosX*40;
-    rect.y = startPosY*40; //TODO: vackrare lösning
+    rect.x = startPosX*Session::SQUARE_SIZE;
+    rect.y = startPosY*Session::SQUARE_SIZE; //TODO: vackrare lösning
 }
 
 
