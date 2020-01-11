@@ -4,7 +4,7 @@ Ammo* Ammo::getInstance(int x, int y, int w, int h) {
     return new Ammo(x, y, w, h);
 }
 
-void const Ammo::draw() {
+void Ammo::draw() const{
     SDL_Rect r = getRect();
     SDL_RenderCopy(sys.ren, texture, NULL, &r);
 }

@@ -25,17 +25,15 @@ bool MainPlayer::hasThing(CollectType c) {
     return true;
 }
 
-MainPlayer::~MainPlayer() {
-    //delete unordered_map??
-}
-
 void MainPlayer::addToBag(CollectType c) {
     bag[c]++;
 }
 
+int MainPlayer::getLife() const {
+    return life;
+}
 
-
-void const MainPlayer::draw() {
+void MainPlayer::draw() const{
     SDL_Rect r = getRect();
     SDL_RenderCopy(sys.ren, texture, NULL, &r);
 }
@@ -86,6 +84,7 @@ MainPlayer::~MainPlayer() {
     SDL_FreeSurface(upSurface);
     SDL_FreeSurface(leftSurface);
     SDL_FreeSurface(rightSurface);
+    //måste vi delete unordered map?
     
 }
 

@@ -7,7 +7,7 @@
 class Sprite {
 public:
     virtual ~Sprite() {}
-    virtual void const draw() = 0;
+    virtual void draw() const = 0;
     virtual void tick(std::vector<Sprite*> sprites) = 0;
     SDL_Rect getRect() const { return rect;}
 protected:

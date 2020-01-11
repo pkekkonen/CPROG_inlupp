@@ -6,7 +6,7 @@ Bullet* Bullet::getInstance(int x, int y, int speed, Direction dir) {
     //TODO: vackrare lösning
 }
 
-void const Bullet::draw() {
+void Bullet::draw() const{
     SDL_Rect r = getRect();
     SDL_RenderCopy(sys.ren, texture, NULL, &r);
 }

@@ -10,7 +10,7 @@
 class Bullet: public MovingSprite {
 public:
     static Bullet* getInstance(int x, int y, int speed, Direction dir);
-    void const draw();
+    void draw() const;
     void tick(std::vector<Sprite*> sprites);
     
     ~Bullet();

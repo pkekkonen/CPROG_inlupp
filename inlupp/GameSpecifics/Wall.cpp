@@ -4,7 +4,7 @@ Wall* Wall::getInstance(int x, int y, int w, int h) {
     return new Wall(x, y, w, h);
 }
 
-void const Wall::draw() {
+void Wall::draw() const{
     SDL_Rect r = getRect();
     SDL_RenderCopy(sys.ren, texture, NULL, &r);
 }

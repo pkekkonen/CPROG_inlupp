@@ -3,6 +3,9 @@
 #include "Game.h"
  //se över dessa
 
+StatusInfo* statInfo = StatusInfo::getInstance();
+bool statusInfoShowing = false; //ändra lösning så ej global
+
 void addEnemy() {
     Enemy* e2 = Enemy::getInstance(10, 1, 1, 1, 10, 1, 500);
     ses.addSprite(e2);
@@ -15,10 +18,21 @@ void addMainPlayer() {
     ses.addMemberFunction(SDLK_a, std::bind(&MainPlayer::shoot, m));
 }
 
+//void showStatusInfo() {
+//    if(statusInfoShowing)
+//        ses.removeSprite(statInfo);
+//    else
+//        ses.addSprite(statInfo);
+//    statusInfoShowing = (statusInfoShowing? false: true);
+//}
+
 int main(int argc, char** argv) {
     Enemy* e1 = Enemy::getInstance(0, 0, 2, 2, 20, 0, 400);
     ses.addFunction(SDLK_t, addEnemy);
     ses.addFunction(SDLK_n, addMainPlayer);
+   // ses.addFunction(SDLK_s, showStatusInfo);
+    StatusInfo* statInfo = StatusInfo::getInstance();
+    ses.addMemberFunction(SDLK_s, std::bind(&StatusInfo::show, statInfo));
     for(int i = 0; i < 6; i++)
         ses.addSprite(Wall::getInstance(8, i, 1, 1));
     for(int i = 0; i < 6; i++)

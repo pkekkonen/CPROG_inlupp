@@ -6,6 +6,7 @@
 #include "Wall.h"
 #include "Enemy.h"
 #include "Bullet.h"
+#include "StatusInfo.h"
 #include <vector>
 #include "StaticSprite.h"
 #include "MovingSprite.h"
@@ -14,10 +15,15 @@
 
 
 class Game {
+//public:
+//    Game();
+//    ~Game();
+//    StatusInfo* getStatInfo(); //ska vara const?
 //private:
-//    friend class MainPlayer;
-public:
-    //TODO: varför funkar inte???
+//    bool statusInfoShowing;
+//    friend void showStatusInfo();
+//    StatusInfo* statInfo;
+    
 };
 
 #endif 

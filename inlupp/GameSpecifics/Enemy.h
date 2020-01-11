@@ -8,7 +8,7 @@
 class Enemy: public MovingSprite {
 public:
     static Enemy* getInstance(int x, int y, int width, int height, int speed, int left, int right);
-    void const draw();
+    void draw() const;
     void tick(std::vector<Sprite*> sprites);
     
     ~Enemy();

@@ -5,7 +5,7 @@ Enemy* Enemy::getInstance(int x, int y, int width, int height, int speed, int le
     return new Enemy(x, y, width, height, speed, left, right);
 }
 
-void const Enemy::draw() {
+void Enemy::draw() const{
     SDL_Rect r = getRect();
     SDL_RenderCopy(sys.ren, texture, NULL, &r);
 }

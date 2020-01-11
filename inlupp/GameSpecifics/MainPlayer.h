@@ -14,7 +14,7 @@ public:
     static MainPlayer* getInstance(int x, int y, int width, int height, int speed, int lifes) {
         return new MainPlayer(x, y, width, height, speed, lifes);
     }
-    void const draw();
+    void draw() const;
     void tick(std::vector<Sprite*> sprites);
     
     void shoot();
@@ -26,6 +26,7 @@ public:
     void upKeyDown();
     bool hasThing(CollectType c);
     void addToBag(CollectType c);
+    int getLife() const;
 private:
     MainPlayer(int x, int y, int w, int h, int speed, int l);
     std::unordered_map<CollectType, int> bag;
@@ -39,6 +40,7 @@ private:
     SDL_Surface* rightSurface;
     SDL_Surface* leftSurface;
     void setToStartPos();
+    friend void showLife();
 };
 
 #endif /* MainPlayer_h */

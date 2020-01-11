@@ -7,7 +7,7 @@
 class Wall: public StaticSprite {
 public:
     static Wall* getInstance(int x, int y, int w, int h);
-    void const draw();
+    void draw() const;
     ~Wall();
     
     void tick(std::vector<Sprite*> sprites);

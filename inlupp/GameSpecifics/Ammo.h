@@ -7,7 +7,7 @@ class Ammo: public CollectableSprite {
 public:
     static Ammo* getInstance(int x, int y, int w, int h);
     
-    void const draw();
+    void draw() const;
     
     void tick(std::vector<Sprite*> sprites);
     
