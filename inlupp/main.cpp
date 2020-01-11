@@ -18,15 +18,9 @@ void addMainPlayer() {
     ses.addMemberFunction(SDLK_a, std::bind(&MainPlayer::shoot, m));
 }
 
-//void showStatusInfo() {
-//    if(statusInfoShowing)
-//        ses.removeSprite(statInfo);
-//    else
-//        ses.addSprite(statInfo);
-//    statusInfoShowing = (statusInfoShowing? false: true);
-//}
 
 int main(int argc, char** argv) {
+    ses.setBackground("/Users/paulinakekkonen/Pictures/background.jpeg");
     Enemy* e1 = Enemy::getInstance(0, 0, 2, 2, 20, 0, 400);
     ses.addFunction(SDLK_t, addEnemy);
     ses.addFunction(SDLK_n, addMainPlayer);

@@ -8,6 +8,7 @@
 #include <vector>
 #include <unordered_map>
 #include <utility>
+#include <string>
 
 
 //TODO: göra till klass?
@@ -21,11 +22,13 @@ struct Session {
     void addMemberFunction(SDL_Keycode key, std::function<void()> memFunction);
     bool isWithinWindow(SDL_Rect* rect);
     static const int SQUARE_SIZE = 40;
+    void setBackground(std::string filePath);
 private:
     std::vector<Sprite*> sprites; //TODO: måste städas bort?
     std::vector<Sprite*> addedSprites, removedSprites;
     std::unordered_map<SDL_Keycode, void (*)()> functions; //ska funktionerna anropas med den key som tryckts ner? Kaka på kaka?
     std::unordered_map<SDL_Keycode,std::function<void()>> memberFunctions;
+    SDL_Texture* background;
 };
 
 extern Session ses;

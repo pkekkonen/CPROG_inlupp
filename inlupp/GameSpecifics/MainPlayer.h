@@ -33,7 +33,6 @@ private:
     MainPlayer(int x, int y, int w, int h, int speed, int l);
     std::unordered_map<CollectType, int> bag;
     int life;
-   // int counter = 0; Ta bort? varför ha denna?
     int startPosX;
     int startPosY;
     SDL_Texture* texture;

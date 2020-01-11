@@ -28,6 +28,11 @@ bool Session::isWithinWindow(SDL_Rect *rect) {
            rect->y >= 0);
 }
 
+void Session::setBackground(std::string filePath) {
+    background = IMG_LoadTexture(sys.ren, filePath.c_str());
+}
+
+
 void Session::run() {
     bool quit = false;
     
@@ -116,7 +121,7 @@ void Session::run() {
         SDL_SetRenderDrawColor(sys.ren, 255, 255, 255, 255);
         SDL_RenderClear(sys.ren);
         
-
+        SDL_RenderCopy(sys.ren, background, NULL, NULL);
         for(Sprite* s: sprites)
             s -> draw();
         

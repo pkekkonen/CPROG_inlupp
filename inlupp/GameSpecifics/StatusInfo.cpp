@@ -2,7 +2,7 @@
 #include <string>
 
 StatusInfo::StatusInfo(): StaticSprite(22, 0, 3, 2), isShowing(false){
-    SDL_Surface* surf = TTF_RenderText_Solid(sys.font, "", {0,0,0});
+    SDL_Surface* surf = TTF_RenderText_Solid(sys.smallFont, "", {0,0,0});
     texture = SDL_CreateTextureFromSurface(sys.ren, surf);
     SDL_FreeSurface(surf);
 }
@@ -38,7 +38,7 @@ void StatusInfo::tick(std::vector<Sprite*> sprites) {
     std::string txt = "Lifes: " + std::to_string(life) + " \nAmmo:" + std::to_string(bullets);
 
     //SDL_Surface* surf = TTF_RenderText_Solid(sys.font, txt.c_str(), {0,0,0});
-    SDL_Surface* surf = TTF_RenderText_Blended_Wrapped(sys.font, txt.c_str(), {0,0,0}, 80);
+    SDL_Surface* surf = TTF_RenderText_Blended_Wrapped(sys.smallFont, txt.c_str(), {0,0,0}, 80);
     SDL_DestroyTexture(texture);
     texture = SDL_CreateTextureFromSurface(sys.ren, surf); //tappar pekare till föregående struktur så kan inte städa bort den. Får minnesläcka. Så innan detta måst vi rensa bort tidigare struktur
     SDL_FreeSurface(surf);

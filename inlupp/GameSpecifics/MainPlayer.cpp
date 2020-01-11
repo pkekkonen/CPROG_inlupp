@@ -55,6 +55,7 @@ void MainPlayer::tick(std::vector<Sprite*> sprites) {
                 if(--life == 0) {
                     //vad som ska hända om man dör helt
                     ses.removeSprite(this);
+                    ses.addSprite(Label::getInstance(10, 10, 6, 4, "Game over"));
                 } else {
                     setToStartPos();
                 }

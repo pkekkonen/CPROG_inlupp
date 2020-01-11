@@ -1,18 +1,21 @@
 #ifndef Game_h
 #define Game_h
-#include "Session.h"
 #include <SDL2/SDL.h>
 #include <SDL2_image/SDL_image.h>
-#include "Wall.h"
-#include "Enemy.h"
-#include "Bullet.h"
-#include "StatusInfo.h"
+#include <SDL2_image/SDL_image.h>
+
 #include <vector>
+
+#include "Session.h"
 #include "StaticSprite.h"
 #include "MovingSprite.h"
 #include "CollectableSprite.h"
 #include "Ammo.h"
-#include <SDL2_image/SDL_image.h>
+#include "Wall.h"
+#include "Enemy.h"
+#include "Bullet.h"
+#include "StatusInfo.h"
+#include "Label.h"
 
 
 class Game {

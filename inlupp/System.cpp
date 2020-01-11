@@ -4,9 +4,10 @@
 System::System() {
     SDL_Init(SDL_INIT_EVERYTHING);
     TTF_Init();
-    win = SDL_CreateWindow("Game", 10, 10, 25*40, 20*40, 0); //TODO: ta reda på vad siffrorna innebär
+    win = SDL_CreateWindow("Game", 10, 10, 25*40, 20*40, 0); 
     ren = SDL_CreateRenderer(win, -1, 0);
-    font = TTF_OpenFont("/Library/Fonts/arial.ttf", 20);
+    smallFont = TTF_OpenFont("/Library/Fonts/arial.ttf", 20);
+    bigFont = TTF_OpenFont("/Library/Fonts/arial.ttf", 40);
     width = 1000;
     height = 800;
 }
@@ -14,6 +15,8 @@ System::System() {
 System::~System() {
     SDL_DestroyRenderer(ren);
     SDL_DestroyWindow(win);
+    SDL_Quit();
+
 }
 
 System sys;

@@ -17,6 +17,7 @@
 		E159994623C8AF50005CB8EE /* Ammo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E159994423C8AF50005CB8EE /* Ammo.cpp */; };
 		E159994923C8B0C1005CB8EE /* Wall.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E159994723C8B0C0005CB8EE /* Wall.cpp */; };
 		E159994F23C8D5A9005CB8EE /* StatusInfo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E159994D23C8D5A9005CB8EE /* StatusInfo.cpp */; };
+		E159995223C9C761005CB8EE /* Label.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E159995123C9C761005CB8EE /* Label.cpp */; };
 		E1670DF8239A5877008A2CA7 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E1670DF7239A5877008A2CA7 /* main.cpp */; };
 		E1670E00239A591D008A2CA7 /* Session.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E1670DFE239A591D008A2CA7 /* Session.cpp */; };
 		E1670E03239A5951008A2CA7 /* System.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E1670E01239A5951008A2CA7 /* System.cpp */; };
@@ -60,6 +61,8 @@
 		E159994823C8B0C0005CB8EE /* Wall.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Wall.h; sourceTree = "<group>"; };
 		E159994D23C8D5A9005CB8EE /* StatusInfo.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = StatusInfo.cpp; sourceTree = "<group>"; };
 		E159994E23C8D5A9005CB8EE /* StatusInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StatusInfo.h; sourceTree = "<group>"; };
+		E159995023C9C74D005CB8EE /* Label.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Label.h; sourceTree = "<group>"; };
+		E159995123C9C761005CB8EE /* Label.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Label.cpp; sourceTree = "<group>"; };
 		E1670DF4239A5877008A2CA7 /* inlupp */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = inlupp; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1670DF7239A5877008A2CA7 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		E1670DFE239A591D008A2CA7 /* Session.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Session.cpp; sourceTree = "<group>"; };
@@ -105,6 +108,8 @@
 				E159994D23C8D5A9005CB8EE /* StatusInfo.cpp */,
 				E159994E23C8D5A9005CB8EE /* StatusInfo.h */,
 				E159994823C8B0C0005CB8EE /* Wall.h */,
+				E159995123C9C761005CB8EE /* Label.cpp */,
+				E159995023C9C74D005CB8EE /* Label.h */,
 			);
 			path = GameSpecifics;
 			sourceTree = "<group>";
@@ -230,6 +235,7 @@
 				E159994923C8B0C1005CB8EE /* Wall.cpp in Sources */,
 				E159994623C8AF50005CB8EE /* Ammo.cpp in Sources */,
 				E1670E03239A5951008A2CA7 /* System.cpp in Sources */,
+				E159995223C9C761005CB8EE /* Label.cpp in Sources */,
 				E1670E10239A6CCA008A2CA7 /* Sprite.cpp in Sources */,
 				E159993B23C8A7BD005CB8EE /* Bullet.cpp in Sources */,
 				E1670E00239A591D008A2CA7 /* Session.cpp in Sources */,

@@ -12,7 +12,8 @@ public:
     SDL_Renderer* ren;
     int getHeight() const {return height;}
     int getWidth() const {return width;}
-    TTF_Font* font;
+    TTF_Font* smallFont;
+    TTF_Font* bigFont;
 private:
     int width;
     int height;
