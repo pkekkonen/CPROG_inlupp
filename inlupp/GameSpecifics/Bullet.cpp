@@ -32,7 +32,7 @@ void Bullet::tick(std::vector<Sprite*> sprites) {
         }
     }
     
-    if(rect.x < 0 || rect.x + rect.w > sys.getWidth() || rect.y < 0 || rect.y + rect.h > sys.getHeight())
+    if(rect.x < 0 || rect.x + rect.w > sys.getWidthInPixels() || rect.y < 0 || rect.y + rect.h > sys.getHeightInPixels())
         ses.removeSprite(this);
     
 }

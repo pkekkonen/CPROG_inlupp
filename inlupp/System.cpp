@@ -4,12 +4,12 @@
 System::System() {
     SDL_Init(SDL_INIT_EVERYTHING);
     TTF_Init();
-    win = SDL_CreateWindow("Game", 10, 10, 25*40, 20*40, 0); 
+    win = SDL_CreateWindow("Game", 10, 10, 20*40, 15*40, 0); 
     ren = SDL_CreateRenderer(win, -1, 0);
     smallFont = TTF_OpenFont("/Library/Fonts/arial.ttf", 20);
     bigFont = TTF_OpenFont("/Library/Fonts/arial.ttf", 40);
-    width = 1000;
-    height = 800;
+    width = 20;
+    height = 15;
 }
 
 System::~System() {

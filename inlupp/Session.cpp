@@ -22,9 +22,9 @@ void Session::addMemberFunction(SDL_Keycode key, std::function<void()> memFuncti
 }
 
 bool Session::isWithinWindow(SDL_Rect *rect) {
-    return(rect->x + rect->w <= sys.getWidth() &&
+    return(rect->x + rect->w <= sys.getWidthInPixels() &&
            rect->x >= 0 &&
-           rect->y + rect->h <= sys.getHeight() &&
+           rect->y + rect->h <= sys.getHeightInPixels() &&
            rect->y >= 0);
 }
 

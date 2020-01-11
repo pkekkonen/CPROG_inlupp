@@ -10,8 +10,10 @@ public:
     
     SDL_Window* win;
     SDL_Renderer* ren;
-    int getHeight() const {return height;}
-    int getWidth() const {return width;}
+    int getHeightInPixels() const {return height*40;}
+    int getWidthInPixels() const {return width*40;}
+    int getHeightInTiles() const {return height;}
+    int getWidthInTiles() const {return width;}
     TTF_Font* smallFont;
     TTF_Font* bigFont;
 private:

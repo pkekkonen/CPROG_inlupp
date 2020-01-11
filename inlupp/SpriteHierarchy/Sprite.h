@@ -11,7 +11,7 @@ public:
     virtual void tick(std::vector<Sprite*> sprites) = 0;
     SDL_Rect getRect() const { return rect;}
 protected:
-    Sprite(int x, int y, int w, int h) : rect{x*40, y*40, w*40, h*40} {}
+    Sprite(int x, int y, int w, int h);
     SDL_Rect rect;
 
 private:
