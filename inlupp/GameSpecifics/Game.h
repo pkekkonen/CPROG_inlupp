@@ -17,6 +17,7 @@
 #include "StatusInfo.h"
 #include "Label.h"
 #include "Door.h"
+#include "Key.h"
 
 
 class Game {

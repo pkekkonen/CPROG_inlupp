@@ -29,14 +29,17 @@ void StatusInfo::tick(std::vector<Sprite*> sprites) {
     
     int life = 0;
     int bullets = 0;
+    int keys = 0;
     for(Sprite* s: sprites) {
         if(MainPlayer* m = dynamic_cast<MainPlayer*>(s)) {
             life = m->getLife();
             if(m->hasThing(BULLET))
                 bullets = m->getAmountOfCollectable(BULLET);
+            if(m->hasThing(KEY))
+                keys = m->getAmountOfCollectable(KEY);
         }
     }
-    std::string txt = "Lifes: " + std::to_string(life) + " \nAmmo:" + std::to_string(bullets);
+    std::string txt = "Lifes: " + std::to_string(life) + "\nAmmo:" + std::to_string(bullets) + "\nKeys: " + std::to_string(keys);
 
     //SDL_Surface* surf = TTF_RenderText_Solid(sys.font, txt.c_str(), {0,0,0});
     SDL_Surface* surf = TTF_RenderText_Blended_Wrapped(sys.smallFont, txt.c_str(), {0,0,0}, 80);

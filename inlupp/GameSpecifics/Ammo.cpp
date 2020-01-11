@@ -1,7 +1,7 @@
 #include "Ammo.h"
 
-Ammo* Ammo::getInstance(int x, int y, int w, int h) {
-    return new Ammo(x, y, w, h);
+Ammo* Ammo::getInstance(int x, int y) {
+    return new Ammo(x, y);
 }
 
 void Ammo::draw() const{
@@ -18,7 +18,7 @@ void Ammo::tick(std::vector<Sprite*> sprites) {
     
 }
 
-Ammo::Ammo(int x, int y, int w, int h): CollectableSprite(x, y, w, h, BULLET) {
+Ammo::Ammo(int x, int y): CollectableSprite(x, y, 1, 1, BULLET) {
     texture = IMG_LoadTexture(sys.ren, "/Users/paulinakekkonen/Pictures/bullet.jpg");
     
 }

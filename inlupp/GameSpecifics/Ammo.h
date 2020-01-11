@@ -5,7 +5,7 @@
 
 class Ammo: public CollectableSprite {
 public:
-    static Ammo* getInstance(int x, int y, int w, int h);
+    static Ammo* getInstance(int x, int y);
     
     void draw() const;
     
@@ -13,7 +13,7 @@ public:
     
     ~Ammo() {SDL_DestroyTexture(texture);}
 private:
-    Ammo(int x, int y, int w, int h);
+    Ammo(int x, int y);
     SDL_Texture* texture;
 };
 #endif

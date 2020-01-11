@@ -3,7 +3,7 @@
 
 #include "StaticSprite.h"
 
-enum CollectType {SPEED, BULLET};
+enum CollectType {SPEED, BULLET, KEY};
 
 class CollectableSprite: public StaticSprite {
 public:

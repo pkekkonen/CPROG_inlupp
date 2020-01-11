@@ -14,6 +14,8 @@ public:
     void moveLeft();
     void moveUp();
     void moveDown();
+    void moveDownAndRight();
+    void moveDownAndLeft();
 private:
     int speed;
     Direction facing;

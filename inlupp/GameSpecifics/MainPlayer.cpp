@@ -16,6 +16,14 @@ void MainPlayer::upKeyDown() {
     moveUp();
 }
 
+void MainPlayer::leftAndDownKey() {
+    moveDownAndLeft();
+}
+
+void MainPlayer::rightAndDownKey() {
+    moveDownAndRight();
+}
+
 //returns false if thing is not present
 bool MainPlayer::hasThing(CollectType c) const{
     if(bag.find(c) == bag.end())
@@ -64,10 +72,13 @@ void MainPlayer::tick(std::vector<Sprite*> sprites) {
                 
             } else if(CollectableSprite* c = dynamic_cast<CollectableSprite*>(s)) {
                 addToBag(c->getCollectType());
+                ses.removeSprite(c);
             } else if(Door* d = dynamic_cast<Door*>(s)) {
-                ses.removeSprite(this);
-                ses.addSprite(Label::getInstance(7, 4, 6, 4, "You won!"));
-                
+                if(hasThing(KEY)) {
+                    useThing(KEY);
+                    ses.removeSprite(this);
+                    ses.addSprite(Label::getInstance(7, 4, 6, 4, "You won!"));
+                }
             }
             
         }

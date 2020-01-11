@@ -31,3 +31,19 @@ void MovingSprite::moveUp() {
     rect.y -= getSpeed();
     facing = Up;
 }
+
+void MovingSprite::moveDownAndRight() {
+    prevY = rect.y;
+    prevX = rect.x;
+    rect.x += getSpeed();
+    rect.y += getSpeed();
+    facing = Right;
+}
+
+void MovingSprite::moveDownAndLeft() {
+    prevY = rect.y;
+    prevX = rect.x;
+    rect.x -= getSpeed();
+    rect.y += getSpeed();
+    facing = Left;
+}

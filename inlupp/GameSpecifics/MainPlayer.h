@@ -24,6 +24,8 @@ public:
     void rightKeyDown();
     void downKeyDown();
     void upKeyDown();
+    void leftAndDownKey();
+    void rightAndDownKey();
     bool hasThing(CollectType c) const;
     void useThing(CollectType c);
     void addToBag(CollectType c);

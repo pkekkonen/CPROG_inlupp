@@ -44,6 +44,7 @@ void Session::run() {
 
         
         nextTick = SDL_GetTicks() + tickInterval;
+//        const Uint8 *keys = SDL_GetKeyboardState(NULL);
         SDL_Event event;
         while(SDL_PollEvent(&event)) {
             switch(event.type) {
@@ -79,26 +80,40 @@ void Session::run() {
                            
                             }break;
                     } // keydown switch end
-                case SDL_KEYUP:
-                    switch (event.key.keysym.sym) {
-                        case SDLK_LEFT:
-                            //mainPlayer->leftKeyUp();
-                            break;
-                        case SDLK_RIGHT:
-                            //mainPlayer->rightKeyUp();
-                            break;
-                        case SDLK_UP:
-                            //mainPlayer->upKeyUp();
-                            break;
-                        case SDLK_DOWN:
-                            //mainPlayer->downKeyUp();
-                            break;
-                        default:
-                            break;
-    
-                    } // keyup switch end
                     
             } //slut på switch
+            
+//            if (keys[SDL_SCANCODE_LEFT] && keys[SDL_SCANCODE_DOWN]){
+//                for(Sprite* s: sprites)
+//                    if(MainPlayer* m = dynamic_cast<MainPlayer*>(s))
+//                        m->leftAndDownKey();
+//            }
+//            else if (keys[SDL_SCANCODE_RIGHT] && keys[SDL_SCANCODE_DOWN]){
+//                for(Sprite* s: sprites)
+//                    if(MainPlayer* m = dynamic_cast<MainPlayer*>(s))
+//                        m->rightAndDownKey();
+//            }
+//            else if (keys[SDL_SCANCODE_LEFT]){
+//                for(Sprite* s: sprites)
+//                    if(MainPlayer* m = dynamic_cast<MainPlayer*>(s))
+//                        m->leftKeyDown();
+//            }
+//            else if (keys[SDL_SCANCODE_RIGHT]){
+//                for(Sprite* s: sprites)
+//                    if(MainPlayer* m = dynamic_cast<MainPlayer*>(s))
+//                        m->rightKeyDown();
+//            }
+//            else if (keys[SDL_SCANCODE_UP]){
+//                for(Sprite* s: sprites)
+//                    if(MainPlayer* m = dynamic_cast<MainPlayer*>(s))
+//                        m->upKeyDown();
+//            }
+//            else if (keys[SDL_SCANCODE_DOWN]){
+//                for(Sprite* s: sprites)
+//                    if(MainPlayer* m = dynamic_cast<MainPlayer*>(s))
+//                        m->downKeyDown();
+//            }
+
         } // inre while
         
         for(Sprite* s: sprites)
