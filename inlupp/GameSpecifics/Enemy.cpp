@@ -1,8 +1,8 @@
 
 #include "Enemy.h"
 
-Enemy* Enemy::getInstance(int x, int y, int width, int height, int speed, int left, int right) {
-    return new Enemy(x, y, width, height, speed, left, right);
+Enemy* Enemy::getInstance(int x, int y, int width, int height, int speed, Direction d) {
+    return new Enemy(x, y, width, height, speed, d);
 }
 
 void Enemy::draw() const{
@@ -11,34 +11,43 @@ void Enemy::draw() const{
 }
 
 void Enemy::tick(std::vector<Sprite*> sprites) {
-    counter++;
+    counter++; //kan ta bort????
     if(counter % 5 == 0) {
-        if(getFacing() == Right) {
-            moveRight();
-            if(rect.x >= right)
-                setFacing(Left);
-        } else {
-            moveLeft();
-            if(rect.x <= left)
-                setFacing(Right);
+        switch (getFacing()) {
+            case Up: moveUp();break;
+            case Down: moveDown();break;
+            case Left: moveLeft();break;
+            case Right: moveRight();break;
         }
     }
-    for(Sprite* s: sprites) {
+    for(Sprite* s: sprites)
         if(Collision::collided(s->getRect(), getRect()))
-            if(Wall* w = dynamic_cast<Wall*>(s)) {
-                if(getFacing() == Right)
-                    setFacing(Left);
-                else if(getFacing() == Left)
-                    setFacing(Right);
-                setToPrevPos();
-            }
-    }
+            if(Wall* w = dynamic_cast<Wall*>(s))
+                moveInOtherDir();
+    
+    if(!ses.isWithinWindow(&rect))
+        moveInOtherDir();
 }
+
+
+void Enemy::moveInOtherDir() {
+    setToPrevPos();
+    
+    switch (getFacing()) {
+        case Up: moveDown(); break;
+        case Down: moveUp(); break;
+        case Left: moveRight(); break;
+        case Right: moveLeft(); break;
+    }
+    
+}
+
 
 Enemy::~Enemy() {
     SDL_DestroyTexture(texture);
 }
 
-Enemy::Enemy(int x, int y, int w, int h, int s, int left, int right): MovingSprite(x, y, w, h, s), left(left), right(right) {
+Enemy::Enemy(int x, int y, int w, int h, int s, Direction d): MovingSprite(x, y, w, h, s) {
     texture = IMG_LoadTexture(sys.ren, "/Users/paulinakekkonen/Pictures/downBtn.jpeg");
+    this -> setFacing(d);
 }

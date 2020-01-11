@@ -7,18 +7,20 @@
 
 class Enemy: public MovingSprite {
 public:
-    static Enemy* getInstance(int x, int y, int width, int height, int speed, int left, int right);
+    static Enemy* getInstance(int x, int y, int width, int height, int speed, Direction d);
     void draw() const;
     void tick(std::vector<Sprite*> sprites);
     
     ~Enemy();
     
 private:
-    Enemy(int x, int y, int w, int h, int s, int left, int right);
+    Enemy(int x, int y, int w, int h, int s, Direction d);
     int counter = 0;
     SDL_Texture* texture;
     int left;
     int right;
+    void moveInOtherDir();
+
 };
 
 

@@ -41,7 +41,6 @@ private:
     SDL_Surface* rightSurface;
     SDL_Surface* leftSurface;
     void setToStartPos();
-    friend void showLife();
 };
 
 #endif /* MainPlayer_h */

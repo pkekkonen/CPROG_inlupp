@@ -121,7 +121,9 @@ void Session::run() {
         SDL_SetRenderDrawColor(sys.ren, 255, 255, 255, 255);
         SDL_RenderClear(sys.ren);
         
-        SDL_RenderCopy(sys.ren, background, NULL, NULL);
+        if(background != nullptr)
+            SDL_RenderCopy(sys.ren, background, NULL, NULL);
+        
         for(Sprite* s: sprites)
             s -> draw();
         
