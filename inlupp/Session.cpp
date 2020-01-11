@@ -43,16 +43,12 @@ void Session::run() {
     Uint32 nextTick;
     int delay;
     
-    bool left =false;
-    bool right = false;
-    bool up = false;
-    bool down = false;
     while(!quit) {
         
-
+        
         
         nextTick = SDL_GetTicks() + tickInterval;
-//        const Uint8 *keys = SDL_GetKeyboardState(NULL);
+        //        const Uint8 *keys = SDL_GetKeyboardState(NULL);
         SDL_Event event;
         while(SDL_PollEvent(&event)) {
             if(event.type== SDL_QUIT)
@@ -60,41 +56,33 @@ void Session::run() {
             
             
             if(event.type == SDL_KEYDOWN) {
-        //        switch (event.key.keysym.sym) {
-          //          case SDLK_LEFT:
-                        if(event.key.keysym.sym == SDLK_LEFT && !right && !up && !down) {
-                            for(Sprite* s: sprites)
-                                if(MainPlayer* m = dynamic_cast<MainPlayer*>(s))
-                                    m->leftKeyDown();
-                            left = true;
-                        }
-        //                break;
-         //           case SDLK_RIGHT:
-                        if(event.key.keysym.sym == SDLK_RIGHT && !left && !up && !down) {
-                            
-                            for(Sprite* s: sprites)
-                                if(MainPlayer* m = dynamic_cast<MainPlayer*>(s))
-                                    m->rightKeyDown();
-                            right = true;
-                        }
-           //             break;
-            //        case SDLK_UP:
-                        if(event.key.keysym.sym == SDLK_UP && !right && !left && !down) {
-                            for(Sprite* s: sprites)
-                                if(MainPlayer* m = dynamic_cast<MainPlayer*>(s))
-                                    m->upKeyDown();
-                            up = true;
-                        }
-              //          break;
-                //    case SDLK_DOWN:
-                        if(event.key.keysym.sym == SDLK_DOWN && !right && !up && !left) {
-                            for(Sprite* s: sprites)
-                                if(MainPlayer* m = dynamic_cast<MainPlayer*>(s))
-                                    m->downKeyDown();
-                            down = true;
-                        }
-                  //      break;
-                   // default:
+                switch (event.key.keysym.sym) {
+                    case SDLK_LEFT:
+                        for(Sprite* s: sprites)
+                            if(MainPlayer* m = dynamic_cast<MainPlayer*>(s))
+                                m->leftKeyDown();
+                        
+                        break;
+                    case SDLK_RIGHT:
+                        
+                        for(Sprite* s: sprites)
+                            if(MainPlayer* m = dynamic_cast<MainPlayer*>(s))
+                                m->rightKeyDown();
+                        
+                        break;
+                    case SDLK_UP:
+                        for(Sprite* s: sprites)
+                            if(MainPlayer* m = dynamic_cast<MainPlayer*>(s))
+                                m->upKeyDown();
+                        
+                        break;
+                    case SDLK_DOWN:
+                        for(Sprite* s: sprites)
+                            if(MainPlayer* m = dynamic_cast<MainPlayer*>(s))
+                                m->downKeyDown();
+                        
+                        break;
+                    default:
                         if(functions.find(event.key.keysym.sym) != functions.end()) {
                             (functions.at(event.key.keysym.sym))();
                         }
@@ -102,18 +90,27 @@ void Session::run() {
                             (memberFunctions.at(event.key.keysym.sym))();
                             
                         }
-            }
-                //break;
-         //       } // keydown switch end
-                
-                if(event.type == SDL_KEYUP) {
-                    switch(event.key.keysym.sym) {
-                        case SDLK_LEFT: left = false; std::cout<< std::to_string(counter++)<< std::endl; break;
-                        case SDLK_RIGHT: right = false; break;
-                        case SDLK_UP: up = false; break;
-                        case SDLK_DOWN: down = false; break;
-                    }
                 }
+                break;
+            } // keydown switch end
+            
+//            if(event.type == SDL_KEYUP) {
+//                switch(event.key.keysym.sym) {
+//                    case SDLK_LEFT:
+//                        for(Sprite* s: sprites)
+//                            if(MainPlayer* m = dynamic_cast<MainPlayer*>(s))
+//                                m->leftKeyUp(); std::cout<< std::to_string(counter++)<< std::endl; break;
+//                    case SDLK_RIGHT:                             for(Sprite* s: sprites)
+//                        if(MainPlayer* m = dynamic_cast<MainPlayer*>(s))
+//                            m->rightKeyUp(); break;
+//                    case SDLK_UP:                             for(Sprite* s: sprites)
+//                        if(MainPlayer* m = dynamic_cast<MainPlayer*>(s))
+//                            m->upKeyUp(); break;
+//                    case SDLK_DOWN:                             for(Sprite* s: sprites)
+//                        if(MainPlayer* m = dynamic_cast<MainPlayer*>(s))
+//                            m->downKeyUp(); break;
+//                }
+//            }
         
 //            if (keys[SDL_SCANCODE_LEFT] && keys[SDL_SCANCODE_DOWN]){
 //                for(Sprite* s: sprites)

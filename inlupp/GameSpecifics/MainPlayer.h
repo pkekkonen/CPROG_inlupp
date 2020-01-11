@@ -24,8 +24,10 @@ public:
     void rightKeyDown();
     void downKeyDown();
     void upKeyDown();
-    void leftAndDownKey();
-    void rightAndDownKey();
+    void leftKeyUp();
+    void rightKeyUp();
+    void downKeyUp();
+    void upKeyUp();
     bool hasThing(CollectType c) const;
     void useThing(CollectType c);
     void addToBag(CollectType c);
@@ -43,7 +45,8 @@ private:
     SDL_Surface* rightSurface;
     SDL_Surface* leftSurface;
     void setToStartPos();
-    bool collidedWithWall;
+    Direction currentlyMoving;
+    bool isMoving;
 };
 
 #endif /* MainPlayer_h */

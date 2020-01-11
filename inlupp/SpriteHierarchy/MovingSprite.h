@@ -2,7 +2,8 @@
 #define MovingSprite_h
 #include "Sprite.h"
 
-enum Direction {Up, Down, Right, Left};
+enum Direction {Up = 1, Down, Right, Left};
+//TODO: ÄNDRA TILL CAPITAL LETTERS
 
 class MovingSprite: public Sprite {
 public:

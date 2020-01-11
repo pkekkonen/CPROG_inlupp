@@ -1,28 +1,45 @@
 #include "MainPlayer.h"
 
 void MainPlayer::leftKeyDown() {
-    moveLeft();
+    currentlyMoving = Left;
+    isMoving = true;
 }
 
 void MainPlayer::rightKeyDown() {
-    moveRight();
+    currentlyMoving = Right;
+    isMoving = true;
 }
 
 void MainPlayer::downKeyDown() {
-    moveDown();
+    currentlyMoving = Down;
+    isMoving = true;
 }
 
 void MainPlayer::upKeyDown() {
-    moveUp();
+    currentlyMoving = Up;
+    isMoving = true;
 }
 
-void MainPlayer::leftAndDownKey() {
-    moveDownAndLeft();
+void MainPlayer::leftKeyUp() {
+//    if(currentlyMoving == Left)
+//        isMoving = false;
 }
 
-void MainPlayer::rightAndDownKey() {
-    moveDownAndRight();
+void MainPlayer::rightKeyUp() {
+//    if(currentlyMoving == Right)
+//        isMoving = false;
 }
+
+void MainPlayer::downKeyUp() {
+//    if(currentlyMoving == Down)
+//        isMoving = false;
+}
+
+void MainPlayer::upKeyUp() {
+//    if(currentlyMoving == Up)
+//        isMoving = false;
+}
+
 
 //returns false if thing is not present
 bool MainPlayer::hasThing(CollectType c) const{
@@ -57,7 +74,17 @@ void MainPlayer::draw() const{
 }
 
 void MainPlayer::tick(std::vector<Sprite*> sprites) {
-    collidedWithWall = false;
+    if(isMoving) {
+        switch(currentlyMoving) {
+            case Left: moveLeft(); break;
+            case Right: moveRight(); break;
+            case Up: moveUp(); break;
+            case Down: moveDown(); break;
+        }
+    }
+    
+    isMoving = false;
+    
     for(Sprite* s: sprites) {
         if(Collision::collided(this->getRect(), s->getRect())) {
             if(Enemy* e = dynamic_cast<Enemy*>(s)){
@@ -70,8 +97,6 @@ void MainPlayer::tick(std::vector<Sprite*> sprites) {
                 }
             } else if(Wall* w = dynamic_cast<Wall*>(s)){
                 setToPrevPos();
-                collidedWithWall = true;
-                
             } else if(CollectableSprite* c = dynamic_cast<CollectableSprite*>(s)) {
                 addToBag(c->getCollectType());
                 ses.removeSprite(c);
@@ -119,7 +144,7 @@ MainPlayer::~MainPlayer() {
     
 }
 
-MainPlayer::MainPlayer(int x, int y, int w, int h, int s, int l): MovingSprite(x, y, w, h, s), life(l), startPosX(x), startPosY(y), collidedWithWall(false) {
+MainPlayer::MainPlayer(int x, int y, int w, int h, int s, int l): MovingSprite(x, y, w, h, s), life(l), startPosX(x), startPosY(y), isMoving(false) {
     downSurface = IMG_Load("/Users/paulinakekkonen/Pictures/Game/ratFacingFront.png");
     Uint32 dWhite = SDL_MapRGB(downSurface->format, 255, 255, 255);
     SDL_SetColorKey(downSurface, true, dWhite);
