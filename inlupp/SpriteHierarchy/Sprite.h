@@ -1,8 +1,10 @@
 #ifndef Sprite_h
 #define Sprite_h
+
 #include <SDL2/SDL.h>
-#include <vector>
 #include "Collision.h"
+#include <vector>
+
 
 class Sprite {
 public:

@@ -60,9 +60,14 @@ void MainPlayer::tick(std::vector<Sprite*> sprites) {
                     setToStartPos();
                 }
             } else if(Wall* w = dynamic_cast<Wall*>(s)){
-                this -> setToPrevPos();
+                setToPrevPos();
+                
             } else if(CollectableSprite* c = dynamic_cast<CollectableSprite*>(s)) {
-                this -> addToBag(c->getCollectType());
+                addToBag(c->getCollectType());
+            } else if(Door* d = dynamic_cast<Door*>(s)) {
+                ses.removeSprite(this);
+                ses.addSprite(Label::getInstance(7, 4, 6, 4, "You won!"));
+                
             }
             
         }

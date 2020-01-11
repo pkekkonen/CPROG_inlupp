@@ -17,9 +17,10 @@ public:
 private:
     int speed;
     Direction facing;
-    int prevX;
-    int prevY;
+
 protected:
+    int prevX;
+    int prevY; //move to private TODO:
     void setToPrevPos();
     MovingSprite(int x, int y, int w, int h, int s): Sprite(x, y, w, h), speed(s), prevX(x), prevY(y) {};
     void setFacing(Direction f) {facing = f; } //ändra så ej set finns?
