@@ -10,6 +10,7 @@
 #include <vector>
 #include "StaticSprite.h"
 #include "MovingSprite.h"
+#include "CollectableSprite.h"
 #include "Ammo.h"
 #include <SDL2_image/SDL_image.h>
 

@@ -17,17 +17,27 @@ void MainPlayer::upKeyDown() {
 }
 
 //returns false if thing is not present
-bool MainPlayer::hasThing(CollectType c) {
+bool MainPlayer::hasThing(CollectType c) const{
     if(bag.find(c) == bag.end())
         return false;
+    return true;
+}
+
+void MainPlayer::useThing(CollectType c) {
     if(--bag[c] == 0)
         bag.erase(c);
-    return true;
 }
 
 void MainPlayer::addToBag(CollectType c) {
     bag[c]++;
 }
+
+int MainPlayer::getAmountOfCollectable(CollectType type) const {
+    if(hasThing(type))
+        return bag.at(type);
+    return 0;
+} //kolla vad som händer om type inte finns
+
 
 int MainPlayer::getLife() const {
     return life;
@@ -68,8 +78,10 @@ void MainPlayer::tick(std::vector<Sprite*> sprites) {
 }
 
 void MainPlayer::shoot() {
-    if(this->hasThing(BULLET))
+    if(this->hasThing(BULLET)) {
+        useThing(BULLET);
         ses.addSprite(Bullet::getInstance(rect.x, rect.y, 6, getFacing()));
+    }
 }
 
 void MainPlayer::setToStartPos() {

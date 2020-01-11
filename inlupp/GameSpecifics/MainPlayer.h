@@ -24,9 +24,11 @@ public:
     void rightKeyDown();
     void downKeyDown();
     void upKeyDown();
-    bool hasThing(CollectType c);
+    bool hasThing(CollectType c) const;
+    void useThing(CollectType c);
     void addToBag(CollectType c);
     int getLife() const;
+    int getAmountOfCollectable(CollectType type) const;
 private:
     MainPlayer(int x, int y, int w, int h, int speed, int l);
     std::unordered_map<CollectType, int> bag;
