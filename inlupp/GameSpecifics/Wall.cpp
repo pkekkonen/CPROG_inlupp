@@ -21,5 +21,5 @@ void Wall::tick(std::vector<Sprite*> sprites) {
 }
 
 Wall::Wall(int x, int y, int w, int h): StaticSprite(x,y,w,h) {
-    texture = IMG_LoadTexture(sys.ren, "/Users/paulinakekkonen/Pictures/squareBrick.jpg");
+    texture = IMG_LoadTexture(sys.ren, "/Users/paulinakekkonen/Pictures/Game/squareBrick.jpg");
 }

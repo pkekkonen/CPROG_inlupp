@@ -16,6 +16,6 @@ void Door::tick(std::vector<Sprite*> sprites) {
 }
 
 Door::Door(int x, int y): StaticSprite(x, y, 1, 1) {
-    texture = IMG_LoadTexture(sys.ren, "/Users/paulinakekkonen/Pictures/door.jpg");
+    texture = IMG_LoadTexture(sys.ren, "/Users/paulinakekkonen/Pictures/Game/door.jpg");
     
 }

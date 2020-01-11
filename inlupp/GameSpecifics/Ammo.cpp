@@ -19,6 +19,6 @@ void Ammo::tick(std::vector<Sprite*> sprites) {
 }
 
 Ammo::Ammo(int x, int y): CollectableSprite(x, y, 1, 1, BULLET) {
-    texture = IMG_LoadTexture(sys.ren, "/Users/paulinakekkonen/Pictures/bullet.jpg");
+    texture = IMG_LoadTexture(sys.ren, "/Users/paulinakekkonen/Pictures/Game/bullet.jpg");
     
 }

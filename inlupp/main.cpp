@@ -18,7 +18,7 @@ void addMainPlayer() {
 
 
 int main(int argc, char** argv) {
-   // ses.setBackground("/Users/paulinakekkonen/Pictures/background.jpeg");
+   // ses.setBackground("/Users/paulinakekkonen/Pictures/Game/background.jpeg");
     
     std::vector<std::vector<int>> map(15);
     
@@ -34,12 +34,12 @@ int main(int argc, char** argv) {
     const int F = 4; //Finnish
     const int k = 5; //Finnish
 
-    map[0] = {o,o,o,m,X,o,o,o,o,o,o,X,o,o,o,o,o,o,o,o};
+    map[0] = {o,o,o,m,o,o,o,o,o,o,o,X,o,o,o,o,o,o,o,o};
     map[1] = {o,X,X,X,X,o,o,o,o,o,o,o,o,o,o,o,o,o,o,o};
-    map[2] = {o,o,E,X,o,o,o,o,o,o,o,o,o,o,o,o,o,o,o,o};
-    map[3] = {o,X,X,X,o,o,o,o,o,o,o,o,o,o,o,o,o,o,o,o};
-    map[4] = {o,E,o,X,o,o,o,o,o,o,o,o,o,o,o,o,o,o,o,o};
-    map[5] = {o,X,X,X,o,o,o,o,o,o,o,o,o,o,o,o,o,o,o,o};
+    map[2] = {o,o,E,X,o,o,o,o,o,o,o,X,X,X,X,X,o,o,o,o};
+    map[3] = {o,X,X,X,o,o,o,o,o,o,o,X,X,X,X,X,o,o,o,o};
+    map[4] = {o,E,o,X,o,o,o,o,o,o,o,X,X,X,X,X,o,o,o,o};
+    map[5] = {o,X,X,X,o,o,o,o,o,o,o,X,X,X,X,X,o,o,o,o};
     map[6] = {E,o,o,X,o,o,o,o,o,o,o,o,o,o,o,o,o,o,o,o};
     map[7] = {o,o,o,o,o,o,o,o,o,o,o,o,k,o,o,o,o,o,o,o};
     map[8] = {o,o,o,o,o,o,o,o,o,o,o,o,o,o,o,o,o,o,o,o};

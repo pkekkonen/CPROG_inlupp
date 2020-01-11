@@ -48,6 +48,6 @@ Enemy::~Enemy() {
 }
 
 Enemy::Enemy(int x, int y, int w, int h, int s, Direction d): MovingSprite(x, y, w, h, s) {
-    texture = IMG_LoadTexture(sys.ren, "/Users/paulinakekkonen/Pictures/downBtn.jpeg");
+    texture = IMG_LoadTexture(sys.ren, "/Users/paulinakekkonen/Pictures/Game/downBtn.jpeg");
     this -> setFacing(d);
 }

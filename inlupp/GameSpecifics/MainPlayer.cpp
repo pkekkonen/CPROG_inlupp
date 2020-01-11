@@ -57,6 +57,7 @@ void MainPlayer::draw() const{
 }
 
 void MainPlayer::tick(std::vector<Sprite*> sprites) {
+    collidedWithWall = false;
     for(Sprite* s: sprites) {
         if(Collision::collided(this->getRect(), s->getRect())) {
             if(Enemy* e = dynamic_cast<Enemy*>(s)){
@@ -69,6 +70,7 @@ void MainPlayer::tick(std::vector<Sprite*> sprites) {
                 }
             } else if(Wall* w = dynamic_cast<Wall*>(s)){
                 setToPrevPos();
+                collidedWithWall = true;
                 
             } else if(CollectableSprite* c = dynamic_cast<CollectableSprite*>(s)) {
                 addToBag(c->getCollectType());
@@ -97,7 +99,7 @@ void MainPlayer::tick(std::vector<Sprite*> sprites) {
 void MainPlayer::shoot() {
     if(this->hasThing(BULLET)) {
         useThing(BULLET);
-        ses.addSprite(Bullet::getInstance(rect.x, rect.y, 6, getFacing()));
+        ses.addSprite(Bullet::getInstance(rect.x, rect.y, 20, getFacing()));
     }
 }
 
@@ -117,18 +119,18 @@ MainPlayer::~MainPlayer() {
     
 }
 
-MainPlayer::MainPlayer(int x, int y, int w, int h, int s, int l): MovingSprite(x, y, w, h, s), life(l), startPosX(x), startPosY(y) {
-    downSurface = IMG_Load("/Users/paulinakekkonen/Pictures/ratFacingFront.png");
+MainPlayer::MainPlayer(int x, int y, int w, int h, int s, int l): MovingSprite(x, y, w, h, s), life(l), startPosX(x), startPosY(y), collidedWithWall(false) {
+    downSurface = IMG_Load("/Users/paulinakekkonen/Pictures/Game/ratFacingFront.png");
     Uint32 dWhite = SDL_MapRGB(downSurface->format, 255, 255, 255);
     SDL_SetColorKey(downSurface, true, dWhite);
-    upSurface = IMG_Load("/Users/paulinakekkonen/Pictures/ratFacingBack.png");
+    upSurface = IMG_Load("/Users/paulinakekkonen/Pictures/Game/ratFacingBack.png");
     Uint32 uWhite = SDL_MapRGB(upSurface->format, 255, 255, 255);
     SDL_SetColorKey(upSurface, true, uWhite);
-    leftSurface = IMG_Load("/Users/paulinakekkonen/Pictures/ratFacingLeft.png");
+    leftSurface = IMG_Load("/Users/paulinakekkonen/Pictures/Game/ratFacingLeft.png");
     Uint32 lWhite = SDL_MapRGB(leftSurface
                                ->format, 255, 255, 255);
     SDL_SetColorKey(leftSurface, true, lWhite);
-    rightSurface = IMG_Load("/Users/paulinakekkonen/Pictures/ratFacingRight.png");
+    rightSurface = IMG_Load("/Users/paulinakekkonen/Pictures/Game/ratFacingRight.png");
     Uint32 rWhite = SDL_MapRGB(rightSurface->format, 255, 255, 255);
     SDL_SetColorKey(rightSurface, true, rWhite);
     texture = SDL_CreateTextureFromSurface(sys.ren, downSurface);

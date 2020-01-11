@@ -19,6 +19,6 @@ void Key::tick(std::vector<Sprite*> sprites) {
 }
 
 Key::Key(int x, int y): CollectableSprite(x, y, 1, 1, KEY) {
-    texture = IMG_LoadTexture(sys.ren, "/Users/paulinakekkonen/Pictures/key.jpeg");
+    texture = IMG_LoadTexture(sys.ren, "/Users/paulinakekkonen/Pictures/Game/key.jpeg");
     
 }

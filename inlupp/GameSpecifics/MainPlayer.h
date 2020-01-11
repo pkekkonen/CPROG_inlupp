@@ -43,6 +43,7 @@ private:
     SDL_Surface* rightSurface;
     SDL_Surface* leftSurface;
     void setToStartPos();
+    bool collidedWithWall;
 };
 
 #endif /* MainPlayer_h */
