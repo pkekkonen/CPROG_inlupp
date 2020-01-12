@@ -5,15 +5,8 @@
 
 
 void addEnemy() {
-    Enemy* e2 = Enemy::getInstance(10, 1, 1, 1, 10, Up);
+    Enemy* e2 = Enemy::getInstance(10, 1, 1, 1, 10, UP);
     ses.addSprite(e2);
-}
-
-void addMainPlayer() {
-    MainPlayer* m = MainPlayer::getInstance(3, 2, 1, 1, 40, 3);
-    ses.addSprite(m);
-    //TODO: modifiera lösningen så att tillämparen inte behöva binda utan bara kan skicka pointer och objektet?
-    ses.addMemberFunction(SDLK_a, std::bind(&MainPlayer::shoot, m));
 }
 
 void pausGame() {
@@ -40,8 +33,8 @@ int main(int argc, char** argv) {
     const int k = 5; //Key
     const int A = 7; //Ammo
 
-    map[0] = {o,o,o,m,X,o,o,o,o,o,o,E,X,E,o,o,o,o,o,o};
-    map[1] = {o,X,X,X,X,X,o,X,X,o,X,X,X,o,X,o,X,o,X,o};
+    map[0] = {A,A,A,m,X,o,o,o,o,o,o,E,X,E,o,o,o,o,o,o};
+    map[1] = {A,X,X,X,X,X,o,X,X,o,X,X,X,o,X,o,X,o,X,o};
     map[2] = {o,o,E,X,A,X,o,e,X,o,o,o,o,E,X,o,X,X,X,o};
     map[3] = {o,X,X,X,o,X,X,o,X,X,X,o,X,X,X,o,e,X,o,e};
     map[4] = {o,E,o,X,o,o,X,o,X,o,X,X,X,o,o,e,o,X,X,o};
@@ -61,8 +54,8 @@ int main(int argc, char** argv) {
         for(int col = 0; col < (map[row]).size(); col++) {
             switch((map[row])[col]) {
                 case X: ses.addSprite(Wall::getInstance(col, row, 1, 1)); break;
-                case E: ses.addSprite(Enemy::getInstance(col, row, 1, 1, 5, Left)); break;
-                case e: ses.addSprite(Enemy::getInstance(col, row, 1, 1, 10, Down)); break;
+                case E: ses.addSprite(Enemy::getInstance(col, row, 1, 1, 5, LEFT)); break;
+                case e: ses.addSprite(Enemy::getInstance(col, row, 1, 1, 10, DOWN)); break;
                 case m:  mainP = MainPlayer::getInstance(col, row, 1, 1, 40, 5); break;
                 case F: ses.addSprite(Door::getInstance(col, row) ); break;
                 case k: ses.addSprite(Key::getInstance(col, row) ); break;
@@ -72,12 +65,13 @@ int main(int argc, char** argv) {
     }
     if(mainP != nullptr)
         ses.addSprite(mainP);
+    
 
     StatusInfo* statInfo = StatusInfo::getInstance();
+    ses.addSprite(statInfo);
     ses.addMemberFunction(SDLK_s, std::bind(&StatusInfo::show, statInfo));
     ses.addFunction(SDLK_p, pausGame);
     ses.addMemberFunction(SDLK_a, std::bind(&MainPlayer::shoot, mainP));
-
 
     ses.run();
     return 0;

@@ -3,6 +3,7 @@
 #define Key_h
 #include "CollectableSprite.h"
 #include "Game.h"
+#include <iostream>
 
 class Key: public CollectableSprite {
 public:
@@ -12,7 +13,10 @@ public:
     
     void tick(std::vector<Sprite*> sprites);
     
-    ~Key() {SDL_DestroyTexture(texture);}
+    ~Key() {SDL_DestroyTexture(texture);
+        std::cout<< "KEY ENDED" << std::endl;
+
+    }
 private:
     Key(int x, int y);
     SDL_Texture* texture;

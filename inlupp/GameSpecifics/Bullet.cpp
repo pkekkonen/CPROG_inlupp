@@ -1,8 +1,9 @@
 
 #include "Bullet.h"
+#include <iostream>
 
 Bullet* Bullet::getInstance(int x, int y, int speed, Direction dir) {
-    return new Bullet(x/Session::SQUARE_SIZE, y/Session::SQUARE_SIZE, 1, 1, speed, dir);
+    return new Bullet(x/System::SQUARE_SIZE, y/System::SQUARE_SIZE, 1, 1, speed, dir);
     //TODO: vackrare lösning
 }
 
@@ -15,10 +16,10 @@ void Bullet::tick(std::vector<Sprite*> sprites) {
     counter++;
     if(counter % 5 == 0) {
         switch(direction) {
-            case Up: rect.y -= getSpeed(); break;
-            case Right: rect.x += getSpeed(); break;
-            case Down: rect.y += getSpeed(); break;
-            case Left: rect.x -= getSpeed(); break;
+            case UP: rect.y -= getSpeed(); break;
+            case RIGHT: rect.x += getSpeed(); break;
+            case DOWN: rect.y += getSpeed(); break;
+            case LEFT: rect.x -= getSpeed(); break;
         }
     }
     for(Sprite* s: sprites) {
@@ -26,9 +27,13 @@ void Bullet::tick(std::vector<Sprite*> sprites) {
             if(Enemy* e = dynamic_cast<Enemy*>(s)) {
                 ses.removeSprite(e);
                 ses.removeSprite(this);
+             //   delete this;
+
             }
-            if(Wall* w = dynamic_cast<Wall*>(s))
+            if(Wall* w = dynamic_cast<Wall*>(s)){
                 ses.removeSprite(this);
+             //   delete this;
+            }
         }
     }
     
@@ -39,6 +44,7 @@ void Bullet::tick(std::vector<Sprite*> sprites) {
 
 Bullet::~Bullet() {
     SDL_DestroyTexture(texture);
+    std::cout<< "BULLET ENDED" << std::endl;
 }
 
 Bullet::Bullet(int x, int y, int w, int h, int s, Direction dir): DynamicSprite(x, y, w, h, s), direction(dir) {

@@ -2,7 +2,6 @@
 #define Sprite_h
 
 #include <SDL2/SDL.h>
-#include "Collision.h"
 #include <vector>
 
 

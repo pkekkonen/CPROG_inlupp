@@ -1,5 +1,11 @@
 #include "DynamicSprite.h"
 
+DynamicSprite::DynamicSprite(int x, int y, int w, int h, int s): Sprite(x, y, w, h), speed(s) {
+    if(s < 1) {
+        throw std::invalid_argument("Speed cannot be initilized to 0 or below.");
+    }
+}
+
 void DynamicSprite::setToPrevPos() {
         rect.x = prevX;
         rect.y = prevY;
@@ -9,27 +15,27 @@ void DynamicSprite::moveRight() {
     prevX = rect.x;
     prevY = rect.y;
     rect.x += getSpeed();
-    facing = Right;
+    facing = RIGHT;
 }
 
 void DynamicSprite::moveLeft() {
     prevX = rect.x;
     prevY = rect.y;
     rect.x -= getSpeed();
-    facing = Left;
+    facing = LEFT;
 }
 
 void DynamicSprite::moveDown() {
     prevY = rect.y;
     prevX = rect.x;
     rect.y += getSpeed();
-    facing = Down;
+    facing = DOWN;
 }
 void DynamicSprite::moveUp() {
     prevY = rect.y;
     prevX = rect.x;
     rect.y -= getSpeed();
-    facing = Up;
+    facing = UP;
 }
 
 void DynamicSprite::moveDownAndRight() {
@@ -37,7 +43,7 @@ void DynamicSprite::moveDownAndRight() {
     prevX = rect.x;
     rect.x += getSpeed();
     rect.y += getSpeed();
-    facing = Right;
+    facing = RIGHT;
 }
 
 void DynamicSprite::moveDownAndLeft() {
@@ -45,5 +51,5 @@ void DynamicSprite::moveDownAndLeft() {
     prevX = rect.x;
     rect.x -= getSpeed();
     rect.y += getSpeed();
-    facing = Left;
+    facing = LEFT;
 }

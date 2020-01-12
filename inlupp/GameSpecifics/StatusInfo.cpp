@@ -15,15 +15,14 @@ StatusInfo::~StatusInfo() {
 }
 
 void StatusInfo::draw() const{
-    SDL_Rect r = getRect();
-    SDL_RenderCopy(sys.ren, texture, NULL, &r);
+    if(isShowing) {
+        SDL_Rect r = getRect();
+        SDL_RenderCopy(sys.ren, texture, NULL, &r);
+
+    }
 }
 
 void StatusInfo::show() {
-    if(isShowing)
-        ses.removeSprite(this);
-    else
-        ses.addSprite(this);
     isShowing = isShowing? false: true;
 }
 

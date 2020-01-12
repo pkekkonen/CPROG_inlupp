@@ -4,6 +4,7 @@ TODO: se över så att de olika konstruktorerna samt destruktor är rätt implem
 - kolla igenom att alla som ska vara const är det
 -typedef
 - buggar om man klickar upp och höger/vänster samtidigt
+- gå igwenom att alla surface och texture är destroyed
 
 "Kortkommandon knutna till fria funktioneri i tillämpningen" görs med funktionspekare. I gameengine (session) ska man säga att något ska hända när man trycker på den här knappen och vad som ska hända ska anges i tillämpningen
 

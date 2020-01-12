@@ -59,14 +59,14 @@ void Session::run() {
                         for(Sprite* s: sprites)
                             s->keyDown(event.key.keysym.sym);
                     
-                    if(functions.find(event.key.keysym.sym) != functions.end()) {
+                    if(functions.find(event.key.keysym.sym) != functions.end())
                         (functions.at(event.key.keysym.sym))();
-                    }
+    
                     if(!isPaused)
-                        if(memberFunctions.find(event.key.keysym.sym) != memberFunctions.end()) {
+                        if(memberFunctions.find(event.key.keysym.sym) != memberFunctions.end())
                         (memberFunctions.at(event.key.keysym.sym))();
                         
-                    }
+                    
             }
         }// inre while
         
@@ -76,7 +76,8 @@ void Session::run() {
         
         for(Sprite* s: addedSprites)
             sprites.push_back(s);
-        addedSprites.clear(); //TODO: måste städas bort?
+
+        addedSprites.clear();
         
         for(Sprite* s: removedSprites) {
             for(std::vector<Sprite*>::iterator iter = sprites.begin(); iter != sprites.end();) {
@@ -86,6 +87,9 @@ void Session::run() {
                     iter++;
             }
         }
+        
+        for(Sprite* s: removedSprites)
+            delete s;
         removedSprites.clear(); //TODO: städa??
         
         SDL_SetRenderDrawColor(sys.ren, 255, 255, 255, 255);
@@ -104,6 +108,11 @@ void Session::run() {
             SDL_Delay(delay);
     } //yttre while
     
-    //TODO: ha med att rensa session typ alla sprites och så
 }
 
+Session::~Session() {
+    for(Sprite* s: sprites)
+        delete s;
+    SDL_DestroyTexture(background);
+    std::cout << "SESSION ENDED" << std::endl;
+}

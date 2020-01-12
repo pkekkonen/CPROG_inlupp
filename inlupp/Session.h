@@ -13,7 +13,7 @@
 
 //TODO: göra till klass?
 struct Session {
-   // ~Session(); måste städa bort vector
+    ~Session(); //måste städa bort vector
 
     void addSprite(Sprite* sprite);
     void removeSprite(Sprite* sprite);
@@ -21,7 +21,6 @@ struct Session {
     void addFunction(SDL_Keycode key, void(*f)() );
     void addMemberFunction(SDL_Keycode key, std::function<void()> memFunction);
     bool isWithinWindow(SDL_Rect* rect);
-    static const int SQUARE_SIZE = 40;
     void setBackground(std::string filePath);
     void paus();
 private:

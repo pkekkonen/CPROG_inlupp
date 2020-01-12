@@ -14,10 +14,10 @@ void Enemy::tick(std::vector<Sprite*> sprites) {
     counter++; //kan ta bort????
     if(counter % 5 == 0) {
         switch (getFacing()) {
-            case Up: moveUp();break;
-            case Down: moveDown();break;
-            case Left: moveLeft();break;
-            case Right: moveRight();break;
+            case UP: moveUp();break;
+            case DOWN: moveDown();break;
+            case LEFT: moveLeft();break;
+            case RIGHT: moveRight();break;
         }
     }
     for(Sprite* s: sprites)
@@ -34,10 +34,10 @@ void Enemy::moveInOtherDir() {
     setToPrevPos();
     
     switch (getFacing()) {
-        case Up: moveDown(); break;
-        case Down: moveUp(); break;
-        case Left: moveRight(); break;
-        case Right: moveLeft(); break;
+        case UP: moveDown(); break;
+        case DOWN: moveUp(); break;
+        case LEFT: moveRight(); break;
+        case RIGHT: moveLeft(); break;
     }
     
 }
@@ -45,6 +45,7 @@ void Enemy::moveInOtherDir() {
 
 Enemy::~Enemy() {
     SDL_DestroyTexture(texture);
+    std::cout << "ENEMY ENDED" << std::endl;
 }
 
 Enemy::Enemy(int x, int y, int w, int h, int s, Direction d): DynamicSprite(x, y, w, h, s) {

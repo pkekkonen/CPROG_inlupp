@@ -1,11 +1,12 @@
 #include "MainPlayer.h"
+#include <iostream>
 
 void MainPlayer::keyDown(SDL_Keycode key) {
     switch(key) {
-        case SDLK_LEFT: directionToMoveIn = Left; isMoving = true; break;
-        case SDLK_RIGHT: directionToMoveIn = Right; isMoving = true; break;
-        case SDLK_DOWN: directionToMoveIn = Down; isMoving = true; break;
-        case SDLK_UP: directionToMoveIn = Up; isMoving = true; break;
+        case SDLK_LEFT: directionToMoveIn = LEFT; isMoving = true; break;
+        case SDLK_RIGHT: directionToMoveIn = RIGHT; isMoving = true; break;
+        case SDLK_DOWN: directionToMoveIn = DOWN; isMoving = true; break;
+        case SDLK_UP: directionToMoveIn = UP; isMoving = true; break;
     }
 }
 
@@ -46,10 +47,10 @@ void MainPlayer::draw() const{
 void MainPlayer::tick(std::vector<Sprite*> sprites) {
     if(isMoving) {
         switch(directionToMoveIn) {
-            case Left: moveLeft(); break;
-            case Right: moveRight(); break;
-            case Up: moveUp(); break;
-            case Down: moveDown(); break;
+            case LEFT: moveLeft(); break;
+            case RIGHT: moveRight(); break;
+            case UP: moveUp(); break;
+            case DOWN: moveDown(); break;
         }
     }
     
@@ -84,10 +85,10 @@ void MainPlayer::tick(std::vector<Sprite*> sprites) {
         this->setToPrevPos();
     
     switch(getFacing()) {
-        case Up: texture = SDL_CreateTextureFromSurface(sys.ren, upSurface); break;
-        case Down: texture = SDL_CreateTextureFromSurface(sys.ren, downSurface); break;
-        case Left: texture = SDL_CreateTextureFromSurface(sys.ren, leftSurface); break;
-        case Right: texture = SDL_CreateTextureFromSurface(sys.ren, rightSurface); break;
+        case UP: texture = SDL_CreateTextureFromSurface(sys.ren, upSurface); break;
+        case DOWN: texture = SDL_CreateTextureFromSurface(sys.ren, downSurface); break;
+        case LEFT: texture = SDL_CreateTextureFromSurface(sys.ren, leftSurface); break;
+        case RIGHT: texture = SDL_CreateTextureFromSurface(sys.ren, rightSurface); break;
     }
 }
 
@@ -99,8 +100,8 @@ void MainPlayer::shoot() {
 }
 
 void MainPlayer::setToStartPos() {
-    rect.x = startPosX*Session::SQUARE_SIZE;
-    rect.y = startPosY*Session::SQUARE_SIZE; //TODO: vackrare lösning
+    rect.x = startPosX*System::SQUARE_SIZE;
+    rect.y = startPosY*System::SQUARE_SIZE; //TODO: vackrare lösning
 }
 
 
@@ -110,11 +111,15 @@ MainPlayer::~MainPlayer() {
     SDL_FreeSurface(upSurface);
     SDL_FreeSurface(leftSurface);
     SDL_FreeSurface(rightSurface);
+    std::cout<< "MAINPLAYER ENDED" << std::endl;
+
     //måste vi delete unordered map?
     
 }
 
-MainPlayer::MainPlayer(int x, int y, int w, int h, int s, int l): DynamicSprite(x, y, w, h, s), life(l), startPosX(x), startPosY(y), isMoving(false) {
+MainPlayer::MainPlayer(int x, int y, int w, int h, int s, int l): DynamicSprite(x, y, w, h, s), startPosX(x), startPosY(y), isMoving(false), life(l) {
+    if(l < 1)
+        throw std::invalid_argument("Life cannot be initilized to 0 or below.");
     downSurface = IMG_Load("/Users/paulinakekkonen/Pictures/Game/ratFacingFront.png");
     Uint32 dWhite = SDL_MapRGB(downSurface->format, 255, 255, 255);
     SDL_SetColorKey(downSurface, true, dWhite);
