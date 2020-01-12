@@ -2,6 +2,7 @@
 
 void MoveableByKeysSprite::keyDown(SDL_Keycode key) {
     switch(key) {
+            //sparar vilket håll ska röra sig i under tick() (hur rect positionen ska förändras)
         case SDLK_LEFT: directionToMoveIn = LEFT; isMoving = true; break;
         case SDLK_RIGHT: directionToMoveIn = RIGHT; isMoving = true; break;
         case SDLK_DOWN: directionToMoveIn = DOWN; isMoving = true; break;
@@ -35,6 +36,7 @@ int MoveableByKeysSprite::getLifes() const {
     return lifes;
 }
 
+//anropas i tick() om spelaren har flyttat karaktären
 void MoveableByKeysSprite::move() {
     switch(directionToMoveIn) {
         case LEFT: moveLeft(); break;

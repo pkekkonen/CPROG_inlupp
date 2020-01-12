@@ -45,7 +45,7 @@ int main(int argc, char** argv) {
     gameMap[13]= {o,X,o,X,e,o,o,o,o,o,o,o,o,o,o,o,o,o,E,o};
     gameMap[14]= {o,o,o,o,E,X,X,X,X,X,X,X,X,X,X,X,X,X,X,X};
 
-    ses.addSprite(Key::getInstance(17, 5));  //lägger nyckeln först i sprite vectorn så att den ritas ut före enemys så de kan åka över den
+    ses.addSprite(Key::getInstance(17, 5));  //lägger nyckeln först i sprite vectorn så att den ritas ut före enemys så de kan "röra sig över den"
     
     for(int row = 0; row < gameMap.size(); row++)
         for(int col = 0; col < (gameMap[row]).size(); col++)

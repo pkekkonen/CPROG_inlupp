@@ -20,8 +20,8 @@ public:
     TTF_Font* bigFont;
     static const int SQUARE_SIZE = 40;
 private:
-    int width;
-    int height;
+    int widthInSquares;
+    int heightInSquares;
 
 };
 

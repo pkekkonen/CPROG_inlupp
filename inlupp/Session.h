@@ -21,7 +21,7 @@ public:
     void addFunction(SDL_Keycode key, void(*f)() );
     void addMemberFunction(SDL_Keycode key, std::function<void()> memFunction);
     bool isWithinWindow(SDL_Rect* rect);
-    void setBackground(std::string filePath);
+    void setBackground(std::string imagePath);
     void paus();
     bool isPaused() const;
 private:

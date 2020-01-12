@@ -23,8 +23,8 @@ bool Session::isWithinWindow(SDL_Rect *rect) {
            rect->y + rect->h <= sys.getWindowHeight() && rect->y >= 0);
 }
 
-void Session::setBackground(std::string filePath) {
-    background = IMG_LoadTexture(sys.ren, filePath.c_str());
+void Session::setBackground(std::string imagePath) {
+    background = IMG_LoadTexture(sys.ren, imagePath.c_str());
 }
 
 void Session::paus() {
