@@ -2,8 +2,9 @@
 #ifndef Enemy_h
 #define Enemy_h
 
+#include "Session.h"
+#include "Wall.h"
 #include "DynamicSprite.h"
-#include "Game.h"
 
 class Enemy: public DynamicSprite {
 public:

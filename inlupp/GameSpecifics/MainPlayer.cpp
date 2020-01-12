@@ -1,5 +1,4 @@
 #include "MainPlayer.h"
-#include <iostream>
 
 void MainPlayer::keyDown(SDL_Keycode key) {
     switch(key) {
@@ -111,7 +110,6 @@ MainPlayer::~MainPlayer() {
     SDL_FreeSurface(upSurface);
     SDL_FreeSurface(leftSurface);
     SDL_FreeSurface(rightSurface);
-    std::cout<< "MAINPLAYER ENDED" << std::endl;
 
     //måste vi delete unordered map?
     

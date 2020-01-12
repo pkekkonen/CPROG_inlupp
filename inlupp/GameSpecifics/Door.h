@@ -1,8 +1,8 @@
 #ifndef Door_h
 #define Door_h
 
+#include "System.h"
 #include "StaticSprite.h"
-#include "Game.h"
 
 class Door: public StaticSprite {
 public:

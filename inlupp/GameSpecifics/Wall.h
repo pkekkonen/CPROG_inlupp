@@ -2,7 +2,6 @@
 #define Wall_hpp
 
 #include "StaticSprite.h"
-#include "Game.h"
 
 class Wall: public StaticSprite {
 public:

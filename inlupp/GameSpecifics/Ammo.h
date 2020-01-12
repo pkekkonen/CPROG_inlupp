@@ -1,7 +1,6 @@
 #ifndef Ammo_h
 #define Ammo_h
 #include "CollectableSprite.h"
-#include "Game.h"
 
 class Ammo: public CollectableSprite {
 public:

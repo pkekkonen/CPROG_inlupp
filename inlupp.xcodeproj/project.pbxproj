@@ -11,7 +11,6 @@
 		E1373A1C23AA2715005B5E4A /* Collision.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E1373A1B23AA2715005B5E4A /* Collision.cpp */; };
 		E159993323C0FB77005CB8EE /* DynamicSprite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E159993223C0FB77005CB8EE /* DynamicSprite.cpp */; };
 		E159993623C104A8005CB8EE /* CollectableSprite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E159993423C104A8005CB8EE /* CollectableSprite.cpp */; };
-		E159993823C8A38E005CB8EE /* Game.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E159993723C8A38D005CB8EE /* Game.cpp */; };
 		E159993B23C8A7BD005CB8EE /* Bullet.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E159993A23C8A7BD005CB8EE /* Bullet.cpp */; };
 		E159994323C8ACD8005CB8EE /* Enemy.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E159994123C8ACD8005CB8EE /* Enemy.cpp */; };
 		E159994623C8AF50005CB8EE /* Ammo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E159994423C8AF50005CB8EE /* Ammo.cpp */; };
@@ -20,12 +19,12 @@
 		E159995223C9C761005CB8EE /* Label.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E159995123C9C761005CB8EE /* Label.cpp */; };
 		E159995423CA4743005CB8EE /* Door.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E159995323CA4743005CB8EE /* Door.cpp */; };
 		E159995823CA596A005CB8EE /* Key.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E159995723CA596A005CB8EE /* Key.cpp */; };
+		E159995D23CB7EA9005CB8EE /* SDL2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E16E46C623A97AAF006547DD /* SDL2.framework */; };
 		E1670DF8239A5877008A2CA7 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E1670DF7239A5877008A2CA7 /* main.cpp */; };
 		E1670E00239A591D008A2CA7 /* Session.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E1670DFE239A591D008A2CA7 /* Session.cpp */; };
 		E1670E03239A5951008A2CA7 /* System.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E1670E01239A5951008A2CA7 /* System.cpp */; };
 		E1670E10239A6CCA008A2CA7 /* Sprite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E1670E0E239A6CCA008A2CA7 /* Sprite.cpp */; };
 		E16E46C823A97AAF006547DD /* SDL2_ttf.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E16E46C523A97AAF006547DD /* SDL2_ttf.framework */; };
-		E16E46C923A97AAF006547DD /* SDL2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E16E46C623A97AAF006547DD /* SDL2.framework */; };
 		E16E46CA23A97AAF006547DD /* SDL2_image.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E16E46C723A97AAF006547DD /* SDL2_image.framework */; };
 /* End PBXBuildFile section */
 
@@ -51,8 +50,6 @@
 		E159993223C0FB77005CB8EE /* DynamicSprite.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = DynamicSprite.cpp; sourceTree = "<group>"; };
 		E159993423C104A8005CB8EE /* CollectableSprite.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = CollectableSprite.cpp; sourceTree = "<group>"; };
 		E159993523C104A8005CB8EE /* CollectableSprite.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CollectableSprite.h; sourceTree = "<group>"; };
-		E159993723C8A38D005CB8EE /* Game.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Game.cpp; sourceTree = "<group>"; };
-		E159993923C8A3A0005CB8EE /* Game.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Game.h; sourceTree = "<group>"; };
 		E159993A23C8A7BD005CB8EE /* Bullet.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Bullet.cpp; sourceTree = "<group>"; };
 		E159993D23C8A7F2005CB8EE /* Bullet.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Bullet.h; sourceTree = "<group>"; };
 		E159994023C8ACAB005CB8EE /* Enemy.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Enemy.h; sourceTree = "<group>"; };
@@ -89,8 +86,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E159995D23CB7EA9005CB8EE /* SDL2.framework in Frameworks */,
 				E16E46C823A97AAF006547DD /* SDL2_ttf.framework in Frameworks */,
-				E16E46C923A97AAF006547DD /* SDL2.framework in Frameworks */,
 				E16E46CA23A97AAF006547DD /* SDL2_image.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -103,8 +100,6 @@
 			children = (
 				E1373A1D23AA6236005B5E4A /* MainPlayer.h */,
 				E135DAC823AB9FC90075AEDC /* MainPlayer.cpp */,
-				E159993723C8A38D005CB8EE /* Game.cpp */,
-				E159993923C8A3A0005CB8EE /* Game.h */,
 				E159993A23C8A7BD005CB8EE /* Bullet.cpp */,
 				E159993D23C8A7F2005CB8EE /* Bullet.h */,
 				E159994023C8ACAB005CB8EE /* Enemy.h */,
@@ -257,7 +252,6 @@
 				E1670DF8239A5877008A2CA7 /* main.cpp in Sources */,
 				E159994323C8ACD8005CB8EE /* Enemy.cpp in Sources */,
 				E159994F23C8D5A9005CB8EE /* StatusInfo.cpp in Sources */,
-				E159993823C8A38E005CB8EE /* Game.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

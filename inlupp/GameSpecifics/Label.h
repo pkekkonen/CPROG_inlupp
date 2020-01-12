@@ -1,10 +1,10 @@
 #ifndef Label_h
 #define Label_h
 
-#include "StaticSprite.h"
-#include "Game.h"
 #include <string>
-#include <SDL2_ttf/SDL_ttf.h>
+
+#include "StaticSprite.h"
+#include "System.h"
 
 class Label: public StaticSprite {
 public:

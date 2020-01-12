@@ -1,7 +1,5 @@
 
 #include "System.h"
-#include <string>
-#include <iostream>
 
 System::System() {
     SDL_Init(SDL_INIT_EVERYTHING);
@@ -19,7 +17,6 @@ System::~System() {
     SDL_DestroyRenderer(ren);
     SDL_DestroyWindow(win);
     SDL_Quit();
-    std::cout << "system ENDED" << std::endl;
 
 }
 

@@ -18,7 +18,7 @@ protected:
 
 private:
     Sprite(const Sprite& other) = delete;
-    const Sprite& operator=(const Sprite& other) = delete; //TODO: har vi nu gjort det omöjligt att skapa instanser av subklasser icke dynamiskt?
+    const Sprite& operator=(const Sprite& other) = delete;
 };
 
 #endif 

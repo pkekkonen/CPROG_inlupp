@@ -1,13 +1,10 @@
-#include <iostream>
-//#include "Session.h"
-#include "Game.h"
- //se över dessa
+#include "Session.h"
+#include "MainPlayer.h"
+#include "Key.h"
+#include "Ammo.h"
+#include "StatusInfo.h"
 
-
-void addEnemy() {
-    Enemy* e2 = Enemy::getInstance(10, 1, 1, 1, 10, UP);
-    ses.addSprite(e2);
-}
+Session ses;
 
 void pausGame() {
     ses.paus();
@@ -22,7 +19,7 @@ int main(int argc, char** argv) {
     for(int i = 0; i < map.size(); i++)
         map[i].resize(25); //definiera dessa med namn
     
-    MainPlayer* mainP;
+    MainPlayer* mainPlayer;
     
     const int o = 0; //empty square
     const int X = 1; //Wall
@@ -56,22 +53,22 @@ int main(int argc, char** argv) {
                 case X: ses.addSprite(Wall::getInstance(col, row, 1, 1)); break;
                 case E: ses.addSprite(Enemy::getInstance(col, row, 1, 1, 5, LEFT)); break;
                 case e: ses.addSprite(Enemy::getInstance(col, row, 1, 1, 10, DOWN)); break;
-                case m:  mainP = MainPlayer::getInstance(col, row, 1, 1, 40, 5); break;
+                case m:  mainPlayer = MainPlayer::getInstance(col, row, 1, 1, 40, 5); break;
                 case F: ses.addSprite(Door::getInstance(col, row) ); break;
                 case k: ses.addSprite(Key::getInstance(col, row) ); break;
                 case A: ses.addSprite(Ammo::getInstance(col, row) ); break;
             }
         }
     }
-    if(mainP != nullptr)
-        ses.addSprite(mainP);
+    if(mainPlayer != nullptr)
+        ses.addSprite(mainPlayer);
     
 
     StatusInfo* statInfo = StatusInfo::getInstance();
     ses.addSprite(statInfo);
     ses.addMemberFunction(SDLK_s, std::bind(&StatusInfo::show, statInfo));
     ses.addFunction(SDLK_p, pausGame);
-    ses.addMemberFunction(SDLK_a, std::bind(&MainPlayer::shoot, mainP));
+    ses.addMemberFunction(SDLK_a, std::bind(&MainPlayer::shoot, mainPlayer));
 
     ses.run();
     return 0;

@@ -1,11 +1,5 @@
 #include "Session.h"
 
-#include <SDL2/SDL.h>
-#include <SDL2_image/SDL_image.h>
-#include <iterator>
-#include <iostream>
-#include <string>
-#include <iostream>
 #define FPS 60
 
 void Session::addSprite(Sprite* s) {
@@ -114,5 +108,5 @@ Session::~Session() {
     for(Sprite* s: sprites)
         delete s;
     SDL_DestroyTexture(background);
-    std::cout << "SESSION ENDED" << std::endl;
 }
+

@@ -1,9 +1,12 @@
-
 #ifndef StatusInfo_h
 #define StatusInfo_h
+
+#include <string>
+
+#include "System.h"
 #include "StaticSprite.h"
-#include "Game.h"
-#include <SDL2_ttf/SDL_ttf.h>
+#include "MainPlayer.h"
+
 
 class StatusInfo: public StaticSprite {
 public:

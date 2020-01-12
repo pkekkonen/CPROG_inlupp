@@ -1,6 +1,5 @@
 
 #include "Bullet.h"
-#include <iostream>
 
 Bullet* Bullet::getInstance(int x, int y, int speed, Direction dir) {
     return new Bullet(x/System::SQUARE_SIZE, y/System::SQUARE_SIZE, 1, 1, speed, dir);
@@ -44,7 +43,6 @@ void Bullet::tick(std::vector<Sprite*> sprites) {
 
 Bullet::~Bullet() {
     SDL_DestroyTexture(texture);
-    std::cout<< "BULLET ENDED" << std::endl;
 }
 
 Bullet::Bullet(int x, int y, int w, int h, int s, Direction dir): DynamicSprite(x, y, w, h, s), direction(dir) {

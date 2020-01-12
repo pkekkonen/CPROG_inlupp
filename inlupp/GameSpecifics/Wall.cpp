@@ -1,4 +1,6 @@
 #include "Wall.h"
+#include "Collision.h"
+#include "System.h"
 
 Wall* Wall::getInstance(int x, int y, int w, int h) {
     return new Wall(x, y, w, h);

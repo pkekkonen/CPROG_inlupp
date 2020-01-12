@@ -45,7 +45,6 @@ void Enemy::moveInOtherDir() {
 
 Enemy::~Enemy() {
     SDL_DestroyTexture(texture);
-    std::cout << "ENEMY ENDED" << std::endl;
 }
 
 Enemy::Enemy(int x, int y, int w, int h, int s, Direction d): DynamicSprite(x, y, w, h, s) {

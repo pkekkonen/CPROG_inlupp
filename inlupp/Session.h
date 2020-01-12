@@ -1,14 +1,15 @@
 #ifndef Session_h
 #define Session_h
-#include "Sprite.h"
-//#include "MainPlayer.h"
-#include "System.h"
-#include "Collision.h"
-//#include "DynamicSprite.h"
+
+#include <iterator>
 #include <vector>
 #include <unordered_map>
 #include <utility>
 #include <string>
+
+#include "Sprite.h"
+#include "System.h"
+#include "Collision.h"
 
 
 //TODO: göra till klass?

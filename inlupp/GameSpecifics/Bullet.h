@@ -2,8 +2,8 @@
 #define Bullet_h
 #include "DynamicSprite.h"
 #include "Sprite.h"
-#include "Game.h"
-#include "System.h"
+#include "Session.h"
+#include "Collision.h"
 #include "Enemy.h"
 #include "Wall.h"
 

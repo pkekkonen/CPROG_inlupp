@@ -1,4 +1,6 @@
 #include "Ammo.h"
+#include "MainPlayer.h"
+#include "Session.h"
 
 Ammo* Ammo::getInstance(int x, int y) {
     return new Ammo(x, y);
