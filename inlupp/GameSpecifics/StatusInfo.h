@@ -4,7 +4,6 @@
 #include <string>
 
 #include "System.h"
-#include "Sprite.h"
 #include "MainPlayer.h"
 
 
@@ -14,7 +13,7 @@ public:
     void tick(std::vector<Sprite*> sprites);
     ~StatusInfo();
     void draw() const;
-    void show(); //ska vara const
+    void show();
 private:
     StatusInfo();
     SDL_Texture* texture;
