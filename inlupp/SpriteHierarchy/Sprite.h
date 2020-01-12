@@ -12,6 +12,7 @@ public:
     virtual void draw() const = 0;
     virtual void tick(std::vector<Sprite*> sprites) = 0;
     SDL_Rect getRect() const { return rect;}
+    virtual void keyDown(SDL_Keycode key) {}
 protected:
     Sprite(int x, int y, int w, int h);
     SDL_Rect rect;

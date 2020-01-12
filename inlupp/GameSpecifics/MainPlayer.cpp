@@ -1,44 +1,15 @@
 #include "MainPlayer.h"
 
-void MainPlayer::leftKeyDown() {
-    currentlyMoving = Left;
+void MainPlayer::keyDown(SDL_Keycode key) {
+    switch(key) {
+        case SDLK_LEFT: currentlyMoving = Left; break;
+        case SDLK_RIGHT: currentlyMoving = Right; break;
+        case SDLK_DOWN: currentlyMoving = Down; break;
+        case SDLK_UP: currentlyMoving = Up; break;
+    }
     isMoving = true;
 }
 
-void MainPlayer::rightKeyDown() {
-    currentlyMoving = Right;
-    isMoving = true;
-}
-
-void MainPlayer::downKeyDown() {
-    currentlyMoving = Down;
-    isMoving = true;
-}
-
-void MainPlayer::upKeyDown() {
-    currentlyMoving = Up;
-    isMoving = true;
-}
-
-void MainPlayer::leftKeyUp() {
-//    if(currentlyMoving == Left)
-//        isMoving = false;
-}
-
-void MainPlayer::rightKeyUp() {
-//    if(currentlyMoving == Right)
-//        isMoving = false;
-}
-
-void MainPlayer::downKeyUp() {
-//    if(currentlyMoving == Down)
-//        isMoving = false;
-}
-
-void MainPlayer::upKeyUp() {
-//    if(currentlyMoving == Up)
-//        isMoving = false;
-}
 
 
 //returns false if thing is not present

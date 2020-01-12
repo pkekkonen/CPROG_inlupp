@@ -20,14 +20,7 @@ public:
     void shoot();
     
     ~MainPlayer();
-    void leftKeyDown();
-    void rightKeyDown();
-    void downKeyDown();
-    void upKeyDown();
-    void leftKeyUp();
-    void rightKeyUp();
-    void downKeyUp();
-    void upKeyUp();
+    void keyDown(SDL_Keycode key);
     bool hasThing(CollectType c) const;
     void useThing(CollectType c);
     void addToBag(CollectType c);

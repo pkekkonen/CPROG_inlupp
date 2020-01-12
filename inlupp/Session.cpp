@@ -56,45 +56,21 @@ void Session::run() {
             
             
             if(event.type == SDL_KEYDOWN) {
-                switch (event.key.keysym.sym) {
-                    case SDLK_LEFT:
-                        for(Sprite* s: sprites)
-                            if(MainPlayer* m = dynamic_cast<MainPlayer*>(s))
-                                m->leftKeyDown();
-                        
-                        break;
-                    case SDLK_RIGHT:
-                        
-                        for(Sprite* s: sprites)
-                            if(MainPlayer* m = dynamic_cast<MainPlayer*>(s))
-                                m->rightKeyDown();
-                        
-                        break;
-                    case SDLK_UP:
-                        for(Sprite* s: sprites)
-                            if(MainPlayer* m = dynamic_cast<MainPlayer*>(s))
-                                m->upKeyDown();
-                        
-                        break;
-                    case SDLK_DOWN:
-                        for(Sprite* s: sprites)
-                            if(MainPlayer* m = dynamic_cast<MainPlayer*>(s))
-                                m->downKeyDown();
-                        
-                        break;
-                    default:
-                        if(functions.find(event.key.keysym.sym) != functions.end()) {
-                            (functions.at(event.key.keysym.sym))();
-                        }
-                        else if(memberFunctions.find(event.key.keysym.sym) != memberFunctions.end()) {
-                            (memberFunctions.at(event.key.keysym.sym))();
-                            
-                        }
+                
+                //lägg till keyup
+                for(Sprite* s: sprites)
+                    s->keyDown(event.key.keysym.sym);
+                
+                if(functions.find(event.key.keysym.sym) != functions.end()) {
+                    (functions.at(event.key.keysym.sym))();
                 }
-                break;
-            } // keydown switch end
+                else if(memberFunctions.find(event.key.keysym.sym) != memberFunctions.end()) {
+                    (memberFunctions.at(event.key.keysym.sym))();
+                    
+                }
+            }
             
-//            if(event.type == SDL_KEYUP) {
+            //            if(event.type == SDL_KEYUP) {
 //                switch(event.key.keysym.sym) {
 //                    case SDLK_LEFT:
 //                        for(Sprite* s: sprites)
