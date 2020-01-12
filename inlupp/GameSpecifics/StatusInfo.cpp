@@ -31,7 +31,7 @@ void StatusInfo::tick(std::vector<Sprite*> sprites) {
     int keys = 0;
     for(Sprite* s: sprites) {
         if(MainPlayer* m = dynamic_cast<MainPlayer*>(s)) {
-            lifes = m->getLife();
+            lifes = m->getLifes();
             if(m->hasThing(BULLET))
                 bullets = m->getAmountOfCollectable(BULLET);
             if(m->hasThing(KEY))

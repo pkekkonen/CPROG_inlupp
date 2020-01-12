@@ -15,6 +15,8 @@ public:
 protected:
     Sprite(int x, int y, int w, int h);
     SDL_Rect rect;
+    const int startPosX;
+    const int startPosY;
 private:
     Sprite(const Sprite& other) = delete;
     const Sprite& operator=(const Sprite& other) = delete;

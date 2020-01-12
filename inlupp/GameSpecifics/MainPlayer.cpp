@@ -1,61 +1,20 @@
 #include "MainPlayer.h"
 
-void MainPlayer::keyDown(SDL_Keycode key) {
-    switch(key) {
-        case SDLK_LEFT: directionToMoveIn = LEFT; isMoving = true; break;
-        case SDLK_RIGHT: directionToMoveIn = RIGHT; isMoving = true; break;
-        case SDLK_DOWN: directionToMoveIn = DOWN; isMoving = true; break;
-        case SDLK_UP: directionToMoveIn = UP; isMoving = true; break;
-    }
-}
-
-
-bool MainPlayer::hasThing(CollectType c) const{
-    return !(bag.find(c) == bag.end());
-}
-
-void MainPlayer::useThing(CollectType c) {
-    if(--bag[c] == 0)
-        bag.erase(c);
-}
-
-void MainPlayer::addToBag(CollectType c) {
-    bag[c]++;
-}
-
-int MainPlayer::getAmountOfCollectable(CollectType type) const {
-    if(hasThing(type))
-        return bag.at(type);
-    else
-        return 0;
-}
-
-
-int MainPlayer::getLife() const {
-    return life;
-}
-
 void MainPlayer::draw() const{
     SDL_Rect r = getRect();
     SDL_RenderCopy(sys.ren, texture, NULL, &r);
 }
 
 void MainPlayer::tick(std::vector<Sprite*> sprites) {
-    if(isMoving) {
-        switch(directionToMoveIn) {
-            case LEFT: moveLeft(); break;
-            case RIGHT: moveRight(); break;
-            case UP: moveUp(); break;
-            case DOWN: moveDown(); break;
-        }
-    }
+    if(isMoving)
+        move();
     
     isMoving = false;
     
     for(Sprite* s: sprites) {
         if(Collision::collided(getRect(), s->getRect())) {
             if(Enemy* e = dynamic_cast<Enemy*>(s)){
-                if(--life == 0) {
+                if(--lifes == 0) {
                     ses.removeSprite(this);
                     ses.addSprite(Label::getInstance(6, 4, 8, 4, "Game over"));
                 } else {
@@ -88,30 +47,21 @@ void MainPlayer::tick(std::vector<Sprite*> sprites) {
 }
 
 void MainPlayer::shoot() {
-    if(hasThing(BULLET) && life != 0 && !ses.isPaused()) {
+    if(hasThing(BULLET) && lifes != 0 && !ses.isPaused()) {
         useThing(BULLET);
         ses.addSprite(Bullet::getInstance(rect.x/System::SQUARE_SIZE, rect.y/System::SQUARE_SIZE, 20, facing));
     }
 }
-
-void MainPlayer::setToStartPos() {
-    rect.x = startPosX*System::SQUARE_SIZE;
-    rect.y = startPosY*System::SQUARE_SIZE; 
-}
-
 
 MainPlayer::~MainPlayer() {
     SDL_DestroyTexture(texture);
     SDL_FreeSurface(downSurface);
     SDL_FreeSurface(upSurface);
     SDL_FreeSurface(leftSurface);
-    SDL_FreeSurface(rightSurface);
-
-    //måste vi delete unordered map?
-    
+    SDL_FreeSurface(rightSurface);    
 }
 
-MainPlayer::MainPlayer(int x, int y, int w, int h, int s, int l): DynamicSprite(x, y, w, h, s, DOWN), startPosX(x), startPosY(y), isMoving(false), life(l) {
+MainPlayer::MainPlayer(int x, int y, int w, int h, int s, int l): MoveableByKeysSprite(x, y, w, h, s, DOWN, l) {
     if(l < 1)
         throw std::invalid_argument("Life cannot be initilized to 0 or below.");
     
