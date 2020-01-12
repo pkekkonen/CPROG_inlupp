@@ -36,21 +36,21 @@ int main(int argc, char** argv) {
     const int k = 5; //Key
     const int A = 7; //Ammo
 
-    map[0] = {o,o,o,o,X,o,o,o,o,o,o,E,X,E,o,o,o,o,o,o};
-    map[1] = {o,X,X,X,X,X,o,X,X,o,X,X,X,o,X,X,X,m,X,o};
+    map[0] = {o,o,o,m,X,o,o,o,o,o,o,E,X,E,o,o,o,o,o,o};
+    map[1] = {o,X,X,X,X,X,o,X,X,o,X,X,X,o,X,o,X,o,X,o};
     map[2] = {o,o,E,X,A,X,o,e,X,o,o,o,o,E,X,o,X,X,X,o};
-    map[3] = {o,X,X,X,o,X,X,o,X,X,X,o,X,X,X,o,e,X,X,e};
-    map[4] = {o,E,o,X,o,o,X,o,X,o,X,X,X,o,o,e,o,k,X,o};
-    map[5] = {o,X,X,X,e,X,X,o,X,o,o,E,o,o,X,o,o,X,X,o};
-    map[6] = {E,o,o,X,o,X,o,o,X,o,X,o,o,o,X,X,X,X,o,o};
-    map[7] = {o,o,X,X,o,X,X,o,X,o,X,o,X,X,X,e,X,o,X,o};
+    map[3] = {o,X,X,X,o,X,X,o,X,X,X,o,X,X,X,o,e,X,o,e};
+    map[4] = {o,E,o,X,o,o,X,o,X,o,X,X,X,o,o,e,o,X,X,o};
+    map[5] = {o,X,X,X,e,X,X,o,X,o,E,o,o,o,o,o,o,k,X,o};
+    map[6] = {E,o,o,X,o,X,o,o,X,o,X,o,o,o,X,X,X,X,X,o};
+    map[7] = {o,o,X,X,o,X,X,o,X,e,X,o,X,X,X,e,X,o,X,o};
     map[8] = {X,o,o,o,o,o,X,o,X,o,X,X,X,o,X,o,X,e,X,o};
-    map[9] = {X,X,X,X,X,o,X,o,X,e,o,o,o,o,o,o,E,o,o,o};
+    map[9] = {X,X,X,X,X,o,X,o,X,o,o,o,o,o,o,o,E,o,o,o};
     map[10]= {o,o,o,o,o,E,X,o,X,o,X,X,X,X,X,X,X,X,X,X};
-    map[11]= {o,X,o,X,o,X,X,o,X,o,X,o,X,o,X,e,X,F,o,o};
-    map[12]= {o,X,X,X,o,o,X,o,X,X,X,o,X,e,o,o,X,X,X,o};
-    map[13]= {o,X,o,X,e,o,o,o,o,o,o,e,o,o,o,o,o,o,E,o};
-    map[14]= {o,o,o,o,o,X,X,X,X,X,X,X,X,X,X,X,X,X,X,X};
+    map[11]= {o,X,o,X,o,X,X,o,X,o,X,o,X,o,X,o,X,o,X,F};
+    map[12]= {o,X,X,X,o,o,X,o,X,X,X,e,X,e,o,e,X,e,X,o};
+    map[13]= {o,X,o,X,e,o,o,o,o,o,o,o,o,o,o,o,o,o,E,o};
+    map[14]= {o,o,o,o,E,X,X,X,X,X,X,X,X,X,X,X,X,X,X,X};
 
 
     for(int row = 0; row < map.size(); row++) {

@@ -54,9 +54,6 @@ void Session::run() {
             if(event.type== SDL_QUIT)
                 quit = true;
             
-            if(keys == 0)
-                std::cout<< std::to_string(counter++)<< std::endl;
-            
             if(event.type == SDL_KEYDOWN) {
                 
                 //lägg till keyup

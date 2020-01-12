@@ -19,6 +19,10 @@ void Key::tick(std::vector<Sprite*> sprites) {
 }
 
 Key::Key(int x, int y): CollectableSprite(x, y, 1, 1, KEY) {
-    texture = IMG_LoadTexture(sys.ren, "/Users/paulinakekkonen/Pictures/Game/key.jpeg");
+    SDL_Surface* surf = IMG_Load("/Users/paulinakekkonen/Pictures/Game/key.jpeg");
+    Uint32 white = SDL_MapRGB(surf->format, 255, 255, 255);
+    SDL_SetColorKey(surf, true, white);
+    texture = SDL_CreateTextureFromSurface(sys.ren, surf);
+    SDL_FreeSurface(surf);
     
 }

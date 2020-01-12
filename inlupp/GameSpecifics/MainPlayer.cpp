@@ -2,12 +2,11 @@
 
 void MainPlayer::keyDown(SDL_Keycode key) {
     switch(key) {
-        case SDLK_LEFT: directionToMoveIn = Left; break;
-        case SDLK_RIGHT: directionToMoveIn = Right; break;
-        case SDLK_DOWN: directionToMoveIn = Down; break;
-        case SDLK_UP: directionToMoveIn = Up; break;
+        case SDLK_LEFT: directionToMoveIn = Left; isMoving = true; break;
+        case SDLK_RIGHT: directionToMoveIn = Right; isMoving = true; break;
+        case SDLK_DOWN: directionToMoveIn = Down; isMoving = true; break;
+        case SDLK_UP: directionToMoveIn = Up; isMoving = true; break;
     }
-    isMoving = true;
 }
 
 

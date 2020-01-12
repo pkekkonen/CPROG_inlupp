@@ -1,6 +1,8 @@
 #include "StatusInfo.h"
 #include <string>
 
+//TODO: se till att iostream är borta
+
 //TODO: ändra nedan så att man använder konstanter för fönstrets storlek
 StatusInfo::StatusInfo(): StaticSprite(18, 0, 2, 1), isShowing(false){
     SDL_Surface* surf = TTF_RenderText_Solid(sys.smallFont, "", {0,0,0});
