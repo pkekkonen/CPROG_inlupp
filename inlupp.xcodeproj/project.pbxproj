@@ -13,13 +13,14 @@
 		E159993623C104A8005CB8EE /* CollectableSprite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E159993423C104A8005CB8EE /* CollectableSprite.cpp */; };
 		E159993823C8A38E005CB8EE /* Game.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E159993723C8A38D005CB8EE /* Game.cpp */; };
 		E159993B23C8A7BD005CB8EE /* Bullet.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E159993A23C8A7BD005CB8EE /* Bullet.cpp */; };
-		E159994323C8ACD8005CB8EE /* Enemy.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E159994123C8ACD8005CB8EE /* Enemy.cpp */; };
+		E159994323C8ACD8005CB8EE /* AutoDynamicSprite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E159994123C8ACD8005CB8EE /* AutoDynamicSprite.cpp */; };
 		E159994623C8AF50005CB8EE /* Ammo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E159994423C8AF50005CB8EE /* Ammo.cpp */; };
 		E159994923C8B0C1005CB8EE /* Wall.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E159994723C8B0C0005CB8EE /* Wall.cpp */; };
 		E159994F23C8D5A9005CB8EE /* StatusInfo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E159994D23C8D5A9005CB8EE /* StatusInfo.cpp */; };
 		E159995223C9C761005CB8EE /* Label.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E159995123C9C761005CB8EE /* Label.cpp */; };
 		E159995423CA4743005CB8EE /* Door.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E159995323CA4743005CB8EE /* Door.cpp */; };
 		E159995823CA596A005CB8EE /* Key.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E159995723CA596A005CB8EE /* Key.cpp */; };
+		E159995B23CB2F22005CB8EE /* Enemy.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E159995923CB2F22005CB8EE /* Enemy.cpp */; };
 		E1670DF8239A5877008A2CA7 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E1670DF7239A5877008A2CA7 /* main.cpp */; };
 		E1670E00239A591D008A2CA7 /* Session.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E1670DFE239A591D008A2CA7 /* Session.cpp */; };
 		E1670E03239A5951008A2CA7 /* System.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E1670E01239A5951008A2CA7 /* System.cpp */; };
@@ -55,8 +56,8 @@
 		E159993923C8A3A0005CB8EE /* Game.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Game.h; sourceTree = "<group>"; };
 		E159993A23C8A7BD005CB8EE /* Bullet.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Bullet.cpp; sourceTree = "<group>"; };
 		E159993D23C8A7F2005CB8EE /* Bullet.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Bullet.h; sourceTree = "<group>"; };
-		E159994023C8ACAB005CB8EE /* Enemy.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Enemy.h; sourceTree = "<group>"; };
-		E159994123C8ACD8005CB8EE /* Enemy.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Enemy.cpp; sourceTree = "<group>"; };
+		E159994023C8ACAB005CB8EE /* AutoDynamicSprite.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AutoDynamicSprite.h; sourceTree = "<group>"; };
+		E159994123C8ACD8005CB8EE /* AutoDynamicSprite.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = AutoDynamicSprite.cpp; sourceTree = "<group>"; };
 		E159994423C8AF50005CB8EE /* Ammo.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Ammo.cpp; sourceTree = "<group>"; };
 		E159994523C8AF50005CB8EE /* Ammo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Ammo.h; sourceTree = "<group>"; };
 		E159994723C8B0C0005CB8EE /* Wall.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Wall.cpp; sourceTree = "<group>"; };
@@ -69,6 +70,8 @@
 		E159995523CA475C005CB8EE /* Door.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Door.h; sourceTree = "<group>"; };
 		E159995623CA5952005CB8EE /* Key.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Key.h; sourceTree = "<group>"; };
 		E159995723CA596A005CB8EE /* Key.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Key.cpp; sourceTree = "<group>"; };
+		E159995923CB2F22005CB8EE /* Enemy.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Enemy.cpp; sourceTree = "<group>"; };
+		E159995A23CB2F22005CB8EE /* Enemy.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Enemy.h; sourceTree = "<group>"; };
 		E1670DF4239A5877008A2CA7 /* inlupp */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = inlupp; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1670DF7239A5877008A2CA7 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		E1670DFE239A591D008A2CA7 /* Session.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Session.cpp; sourceTree = "<group>"; };
@@ -100,14 +103,14 @@
 		E159994B23C8BA1D005CB8EE /* GameSpecifics */ = {
 			isa = PBXGroup;
 			children = (
+				E159995923CB2F22005CB8EE /* Enemy.cpp */,
+				E159995A23CB2F22005CB8EE /* Enemy.h */,
 				E1373A1D23AA6236005B5E4A /* MainPlayer.h */,
 				E135DAC823AB9FC90075AEDC /* MainPlayer.cpp */,
 				E159993723C8A38D005CB8EE /* Game.cpp */,
 				E159993923C8A3A0005CB8EE /* Game.h */,
 				E159993A23C8A7BD005CB8EE /* Bullet.cpp */,
 				E159993D23C8A7F2005CB8EE /* Bullet.h */,
-				E159994023C8ACAB005CB8EE /* Enemy.h */,
-				E159994123C8ACD8005CB8EE /* Enemy.cpp */,
 				E159994423C8AF50005CB8EE /* Ammo.cpp */,
 				E159994523C8AF50005CB8EE /* Ammo.h */,
 				E159995623CA5952005CB8EE /* Key.h */,
@@ -134,6 +137,8 @@
 				E159993223C0FB77005CB8EE /* DynamicSprite.cpp */,
 				E159993423C104A8005CB8EE /* CollectableSprite.cpp */,
 				E159993523C104A8005CB8EE /* CollectableSprite.h */,
+				E159994023C8ACAB005CB8EE /* AutoDynamicSprite.h */,
+				E159994123C8ACD8005CB8EE /* AutoDynamicSprite.cpp */,
 			);
 			path = SpriteHierarchy;
 			sourceTree = "<group>";
@@ -251,9 +256,10 @@
 				E1670E00239A591D008A2CA7 /* Session.cpp in Sources */,
 				E1373A1C23AA2715005B5E4A /* Collision.cpp in Sources */,
 				E159995423CA4743005CB8EE /* Door.cpp in Sources */,
+				E159995B23CB2F22005CB8EE /* Enemy.cpp in Sources */,
 				E159995823CA596A005CB8EE /* Key.cpp in Sources */,
 				E1670DF8239A5877008A2CA7 /* main.cpp in Sources */,
-				E159994323C8ACD8005CB8EE /* Enemy.cpp in Sources */,
+				E159994323C8ACD8005CB8EE /* AutoDynamicSprite.cpp in Sources */,
 				E159994F23C8D5A9005CB8EE /* StatusInfo.cpp in Sources */,
 				E159993823C8A38E005CB8EE /* Game.cpp in Sources */,
 			);

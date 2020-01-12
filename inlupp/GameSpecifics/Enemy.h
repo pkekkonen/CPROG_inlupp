@@ -1,27 +1,16 @@
 
 #ifndef Enemy_h
 #define Enemy_h
+#include "AutoDynamicSprite.h"
 
-#include "DynamicSprite.h"
-#include "Game.h"
-
-class Enemy: public DynamicSprite {
+class Enemy: public AutoDynamicSprite {
 public:
-    static Enemy* getInstance(int x, int y, int width, int height, int speed, Direction d);
     void draw() const;
     void tick(std::vector<Sprite*> sprites);
-    
-    ~Enemy();
-    
 private:
     Enemy(int x, int y, int w, int h, int s, Direction d);
-    int counter = 0;
     SDL_Texture* texture;
-    int left;
-    int right;
-    void moveInOtherDir();
+    int counter = 0;
+}
 
-};
-
-
-#endif /* Enemy_h */
+#endif
