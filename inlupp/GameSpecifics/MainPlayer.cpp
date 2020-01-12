@@ -92,7 +92,7 @@ void MainPlayer::tick(std::vector<Sprite*> sprites) {
 }
 
 void MainPlayer::shoot() {
-    if(this->hasThing(BULLET)) {
+    if(this->hasThing(BULLET) && life != 0) {
         useThing(BULLET);
         ses.addSprite(Bullet::getInstance(rect.x, rect.y, 20, getFacing()));
     }

@@ -1,6 +1,7 @@
 #include "Session.h"
 
 #include <SDL2/SDL.h>
+#include <SDL2_image/SDL_image.h>
 #include <iterator>
 #include <iostream>
 #include <string>
@@ -34,10 +35,12 @@ void Session::setBackground(std::string filePath) {
     background = IMG_LoadTexture(sys.ren, filePath.c_str());
 }
 
+void Session::paus() {
+    isPaused = isPaused? false: true;
+}
 
 void Session::run() {
     bool quit = false;
-    int counter = 0;
     
     const int tickInterval = 1000 / FPS;
     Uint32 nextTick;
@@ -45,83 +48,31 @@ void Session::run() {
     
     while(!quit) {
         
-        
-        
         nextTick = SDL_GetTicks() + tickInterval;
-        const Uint8 *keys = SDL_GetKeyboardState(NULL);
         SDL_Event event;
         while(SDL_PollEvent(&event)) {
-            if(event.type== SDL_QUIT)
-                quit = true;
-            
-            if(event.type == SDL_KEYDOWN) {
-                
-                //lägg till keyup
-                for(Sprite* s: sprites)
-                    s->keyDown(event.key.keysym.sym);
-                
-                if(functions.find(event.key.keysym.sym) != functions.end()) {
-                    (functions.at(event.key.keysym.sym))();
-                }
-                if(memberFunctions.find(event.key.keysym.sym) != memberFunctions.end()) {
-                    (memberFunctions.at(event.key.keysym.sym))();
+            switch(event.type) {
+                case SDL_QUIT: quit = true; break;
+                case SDL_KEYDOWN:
                     
-                }
+                    if(!isPaused)
+                        for(Sprite* s: sprites)
+                            s->keyDown(event.key.keysym.sym);
+                    
+                    if(functions.find(event.key.keysym.sym) != functions.end()) {
+                        (functions.at(event.key.keysym.sym))();
+                    }
+                    if(!isPaused)
+                        if(memberFunctions.find(event.key.keysym.sym) != memberFunctions.end()) {
+                        (memberFunctions.at(event.key.keysym.sym))();
+                        
+                    }
             }
-            
-            //            if(event.type == SDL_KEYUP) {
-//                switch(event.key.keysym.sym) {
-//                    case SDLK_LEFT:
-//                        for(Sprite* s: sprites)
-//                            if(MainPlayer* m = dynamic_cast<MainPlayer*>(s))
-//                                m->leftKeyUp(); std::cout<< std::to_string(counter++)<< std::endl; break;
-//                    case SDLK_RIGHT:                             for(Sprite* s: sprites)
-//                        if(MainPlayer* m = dynamic_cast<MainPlayer*>(s))
-//                            m->rightKeyUp(); break;
-//                    case SDLK_UP:                             for(Sprite* s: sprites)
-//                        if(MainPlayer* m = dynamic_cast<MainPlayer*>(s))
-//                            m->upKeyUp(); break;
-//                    case SDLK_DOWN:                             for(Sprite* s: sprites)
-//                        if(MainPlayer* m = dynamic_cast<MainPlayer*>(s))
-//                            m->downKeyUp(); break;
-//                }
-//            }
+        }// inre while
         
-//            if (keys[SDL_SCANCODE_LEFT] && keys[SDL_SCANCODE_DOWN]){
-//                for(Sprite* s: sprites)
-//                    if(MainPlayer* m = dynamic_cast<MainPlayer*>(s))
-//                        m->leftAndDownKey();
-//            }
-//            else if (keys[SDL_SCANCODE_RIGHT] && keys[SDL_SCANCODE_DOWN]){
-//                for(Sprite* s: sprites)
-//                    if(MainPlayer* m = dynamic_cast<MainPlayer*>(s))
-//                        m->rightAndDownKey();
-//            }
-//            else if (keys[SDL_SCANCODE_LEFT]){
-//                for(Sprite* s: sprites)
-//                    if(MainPlayer* m = dynamic_cast<MainPlayer*>(s))
-//                        m->leftKeyDown();
-//            }
-//            else if (keys[SDL_SCANCODE_RIGHT]){
-//                for(Sprite* s: sprites)
-//                    if(MainPlayer* m = dynamic_cast<MainPlayer*>(s))
-//                        m->rightKeyDown();
-//            }
-//            else if (keys[SDL_SCANCODE_UP]){
-//                for(Sprite* s: sprites)
-//                    if(MainPlayer* m = dynamic_cast<MainPlayer*>(s))
-//                        m->upKeyDown();
-//            }
-//            else if (keys[SDL_SCANCODE_DOWN]){
-//                for(Sprite* s: sprites)
-//                    if(MainPlayer* m = dynamic_cast<MainPlayer*>(s))
-//                        m->downKeyDown();
-//            }
-
-        } // inre while
-        
-        for(Sprite* s: sprites)
-            s -> tick(sprites);
+        if(!isPaused)
+            for(Sprite* s: sprites)
+                s -> tick(sprites);
         
         for(Sprite* s: addedSprites)
             sprites.push_back(s);

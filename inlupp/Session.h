@@ -1,7 +1,7 @@
 #ifndef Session_h
 #define Session_h
 #include "Sprite.h"
-#include "MainPlayer.h"
+//#include "MainPlayer.h"
 #include "System.h"
 #include "Collision.h"
 //#include "DynamicSprite.h"
@@ -23,12 +23,14 @@ struct Session {
     bool isWithinWindow(SDL_Rect* rect);
     static const int SQUARE_SIZE = 40;
     void setBackground(std::string filePath);
+    void paus();
 private:
     std::vector<Sprite*> sprites; //TODO: måste städas bort?
     std::vector<Sprite*> addedSprites, removedSprites;
     std::unordered_map<SDL_Keycode, void (*)()> functions; //ska funktionerna anropas med den key som tryckts ner? Kaka på kaka?
     std::unordered_map<SDL_Keycode,std::function<void()>> memberFunctions;
     SDL_Texture* background;
+    bool isPaused = false;
 };
 
 extern Session ses;

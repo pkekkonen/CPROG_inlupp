@@ -16,6 +16,10 @@ void addMainPlayer() {
     ses.addMemberFunction(SDLK_a, std::bind(&MainPlayer::shoot, m));
 }
 
+void pausGame() {
+    ses.paus();
+}
+
 
 int main(int argc, char** argv) {
    // ses.setBackground("/Users/paulinakekkonen/Pictures/Game/background.jpeg");
@@ -47,8 +51,8 @@ int main(int argc, char** argv) {
     map[8] = {X,o,o,o,o,o,X,o,X,o,X,X,X,o,X,o,X,e,X,o};
     map[9] = {X,X,X,X,X,o,X,o,X,o,o,o,o,o,o,o,E,o,o,o};
     map[10]= {o,o,o,o,o,E,X,o,X,o,X,X,X,X,X,X,X,X,X,X};
-    map[11]= {o,X,o,X,o,X,X,o,X,o,X,o,X,o,X,o,X,o,X,F};
-    map[12]= {o,X,X,X,o,o,X,o,X,X,X,e,X,e,o,e,X,e,X,o};
+    map[11]= {o,X,o,X,o,o,X,o,X,o,X,o,X,o,X,o,X,o,X,F};
+    map[12]= {o,X,X,X,o,X,X,o,X,X,X,e,X,e,o,e,X,e,X,o};
     map[13]= {o,X,o,X,e,o,o,o,o,o,o,o,o,o,o,o,o,o,E,o};
     map[14]= {o,o,o,o,E,X,X,X,X,X,X,X,X,X,X,X,X,X,X,X};
 
@@ -59,7 +63,7 @@ int main(int argc, char** argv) {
                 case X: ses.addSprite(Wall::getInstance(col, row, 1, 1)); break;
                 case E: ses.addSprite(Enemy::getInstance(col, row, 1, 1, 5, Left)); break;
                 case e: ses.addSprite(Enemy::getInstance(col, row, 1, 1, 10, Down)); break;
-                case m:  mainP = MainPlayer::getInstance(col, row, 1, 1, 40, 3); break;
+                case m:  mainP = MainPlayer::getInstance(col, row, 1, 1, 40, 5); break;
                 case F: ses.addSprite(Door::getInstance(col, row) ); break;
                 case k: ses.addSprite(Key::getInstance(col, row) ); break;
                 case A: ses.addSprite(Ammo::getInstance(col, row) ); break;
@@ -68,17 +72,12 @@ int main(int argc, char** argv) {
     }
     if(mainP != nullptr)
         ses.addSprite(mainP);
-    
-//    Enemy* e1 = Enemy::getInstance(0, 0, 1, 1, 10, Right);
-//    ses.addFunction(SDLK_t, addEnemy);
-//    ses.addFunction(SDLK_n, addMainPlayer);
-   // ses.addFunction(SDLK_s, showStatusInfo);
+
     StatusInfo* statInfo = StatusInfo::getInstance();
     ses.addMemberFunction(SDLK_s, std::bind(&StatusInfo::show, statInfo));
+    ses.addFunction(SDLK_p, pausGame);
     ses.addMemberFunction(SDLK_a, std::bind(&MainPlayer::shoot, mainP));
 
-
-//    ses.addSprite(e1);
 
     ses.run();
     return 0;

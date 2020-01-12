@@ -69,6 +69,7 @@
 		E159995523CA475C005CB8EE /* Door.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Door.h; sourceTree = "<group>"; };
 		E159995623CA5952005CB8EE /* Key.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Key.h; sourceTree = "<group>"; };
 		E159995723CA596A005CB8EE /* Key.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Key.cpp; sourceTree = "<group>"; };
+		E159995C23CB4EED005CB8EE /* README.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
 		E1670DF4239A5877008A2CA7 /* inlupp */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = inlupp; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1670DF7239A5877008A2CA7 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		E1670DFE239A591D008A2CA7 /* Session.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Session.cpp; sourceTree = "<group>"; };
@@ -142,6 +143,7 @@
 			isa = PBXGroup;
 			children = (
 				E16E46C423A9562D006547DD /* Ideas.txt */,
+				E159995C23CB4EED005CB8EE /* README.txt */,
 				E1670DF6239A5877008A2CA7 /* inlupp */,
 				E1670DF5239A5877008A2CA7 /* Products */,
 				E1670E07239A5CA0008A2CA7 /* Frameworks */,

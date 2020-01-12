@@ -11,6 +11,7 @@
 #include "DynamicSprite.h"
 #include "CollectableSprite.h"
 #include "Ammo.h"
+#include "MainPlayer.h"
 #include "Wall.h"
 #include "Enemy.h"
 #include "Bullet.h"
