@@ -18,7 +18,7 @@ public:
     int getWindowWidthInSquares() const;
     TTF_Font* smallFont;
     TTF_Font* bigFont;
-    const int SQUARE_SIZE = 40;
+    static const int SQUARE_SIZE = 40;
 private:
     int width;
     int height;

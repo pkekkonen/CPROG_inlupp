@@ -19,7 +19,6 @@ private:
     Bullet(int x, int y, int w, int h, int s, Direction dir);
     int counter = 0; //TODO: Ta reda på vad den här gör
     SDL_Texture* texture;
-    Direction direction;
 };
 
 #endif /* Bullet_h */

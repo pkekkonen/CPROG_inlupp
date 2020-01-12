@@ -13,7 +13,7 @@ void Enemy::draw() const{
 void Enemy::tick(std::vector<Sprite*> sprites) {
     counter++; //kan ta bort????
     if(counter % 5 == 0) {
-        switch (getFacing()) {
+        switch (facing) {
             case UP: moveUp();break;
             case DOWN: moveDown();break;
             case LEFT: moveLeft();break;
@@ -33,7 +33,7 @@ void Enemy::tick(std::vector<Sprite*> sprites) {
 void Enemy::moveInOtherDir() {
     setToPrevPos();
     
-    switch (getFacing()) {
+    switch (facing) {
         case UP: moveDown(); break;
         case DOWN: moveUp(); break;
         case LEFT: moveRight(); break;
@@ -47,12 +47,10 @@ Enemy::~Enemy() {
     SDL_DestroyTexture(texture);
 }
 
-Enemy::Enemy(int x, int y, int w, int h, int s, Direction d): DynamicSprite(x, y, w, h, s) {
+Enemy::Enemy(int x, int y, int w, int h, int s, Direction d): DynamicSprite(x, y, w, h, s, d) {
     SDL_Surface* surf = IMG_Load("/Users/paulinakekkonen/Pictures/Game/downBtn.jpeg");
     Uint32 white = SDL_MapRGB(surf->format, 255, 255, 255);
     SDL_SetColorKey(surf, true, white);
     texture = SDL_CreateTextureFromSurface(sys.ren, surf);
     SDL_FreeSurface(surf);
-    
-    setFacing(d);
 }

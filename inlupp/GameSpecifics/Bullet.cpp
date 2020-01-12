@@ -14,7 +14,7 @@ void Bullet::draw() const{
 void Bullet::tick(std::vector<Sprite*> sprites) {
     counter++;
     if(counter % 5 == 0) {
-        switch(direction) {
+        switch(facing) {
             case UP: rect.y -= getSpeed(); break;
             case RIGHT: rect.x += getSpeed(); break;
             case DOWN: rect.y += getSpeed(); break;
@@ -45,6 +45,6 @@ Bullet::~Bullet() {
     SDL_DestroyTexture(texture);
 }
 
-Bullet::Bullet(int x, int y, int w, int h, int s, Direction dir): DynamicSprite(x, y, w, h, s), direction(dir) {
+Bullet::Bullet(int x, int y, int w, int h, int s, Direction dir): DynamicSprite(x, y, w, h, s, dir) {
     texture = IMG_LoadTexture(sys.ren, "/Users/paulinakekkonen/Pictures/Game/downBtn.jpeg");
 }

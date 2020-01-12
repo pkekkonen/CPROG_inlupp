@@ -8,8 +8,7 @@ class DynamicSprite: public Sprite {
 public:
     virtual ~DynamicSprite() {}
     int const getSpeed() {return speed;}
-    Direction getFacing() const {return facing;} //inte implementera i header?
-    //behövs getFacing?
+
     void moveRight();
     void moveLeft();
     void moveUp();
@@ -18,14 +17,12 @@ public:
     void moveDownAndLeft();
 private:
     int speed;
-    Direction facing;
-
 protected:
     int prevX;
     int prevY; //move to private TODO:
     void setToPrevPos();
-    DynamicSprite(int x, int y, int w, int h, int s);
-    void setFacing(Direction f) {facing = f; } //ändra så ej set finns?
+    DynamicSprite(int x, int y, int w, int h, int s, Direction direction);
+    Direction facing;
 
 };
 #endif /* DynamicSprite_h */

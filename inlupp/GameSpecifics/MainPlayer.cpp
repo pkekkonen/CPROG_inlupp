@@ -82,7 +82,7 @@ void MainPlayer::tick(std::vector<Sprite*> sprites) {
     if(!ses.isWithinWindow(&rect))
         setToPrevPos();
     
-    switch(getFacing()) {
+    switch(facing) {
         case UP: texture = SDL_CreateTextureFromSurface(sys.ren, upSurface); break;
         case DOWN: texture = SDL_CreateTextureFromSurface(sys.ren, downSurface); break;
         case LEFT: texture = SDL_CreateTextureFromSurface(sys.ren, leftSurface); break;
@@ -93,7 +93,7 @@ void MainPlayer::tick(std::vector<Sprite*> sprites) {
 void MainPlayer::shoot() {
     if(hasThing(BULLET) && life != 0 && !ses.isPaused()) {
         useThing(BULLET);
-        ses.addSprite(Bullet::getInstance(rect.x, rect.y, 20, getFacing()));
+        ses.addSprite(Bullet::getInstance(rect.x, rect.y, 20, facing));
     }
 }
 
@@ -114,7 +114,7 @@ MainPlayer::~MainPlayer() {
     
 }
 
-MainPlayer::MainPlayer(int x, int y, int w, int h, int s, int l): DynamicSprite(x, y, w, h, s), startPosX(x), startPosY(y), isMoving(false), life(l) {
+MainPlayer::MainPlayer(int x, int y, int w, int h, int s, int l): DynamicSprite(x, y, w, h, s, DOWN), startPosX(x), startPosY(y), isMoving(false), life(l) {
     if(l < 1)
         throw std::invalid_argument("Life cannot be initilized to 0 or below.");
     downSurface = IMG_Load("/Users/paulinakekkonen/Pictures/Game/ratFacingFront.png");
