@@ -48,12 +48,14 @@ void Session::run() {
         
         
         nextTick = SDL_GetTicks() + tickInterval;
-        //        const Uint8 *keys = SDL_GetKeyboardState(NULL);
+        const Uint8 *keys = SDL_GetKeyboardState(NULL);
         SDL_Event event;
         while(SDL_PollEvent(&event)) {
             if(event.type== SDL_QUIT)
                 quit = true;
             
+            if(keys == 0)
+                std::cout<< std::to_string(counter++)<< std::endl;
             
             if(event.type == SDL_KEYDOWN) {
                 
@@ -64,7 +66,7 @@ void Session::run() {
                 if(functions.find(event.key.keysym.sym) != functions.end()) {
                     (functions.at(event.key.keysym.sym))();
                 }
-                else if(memberFunctions.find(event.key.keysym.sym) != memberFunctions.end()) {
+                if(memberFunctions.find(event.key.keysym.sym) != memberFunctions.end()) {
                     (memberFunctions.at(event.key.keysym.sym))();
                     
                 }

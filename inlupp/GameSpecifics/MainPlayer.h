@@ -38,7 +38,7 @@ private:
     SDL_Surface* rightSurface;
     SDL_Surface* leftSurface;
     void setToStartPos();
-    Direction currentlyMoving;
+    Direction directionToMoveIn;
     bool isMoving;
 };
 

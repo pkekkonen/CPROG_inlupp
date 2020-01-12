@@ -2,10 +2,10 @@
 
 void MainPlayer::keyDown(SDL_Keycode key) {
     switch(key) {
-        case SDLK_LEFT: currentlyMoving = Left; break;
-        case SDLK_RIGHT: currentlyMoving = Right; break;
-        case SDLK_DOWN: currentlyMoving = Down; break;
-        case SDLK_UP: currentlyMoving = Up; break;
+        case SDLK_LEFT: directionToMoveIn = Left; break;
+        case SDLK_RIGHT: directionToMoveIn = Right; break;
+        case SDLK_DOWN: directionToMoveIn = Down; break;
+        case SDLK_UP: directionToMoveIn = Up; break;
     }
     isMoving = true;
 }
@@ -46,7 +46,7 @@ void MainPlayer::draw() const{
 
 void MainPlayer::tick(std::vector<Sprite*> sprites) {
     if(isMoving) {
-        switch(currentlyMoving) {
+        switch(directionToMoveIn) {
             case Left: moveLeft(); break;
             case Right: moveRight(); break;
             case Up: moveUp(); break;

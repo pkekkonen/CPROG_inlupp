@@ -22,9 +22,12 @@ void Enemy::tick(std::vector<Sprite*> sprites) {
     }
     for(Sprite* s: sprites)
         if(Collision::collided(s->getRect(), getRect()))
-            if(Wall* w = dynamic_cast<Wall*>(s))
-                moveInOtherDir();
-    
+            if(Wall* w = dynamic_cast<Wall*>(s)) {
+                moveInOtherDir(); }
+//            } else if(Enemy* e = dynamic_cast<Enemy*>(s)) {
+//                if(this != e)
+//                    moveInOtherDir();
+//            }
     if(!ses.isWithinWindow(&rect))
         moveInOtherDir();
 }
