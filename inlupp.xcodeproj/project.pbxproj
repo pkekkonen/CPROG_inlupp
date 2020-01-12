@@ -128,11 +128,11 @@
 		E159994C23C8BAF6005CB8EE /* SpriteHierarchy */ = {
 			isa = PBXGroup;
 			children = (
-				E1670E0E239A6CCA008A2CA7 /* Sprite.cpp */,
 				E1670E0F239A6CCA008A2CA7 /* Sprite.h */,
-				E1373A1E23AA7256005B5E4A /* DynamicSprite.h */,
+				E1670E0E239A6CCA008A2CA7 /* Sprite.cpp */,
 				E159995E23CBAF24005CB8EE /* StaticSprite.h */,
 				E159995F23CBAFE7005CB8EE /* StaticSprite.cpp */,
+				E1373A1E23AA7256005B5E4A /* DynamicSprite.h */,
 				E159993223C0FB77005CB8EE /* DynamicSprite.cpp */,
 				E159993423C104A8005CB8EE /* CollectableSprite.cpp */,
 				E159993523C104A8005CB8EE /* CollectableSprite.h */,

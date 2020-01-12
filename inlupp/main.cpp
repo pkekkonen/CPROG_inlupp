@@ -34,7 +34,7 @@ int main(int argc, char** argv) {
     gameMap[2] = {o,o,E,X,A,X,o,e,X,o,o,o,o,E,X,o,X,X,X,o};
     gameMap[3] = {o,X,X,X,o,X,X,o,X,X,X,o,X,X,X,o,e,X,o,e};
     gameMap[4] = {o,E,o,X,o,o,X,o,X,o,X,X,X,o,o,e,o,X,X,o};
-    gameMap[5] = {o,X,X,X,e,X,X,o,X,o,E,o,o,o,o,o,o,k,X,o};
+    gameMap[5] = {o,X,X,X,e,X,X,o,X,o,E,o,o,o,o,o,o,o,X,o};
     gameMap[6] = {E,o,o,X,o,X,o,o,X,o,X,o,o,o,X,X,X,X,X,o};
     gameMap[7] = {o,o,X,X,o,X,X,o,X,e,X,o,X,X,X,e,X,o,X,o};
     gameMap[8] = {X,o,o,o,o,o,X,o,X,o,X,X,X,o,X,o,X,e,X,o};
@@ -45,7 +45,8 @@ int main(int argc, char** argv) {
     gameMap[13]= {o,X,o,X,e,o,o,o,o,o,o,o,o,o,o,o,o,o,E,o};
     gameMap[14]= {o,o,o,o,E,X,X,X,X,X,X,X,X,X,X,X,X,X,X,X};
 
-
+    ses.addSprite(Key::getInstance(17, 5));  //lägger nyckeln först i sprite vectorn så att den ritas ut före enemys så de kan åka över den
+    
     for(int row = 0; row < gameMap.size(); row++)
         for(int col = 0; col < (gameMap[row]).size(); col++)
             switch((gameMap[row])[col]) {

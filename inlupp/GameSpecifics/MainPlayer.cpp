@@ -65,17 +65,17 @@ MainPlayer::MainPlayer(int x, int y, int w, int h, int s, int l): MoveableByKeys
     if(l < 1)
         throw std::invalid_argument("Life cannot be initilized to 0 or below.");
     
-    downSurface = IMG_Load("/Users/paulinakekkonen/Pictures/Game/ratFacingFront.png");
+    downSurface = IMG_Load("/Users/paulinakekkonen/Pictures/Game/characterDown.png");
     Uint32 dWhite = SDL_MapRGB(downSurface->format, 255, 255, 255);
     SDL_SetColorKey(downSurface, true, dWhite);
-    upSurface = IMG_Load("/Users/paulinakekkonen/Pictures/Game/ratFacingBack.png");
+    upSurface = IMG_Load("/Users/paulinakekkonen/Pictures/Game/characterUp.png");
     Uint32 uWhite = SDL_MapRGB(upSurface->format, 255, 255, 255);
     SDL_SetColorKey(upSurface, true, uWhite);
-    leftSurface = IMG_Load("/Users/paulinakekkonen/Pictures/Game/ratFacingLeft.png");
+    leftSurface = IMG_Load("/Users/paulinakekkonen/Pictures/Game/characterLeft.png");
     Uint32 lWhite = SDL_MapRGB(leftSurface
                                ->format, 255, 255, 255);
     SDL_SetColorKey(leftSurface, true, lWhite);
-    rightSurface = IMG_Load("/Users/paulinakekkonen/Pictures/Game/ratFacingRight.png");
+    rightSurface = IMG_Load("/Users/paulinakekkonen/Pictures/Game/characterRight.png");
     Uint32 rWhite = SDL_MapRGB(rightSurface->format, 255, 255, 255);
     SDL_SetColorKey(rightSurface, true, rWhite);
     texture = SDL_CreateTextureFromSurface(sys.ren, downSurface);
