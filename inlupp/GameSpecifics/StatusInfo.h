@@ -4,11 +4,11 @@
 #include <string>
 
 #include "System.h"
-#include "StaticSprite.h"
+#include "Sprite.h"
 #include "MainPlayer.h"
 
 
-class StatusInfo: public StaticSprite {
+class StatusInfo: public Sprite {
 public:
     static StatusInfo* getInstance();
     void tick(std::vector<Sprite*> sprites);

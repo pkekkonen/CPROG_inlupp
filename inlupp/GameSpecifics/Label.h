@@ -3,10 +3,10 @@
 
 #include <string>
 
-#include "StaticSprite.h"
+#include "Sprite.h"
 #include "System.h"
 
-class Label: public StaticSprite {
+class Label: public Sprite {
 public:
     static Label* getInstance(int x, int y, int w, int h, std::string t);
     void tick(std::vector<Sprite*> sprites);

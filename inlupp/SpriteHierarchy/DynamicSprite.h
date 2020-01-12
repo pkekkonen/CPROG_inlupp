@@ -3,7 +3,6 @@
 #include "Sprite.h"
 
 enum Direction {UP, DOWN, RIGHT, LEFT};
-//TODO: ÄNDRA TILL CAPITAL LETTERS
 
 class DynamicSprite: public Sprite {
 public:

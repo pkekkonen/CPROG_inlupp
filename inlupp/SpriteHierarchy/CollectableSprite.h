@@ -1,16 +1,16 @@
 #ifndef Collectable_h
 #define Collectable_h
 
-#include "StaticSprite.h"
+#include "Sprite.h"
 
 enum CollectType {SPEED, BULLET, KEY};
 
-class CollectableSprite: public StaticSprite {
+class CollectableSprite: public Sprite {
 public:
     CollectType getCollectType() const {return collectType;}
     ~CollectableSprite() {}
 protected:
-    CollectableSprite(int x, int y, int w, int h, CollectType c): StaticSprite(x, y, w, h) { collectType = c;}
+    CollectableSprite(int x, int y, int w, int h, CollectType c): Sprite(x, y, w, h) { collectType = c;}
 private:
     CollectType collectType;
 };

@@ -42,7 +42,6 @@
 
 /* Begin PBXFileReference section */
 		E135DAC823AB9FC90075AEDC /* MainPlayer.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = MainPlayer.cpp; sourceTree = "<group>"; };
-		E135DACA23AD05E30075AEDC /* StaticSprite.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StaticSprite.h; sourceTree = "<group>"; };
 		E1373A1A23AA22D7005B5E4A /* Collision.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Collision.h; sourceTree = "<group>"; };
 		E1373A1B23AA2715005B5E4A /* Collision.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Collision.cpp; sourceTree = "<group>"; };
 		E1373A1D23AA6236005B5E4A /* MainPlayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainPlayer.h; sourceTree = "<group>"; };
@@ -125,7 +124,6 @@
 			children = (
 				E1670E0E239A6CCA008A2CA7 /* Sprite.cpp */,
 				E1670E0F239A6CCA008A2CA7 /* Sprite.h */,
-				E135DACA23AD05E30075AEDC /* StaticSprite.h */,
 				E1373A1E23AA7256005B5E4A /* DynamicSprite.h */,
 				E159993223C0FB77005CB8EE /* DynamicSprite.cpp */,
 				E159993423C104A8005CB8EE /* CollectableSprite.cpp */,

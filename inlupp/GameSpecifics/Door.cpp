@@ -15,7 +15,7 @@ void Door::tick(std::vector<Sprite*> sprites) {
     
 }
 
-Door::Door(int x, int y): StaticSprite(x, y, 1, 1) {
+Door::Door(int x, int y): Sprite(x, y, 1, 1) {
     SDL_Surface* surf = IMG_Load("/Users/paulinakekkonen/Pictures/Game/door.jpg");
     Uint32 white = SDL_MapRGB(surf->format, 255, 255, 255);
     SDL_SetColorKey(surf, true, white);

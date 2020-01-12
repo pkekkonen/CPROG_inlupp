@@ -1,9 +1,9 @@
 #ifndef Wall_hpp
 #define Wall_hpp
 
-#include "StaticSprite.h"
+#include "Sprite.h"
 
-class Wall: public StaticSprite {
+class Wall: public Sprite {
 public:
     static Wall* getInstance(int x, int y, int w, int h);
     void draw() const;

@@ -20,4 +20,9 @@ System::~System() {
 
 }
 
+int System::getWindowHeight() const {return height*SQUARE_SIZE;}
+int System::getWindowWidth() const {return width*SQUARE_SIZE;}
+int System::getWindowHeightInSquares() const {return height;}
+int System::getWindowWidthInSquares() const {return width;}
+
 System sys;

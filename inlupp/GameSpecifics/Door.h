@@ -2,9 +2,9 @@
 #define Door_h
 
 #include "System.h"
-#include "StaticSprite.h"
+#include "Sprite.h"
 
-class Door: public StaticSprite {
+class Door: public Sprite {
 public:
     static Door* getInstance(int x, int y);
     

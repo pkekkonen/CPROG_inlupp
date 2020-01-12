@@ -22,7 +22,7 @@ void Wall::tick(std::vector<Sprite*> sprites) {
     }
 }
 
-Wall::Wall(int x, int y, int w, int h): StaticSprite(x,y,w,h) {
+Wall::Wall(int x, int y, int w, int h): Sprite(x,y,w,h) {
     SDL_Surface* surf = IMG_Load("/Users/paulinakekkonen/Pictures/Game/squareBrick.jpg");
     Uint32 white = SDL_MapRGB(surf->format, 255, 255, 255);
     SDL_SetColorKey(surf, true, white);
