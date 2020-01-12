@@ -19,16 +19,14 @@ public:
     }
     void draw() const;
     void tick(std::vector<Sprite*> sprites);
-    
-    void shoot();
-    
     ~MainPlayer();
     void keyDown(SDL_Keycode key);
     bool hasThing(CollectType c) const;
     void useThing(CollectType c);
     void addToBag(CollectType c);
-    int getLife() const;
     int getAmountOfCollectable(CollectType type) const;
+    void shoot();
+    int getLife() const;
 private:
     MainPlayer(int x, int y, int w, int h, int speed, int l);
     std::unordered_map<CollectType, int> bag;
@@ -45,4 +43,4 @@ private:
     bool isMoving;
 };
 
-#endif /* MainPlayer_h */
+#endif

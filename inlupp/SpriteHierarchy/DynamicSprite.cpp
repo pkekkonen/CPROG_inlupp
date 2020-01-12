@@ -7,8 +7,8 @@ DynamicSprite::DynamicSprite(int x, int y, int w, int h, int s, Direction direct
 }
 
 void DynamicSprite::setToPrevPos() {
-        rect.x = prevX;
-        rect.y = prevY;
+    rect.x = prevX;
+    rect.y = prevY;
 }
 
 void DynamicSprite::moveRight() {
@@ -38,18 +38,3 @@ void DynamicSprite::moveUp() {
     facing = UP;
 }
 
-void DynamicSprite::moveDownAndRight() {
-    prevY = rect.y;
-    prevX = rect.x;
-    rect.x += getSpeed();
-    rect.y += getSpeed();
-    facing = RIGHT;
-}
-
-void DynamicSprite::moveDownAndLeft() {
-    prevY = rect.y;
-    prevX = rect.x;
-    rect.x -= getSpeed();
-    rect.y += getSpeed();
-    facing = LEFT;
-}

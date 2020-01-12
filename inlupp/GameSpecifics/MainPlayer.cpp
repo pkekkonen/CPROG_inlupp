@@ -10,12 +10,8 @@ void MainPlayer::keyDown(SDL_Keycode key) {
 }
 
 
-
-//returns false if thing is not present
 bool MainPlayer::hasThing(CollectType c) const{
-    if(bag.find(c) == bag.end())
-        return false;
-    return true;
+    return !(bag.find(c) == bag.end());
 }
 
 void MainPlayer::useThing(CollectType c) {
@@ -30,8 +26,9 @@ void MainPlayer::addToBag(CollectType c) {
 int MainPlayer::getAmountOfCollectable(CollectType type) const {
     if(hasThing(type))
         return bag.at(type);
-    return 0;
-} //kolla vad som händer om type inte finns
+    else
+        return 0;
+}
 
 
 int MainPlayer::getLife() const {

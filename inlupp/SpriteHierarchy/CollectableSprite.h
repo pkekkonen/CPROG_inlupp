@@ -3,16 +3,18 @@
 
 #include "Sprite.h"
 
-enum CollectType {SPEED, BULLET, KEY};
+enum CollectType {BULLET, KEY};
 
 class CollectableSprite: public Sprite {
 public:
     CollectType getCollectType() const {return collectType;}
     ~CollectableSprite() {}
 protected:
-    CollectableSprite(int x, int y, int w, int h, CollectType c): Sprite(x, y, w, h) { collectType = c;}
+    CollectableSprite(int x, int y, int w, int h, CollectType c): Sprite(x, y, w, h) {
+        collectType = c;
+    }
 private:
     CollectType collectType;
 };
 
-#endif /* Collectable_h */
+#endif

@@ -8,21 +8,18 @@ class DynamicSprite: public Sprite {
 public:
     virtual ~DynamicSprite() {}
     int const getSpeed() {return speed;}
-
+private:
+    int speed;
+    int prevX;
+    int prevY;
+protected:
+    void setToPrevPos();
+    DynamicSprite(int x, int y, int w, int h, int s, Direction direction);
+    Direction facing;
     void moveRight();
     void moveLeft();
     void moveUp();
     void moveDown();
-    void moveDownAndRight();
-    void moveDownAndLeft();
-private:
-    int speed;
-protected:
-    int prevX;
-    int prevY; //move to private TODO:
-    void setToPrevPos();
-    DynamicSprite(int x, int y, int w, int h, int s, Direction direction);
-    Direction facing;
 
 };
-#endif /* DynamicSprite_h */
+#endif 
