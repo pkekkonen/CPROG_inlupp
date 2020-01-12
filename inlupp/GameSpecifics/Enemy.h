@@ -2,10 +2,10 @@
 #ifndef Enemy_h
 #define Enemy_h
 
-#include "MovingSprite.h"
+#include "DynamicSprite.h"
 #include "Game.h"
 
-class Enemy: public MovingSprite {
+class Enemy: public DynamicSprite {
 public:
     static Enemy* getInstance(int x, int y, int width, int height, int speed, Direction d);
     void draw() const;

@@ -50,7 +50,7 @@ Enemy::~Enemy() {
     SDL_DestroyTexture(texture);
 }
 
-Enemy::Enemy(int x, int y, int w, int h, int s, Direction d): MovingSprite(x, y, w, h, s) {
+Enemy::Enemy(int x, int y, int w, int h, int s, Direction d): DynamicSprite(x, y, w, h, s) {
     texture = IMG_LoadTexture(sys.ren, "/Users/paulinakekkonen/Pictures/Game/downBtn.jpeg");
     this -> setFacing(d);
 }

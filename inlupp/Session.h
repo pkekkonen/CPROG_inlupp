@@ -4,7 +4,7 @@
 #include "MainPlayer.h"
 #include "System.h"
 #include "Collision.h"
-//#include "MovingSprite.h"
+//#include "DynamicSprite.h"
 #include <vector>
 #include <unordered_map>
 #include <utility>

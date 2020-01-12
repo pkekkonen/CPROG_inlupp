@@ -41,6 +41,6 @@ Bullet::~Bullet() {
     SDL_DestroyTexture(texture);
 }
 
-Bullet::Bullet(int x, int y, int w, int h, int s, Direction dir): MovingSprite(x, y, w, h, s), direction(dir) {
+Bullet::Bullet(int x, int y, int w, int h, int s, Direction dir): DynamicSprite(x, y, w, h, s), direction(dir) {
     texture = IMG_LoadTexture(sys.ren, "/Users/paulinakekkonen/Pictures/Game/downBtn.jpeg");
 }

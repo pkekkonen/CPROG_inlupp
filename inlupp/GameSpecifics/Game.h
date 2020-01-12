@@ -8,7 +8,7 @@
 
 #include "Session.h"
 #include "StaticSprite.h"
-#include "MovingSprite.h"
+#include "DynamicSprite.h"
 #include "CollectableSprite.h"
 #include "Ammo.h"
 #include "Wall.h"

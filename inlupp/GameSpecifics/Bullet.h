@@ -1,13 +1,13 @@
 #ifndef Bullet_h
 #define Bullet_h
-#include "MovingSprite.h"
+#include "DynamicSprite.h"
 #include "Sprite.h"
 #include "Game.h"
 #include "System.h"
 #include "Enemy.h"
 #include "Wall.h"
 
-class Bullet: public MovingSprite {
+class Bullet: public DynamicSprite {
 public:
     static Bullet* getInstance(int x, int y, int speed, Direction dir);
     void draw() const;

@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		E135DAC923AB9FCA0075AEDC /* MainPlayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E135DAC823AB9FC90075AEDC /* MainPlayer.cpp */; };
 		E1373A1C23AA2715005B5E4A /* Collision.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E1373A1B23AA2715005B5E4A /* Collision.cpp */; };
-		E159993323C0FB77005CB8EE /* MovingSprite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E159993223C0FB77005CB8EE /* MovingSprite.cpp */; };
+		E159993323C0FB77005CB8EE /* DynamicSprite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E159993223C0FB77005CB8EE /* DynamicSprite.cpp */; };
 		E159993623C104A8005CB8EE /* CollectableSprite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E159993423C104A8005CB8EE /* CollectableSprite.cpp */; };
 		E159993823C8A38E005CB8EE /* Game.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E159993723C8A38D005CB8EE /* Game.cpp */; };
 		E159993B23C8A7BD005CB8EE /* Bullet.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E159993A23C8A7BD005CB8EE /* Bullet.cpp */; };
@@ -47,8 +47,8 @@
 		E1373A1A23AA22D7005B5E4A /* Collision.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Collision.h; sourceTree = "<group>"; };
 		E1373A1B23AA2715005B5E4A /* Collision.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Collision.cpp; sourceTree = "<group>"; };
 		E1373A1D23AA6236005B5E4A /* MainPlayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainPlayer.h; sourceTree = "<group>"; };
-		E1373A1E23AA7256005B5E4A /* MovingSprite.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MovingSprite.h; sourceTree = "<group>"; };
-		E159993223C0FB77005CB8EE /* MovingSprite.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = MovingSprite.cpp; sourceTree = "<group>"; };
+		E1373A1E23AA7256005B5E4A /* DynamicSprite.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DynamicSprite.h; sourceTree = "<group>"; };
+		E159993223C0FB77005CB8EE /* DynamicSprite.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = DynamicSprite.cpp; sourceTree = "<group>"; };
 		E159993423C104A8005CB8EE /* CollectableSprite.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = CollectableSprite.cpp; sourceTree = "<group>"; };
 		E159993523C104A8005CB8EE /* CollectableSprite.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CollectableSprite.h; sourceTree = "<group>"; };
 		E159993723C8A38D005CB8EE /* Game.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Game.cpp; sourceTree = "<group>"; };
@@ -130,8 +130,8 @@
 				E1670E0E239A6CCA008A2CA7 /* Sprite.cpp */,
 				E1670E0F239A6CCA008A2CA7 /* Sprite.h */,
 				E135DACA23AD05E30075AEDC /* StaticSprite.h */,
-				E1373A1E23AA7256005B5E4A /* MovingSprite.h */,
-				E159993223C0FB77005CB8EE /* MovingSprite.cpp */,
+				E1373A1E23AA7256005B5E4A /* DynamicSprite.h */,
+				E159993223C0FB77005CB8EE /* DynamicSprite.cpp */,
 				E159993423C104A8005CB8EE /* CollectableSprite.cpp */,
 				E159993523C104A8005CB8EE /* CollectableSprite.h */,
 			);
@@ -239,7 +239,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E159993323C0FB77005CB8EE /* MovingSprite.cpp in Sources */,
+				E159993323C0FB77005CB8EE /* DynamicSprite.cpp in Sources */,
 				E135DAC923AB9FCA0075AEDC /* MainPlayer.cpp in Sources */,
 				E159993623C104A8005CB8EE /* CollectableSprite.cpp in Sources */,
 				E159994923C8B0C1005CB8EE /* Wall.cpp in Sources */,

@@ -3,13 +3,13 @@
 //#include "Sprite.h"
 #include "System.h"
 #include "Game.h"
-#include "MovingSprite.h"
+#include "DynamicSprite.h"
 #include "CollectableSprite.h"
 #include <unordered_map>
 
 //TODO: se till att inte kan kopiera eller tilldela
 
-class MainPlayer: public MovingSprite {
+class MainPlayer: public DynamicSprite {
 public:
     static MainPlayer* getInstance(int x, int y, int width, int height, int speed, int lifes) {
         return new MainPlayer(x, y, width, height, speed, lifes);

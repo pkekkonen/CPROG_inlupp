@@ -115,7 +115,7 @@ MainPlayer::~MainPlayer() {
     
 }
 
-MainPlayer::MainPlayer(int x, int y, int w, int h, int s, int l): MovingSprite(x, y, w, h, s), life(l), startPosX(x), startPosY(y), isMoving(false) {
+MainPlayer::MainPlayer(int x, int y, int w, int h, int s, int l): DynamicSprite(x, y, w, h, s), life(l), startPosX(x), startPosY(y), isMoving(false) {
     downSurface = IMG_Load("/Users/paulinakekkonen/Pictures/Game/ratFacingFront.png");
     Uint32 dWhite = SDL_MapRGB(downSurface->format, 255, 255, 255);
     SDL_SetColorKey(downSurface, true, dWhite);

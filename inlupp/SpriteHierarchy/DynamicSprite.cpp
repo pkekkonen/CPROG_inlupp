@@ -1,38 +1,38 @@
-#include "MovingSprite.h"
+#include "DynamicSprite.h"
 
-void MovingSprite::setToPrevPos() {
+void DynamicSprite::setToPrevPos() {
         rect.x = prevX;
         rect.y = prevY;
 }
 
-void MovingSprite::moveRight() {
+void DynamicSprite::moveRight() {
     prevX = rect.x;
     prevY = rect.y;
     rect.x += getSpeed();
     facing = Right;
 }
 
-void MovingSprite::moveLeft() {
+void DynamicSprite::moveLeft() {
     prevX = rect.x;
     prevY = rect.y;
     rect.x -= getSpeed();
     facing = Left;
 }
 
-void MovingSprite::moveDown() {
+void DynamicSprite::moveDown() {
     prevY = rect.y;
     prevX = rect.x;
     rect.y += getSpeed();
     facing = Down;
 }
-void MovingSprite::moveUp() {
+void DynamicSprite::moveUp() {
     prevY = rect.y;
     prevX = rect.x;
     rect.y -= getSpeed();
     facing = Up;
 }
 
-void MovingSprite::moveDownAndRight() {
+void DynamicSprite::moveDownAndRight() {
     prevY = rect.y;
     prevX = rect.x;
     rect.x += getSpeed();
@@ -40,7 +40,7 @@ void MovingSprite::moveDownAndRight() {
     facing = Right;
 }
 
-void MovingSprite::moveDownAndLeft() {
+void DynamicSprite::moveDownAndLeft() {
     prevY = rect.y;
     prevX = rect.x;
     rect.x -= getSpeed();
