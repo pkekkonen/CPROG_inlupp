@@ -19,10 +19,8 @@ void Session::addMemberFunction(SDL_Keycode key, std::function<void()> memFuncti
 }
 
 bool Session::isWithinWindow(SDL_Rect *rect) {
-    return(rect->x + rect->w <= sys.getWidthInPixels() &&
-           rect->x >= 0 &&
-           rect->y + rect->h <= sys.getHeightInPixels() &&
-           rect->y >= 0);
+    return(rect->x + rect->w <= sys.getWindowWidth() && rect->x >= 0 &&
+           rect->y + rect->h <= sys.getWindowHeight() && rect->y >= 0);
 }
 
 void Session::setBackground(std::string filePath) {
@@ -30,7 +28,11 @@ void Session::setBackground(std::string filePath) {
 }
 
 void Session::paus() {
-    isPaused = isPaused? false: true;
+    paused = paused? false: true;
+}
+
+bool Session::isPaused() const {
+    return paused;
 }
 
 void Session::run() {
@@ -49,27 +51,26 @@ void Session::run() {
                 case SDL_QUIT: quit = true; break;
                 case SDL_KEYDOWN:
                     
-                    if(!isPaused)
+                    if(!paused)
                         for(Sprite* s: sprites)
                             s->keyDown(event.key.keysym.sym);
                     
                     if(functions.find(event.key.keysym.sym) != functions.end())
                         (functions.at(event.key.keysym.sym))();
     
-                    if(!isPaused)
-                        if(memberFunctions.find(event.key.keysym.sym) != memberFunctions.end())
+                    if(memberFunctions.find(event.key.keysym.sym) != memberFunctions.end())
                         (memberFunctions.at(event.key.keysym.sym))();
                         
                     
             }
-        }// inre while
+        }
         
-        if(!isPaused)
+        if(!paused)
             for(Sprite* s: sprites)
                 s -> tick(sprites);
         
         for(Sprite* s: addedSprites)
-            sprites.push_back(s);
+                sprites.push_back(s);
 
         addedSprites.clear();
         
@@ -84,7 +85,8 @@ void Session::run() {
         
         for(Sprite* s: removedSprites)
             delete s;
-        removedSprites.clear(); //TODO: städa??
+        
+        removedSprites.clear();
         
         SDL_SetRenderDrawColor(sys.ren, 255, 255, 255, 255);
         SDL_RenderClear(sys.ren);
@@ -100,8 +102,7 @@ void Session::run() {
         delay = nextTick - SDL_GetTicks();
         if (delay > 0)
             SDL_Delay(delay);
-    } //yttre while
-    
+    }
 }
 
 Session::~Session() {

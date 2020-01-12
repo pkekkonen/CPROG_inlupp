@@ -1,17 +1,16 @@
 #ifndef MainPlayer_h
 #define MainPlayer_h
-//#include "Sprite.h"
+
+#include <unordered_map>
+
 #include "Session.h"
-#include "DynamicSprite.h"
 #include "Enemy.h"
 #include "Wall.h"
 #include "Label.h"
 #include "Door.h"
 #include "Bullet.h"
 #include "CollectableSprite.h"
-#include <unordered_map>
 
-//TODO: se till att inte kan kopiera eller tilldela
 
 class MainPlayer: public DynamicSprite {
 public:

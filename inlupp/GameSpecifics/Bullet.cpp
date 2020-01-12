@@ -22,7 +22,7 @@ void Bullet::tick(std::vector<Sprite*> sprites) {
         }
     }
     for(Sprite* s: sprites) {
-        if(Collision::collided(this->rect, s->getRect())) {
+        if(Collision::collided(getRect(), s->getRect())) {
             if(Enemy* e = dynamic_cast<Enemy*>(s)) {
                 ses.removeSprite(e);
                 ses.removeSprite(this);
@@ -36,7 +36,7 @@ void Bullet::tick(std::vector<Sprite*> sprites) {
         }
     }
     
-    if(rect.x < 0 || rect.x + rect.w > sys.getWidthInPixels() || rect.y < 0 || rect.y + rect.h > sys.getHeightInPixels())
+    if(rect.x < 0 || rect.x + rect.w > sys.getWindowWidth() || rect.y < 0 || rect.y + rect.h > sys.getWindowHeight())
         ses.removeSprite(this);
     
 }

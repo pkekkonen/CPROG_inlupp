@@ -16,6 +16,9 @@ void Door::tick(std::vector<Sprite*> sprites) {
 }
 
 Door::Door(int x, int y): StaticSprite(x, y, 1, 1) {
-    texture = IMG_LoadTexture(sys.ren, "/Users/paulinakekkonen/Pictures/Game/door.jpg");
-    
+    SDL_Surface* surf = IMG_Load("/Users/paulinakekkonen/Pictures/Game/door.jpg");
+    Uint32 white = SDL_MapRGB(surf->format, 255, 255, 255);
+    SDL_SetColorKey(surf, true, white);
+    texture = SDL_CreateTextureFromSurface(sys.ren, surf);
+    SDL_FreeSurface(surf);    
 }

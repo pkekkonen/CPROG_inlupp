@@ -56,12 +56,11 @@ void MainPlayer::tick(std::vector<Sprite*> sprites) {
     isMoving = false;
     
     for(Sprite* s: sprites) {
-        if(Collision::collided(this->getRect(), s->getRect())) {
+        if(Collision::collided(getRect(), s->getRect())) {
             if(Enemy* e = dynamic_cast<Enemy*>(s)){
                 if(--life == 0) {
-                    //vad som ska hända om man dör helt
                     ses.removeSprite(this);
-                    ses.addSprite(Label::getInstance(7, 4, 6, 4, "Game over"));
+                    ses.addSprite(Label::getInstance(6, 4, 8, 4, "Game over"));
                 } else {
                     setToStartPos();
                 }
@@ -74,14 +73,14 @@ void MainPlayer::tick(std::vector<Sprite*> sprites) {
                 if(hasThing(KEY)) {
                     useThing(KEY);
                     ses.removeSprite(this);
-                    ses.addSprite(Label::getInstance(7, 4, 6, 4, "You won!"));
+                    ses.addSprite(Label::getInstance(6, 4, 8, 4, "You won!"));
                 }
             }
             
         }
     }
     if(!ses.isWithinWindow(&rect))
-        this->setToPrevPos();
+        setToPrevPos();
     
     switch(getFacing()) {
         case UP: texture = SDL_CreateTextureFromSurface(sys.ren, upSurface); break;
@@ -92,7 +91,7 @@ void MainPlayer::tick(std::vector<Sprite*> sprites) {
 }
 
 void MainPlayer::shoot() {
-    if(this->hasThing(BULLET) && life != 0) {
+    if(hasThing(BULLET) && life != 0 && !ses.isPaused()) {
         useThing(BULLET);
         ses.addSprite(Bullet::getInstance(rect.x, rect.y, 20, getFacing()));
     }

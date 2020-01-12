@@ -17,11 +17,15 @@ Wall::~Wall() {
 
 void Wall::tick(std::vector<Sprite*> sprites) {
     for(Sprite* s : sprites) {
-        if(Collision::collided(this->rect, s-> getRect())) {
+        if(Collision::collided(getRect(), s-> getRect())) {
         }
     }
 }
 
 Wall::Wall(int x, int y, int w, int h): StaticSprite(x,y,w,h) {
-    texture = IMG_LoadTexture(sys.ren, "/Users/paulinakekkonen/Pictures/Game/squareBrick.jpg");
+    SDL_Surface* surf = IMG_Load("/Users/paulinakekkonen/Pictures/Game/squareBrick.jpg");
+    Uint32 white = SDL_MapRGB(surf->format, 255, 255, 255);
+    SDL_SetColorKey(surf, true, white);
+    texture = SDL_CreateTextureFromSurface(sys.ren, surf);
+    SDL_FreeSurface(surf);
 }

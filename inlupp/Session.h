@@ -12,10 +12,9 @@
 #include "Collision.h"
 
 
-//TODO: göra till klass?
-struct Session {
-    ~Session(); //måste städa bort vector
-
+class Session {
+public:
+    ~Session();
     void addSprite(Sprite* sprite);
     void removeSprite(Sprite* sprite);
     void run();
@@ -24,13 +23,14 @@ struct Session {
     bool isWithinWindow(SDL_Rect* rect);
     void setBackground(std::string filePath);
     void paus();
+    bool isPaused() const;
 private:
-    std::vector<Sprite*> sprites; //TODO: måste städas bort?
+    std::vector<Sprite*> sprites;
     std::vector<Sprite*> addedSprites, removedSprites;
-    std::unordered_map<SDL_Keycode, void (*)()> functions; //ska funktionerna anropas med den key som tryckts ner? Kaka på kaka?
+    std::unordered_map<SDL_Keycode, void (*)()> functions;
     std::unordered_map<SDL_Keycode,std::function<void()>> memberFunctions;
     SDL_Texture* background;
-    bool isPaused = false;
+    bool paused = false;
 };
 
 extern Session ses;

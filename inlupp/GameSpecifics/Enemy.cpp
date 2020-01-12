@@ -48,6 +48,11 @@ Enemy::~Enemy() {
 }
 
 Enemy::Enemy(int x, int y, int w, int h, int s, Direction d): DynamicSprite(x, y, w, h, s) {
-    texture = IMG_LoadTexture(sys.ren, "/Users/paulinakekkonen/Pictures/Game/downBtn.jpeg");
-    this -> setFacing(d);
+    SDL_Surface* surf = IMG_Load("/Users/paulinakekkonen/Pictures/Game/downBtn.jpeg");
+    Uint32 white = SDL_MapRGB(surf->format, 255, 255, 255);
+    SDL_SetColorKey(surf, true, white);
+    texture = SDL_CreateTextureFromSurface(sys.ren, surf);
+    SDL_FreeSurface(surf);
+    
+    setFacing(d);
 }

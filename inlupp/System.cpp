@@ -8,8 +8,8 @@ System::System() {
     height = 15;
     win = SDL_CreateWindow("Game", 10, 10, 20*SQUARE_SIZE, 15*SQUARE_SIZE, 0);
     ren = SDL_CreateRenderer(win, -1, 0);
-    smallFont = TTF_OpenFont("/Library/Fonts/arial.ttf", 20);
-    bigFont = TTF_OpenFont("/Library/Fonts/arial.ttf", 40);
+    smallFont = TTF_OpenFont("/Library/Fonts/arial.ttf", 18);
+    bigFont = TTF_OpenFont("/Library/Fonts/Times New Roman Bold.ttf", 40);
 
 }
 

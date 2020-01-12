@@ -21,6 +21,10 @@ void Ammo::tick(std::vector<Sprite*> sprites) {
 }
 
 Ammo::Ammo(int x, int y): CollectableSprite(x, y, 1, 1, BULLET) {
-    texture = IMG_LoadTexture(sys.ren, "/Users/paulinakekkonen/Pictures/Game/bullet.jpg");
+    SDL_Surface* surf = IMG_Load("/Users/paulinakekkonen/Pictures/Game/bullet.jpg");
+    Uint32 white = SDL_MapRGB(surf->format, 255, 255, 255);
+    SDL_SetColorKey(surf, true, white);
+    texture = SDL_CreateTextureFromSurface(sys.ren, surf);
+    SDL_FreeSurface(surf);
     
 }
