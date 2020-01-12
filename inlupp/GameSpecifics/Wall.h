@@ -9,7 +9,7 @@ public:
     void draw() const;
     ~Wall();
     
-    void tick(std::vector<Sprite*> sprites);
+    void tick(std::vector<Sprite*> sprites) {}
 private:
     Wall(int x, int y, int w, int h);
     SDL_Texture* texture;

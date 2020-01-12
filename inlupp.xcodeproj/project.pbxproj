@@ -20,6 +20,7 @@
 		E159995423CA4743005CB8EE /* Door.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E159995323CA4743005CB8EE /* Door.cpp */; };
 		E159995823CA596A005CB8EE /* Key.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E159995723CA596A005CB8EE /* Key.cpp */; };
 		E159995D23CB7EA9005CB8EE /* SDL2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E16E46C623A97AAF006547DD /* SDL2.framework */; };
+		E159996023CBAFE7005CB8EE /* StaticSprite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E159995F23CBAFE7005CB8EE /* StaticSprite.cpp */; };
 		E1670DF8239A5877008A2CA7 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E1670DF7239A5877008A2CA7 /* main.cpp */; };
 		E1670E00239A591D008A2CA7 /* Session.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E1670DFE239A591D008A2CA7 /* Session.cpp */; };
 		E1670E03239A5951008A2CA7 /* System.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E1670E01239A5951008A2CA7 /* System.cpp */; };
@@ -66,6 +67,8 @@
 		E159995623CA5952005CB8EE /* Key.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Key.h; sourceTree = "<group>"; };
 		E159995723CA596A005CB8EE /* Key.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Key.cpp; sourceTree = "<group>"; };
 		E159995C23CB4EED005CB8EE /* README.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
+		E159995E23CBAF24005CB8EE /* StaticSprite.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StaticSprite.h; sourceTree = "<group>"; };
+		E159995F23CBAFE7005CB8EE /* StaticSprite.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = StaticSprite.cpp; sourceTree = "<group>"; };
 		E1670DF4239A5877008A2CA7 /* inlupp */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = inlupp; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1670DF7239A5877008A2CA7 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		E1670DFE239A591D008A2CA7 /* Session.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Session.cpp; sourceTree = "<group>"; };
@@ -125,6 +128,8 @@
 				E1670E0E239A6CCA008A2CA7 /* Sprite.cpp */,
 				E1670E0F239A6CCA008A2CA7 /* Sprite.h */,
 				E1373A1E23AA7256005B5E4A /* DynamicSprite.h */,
+				E159995E23CBAF24005CB8EE /* StaticSprite.h */,
+				E159995F23CBAFE7005CB8EE /* StaticSprite.cpp */,
 				E159993223C0FB77005CB8EE /* DynamicSprite.cpp */,
 				E159993423C104A8005CB8EE /* CollectableSprite.cpp */,
 				E159993523C104A8005CB8EE /* CollectableSprite.h */,
@@ -248,6 +253,7 @@
 				E159995423CA4743005CB8EE /* Door.cpp in Sources */,
 				E159995823CA596A005CB8EE /* Key.cpp in Sources */,
 				E1670DF8239A5877008A2CA7 /* main.cpp in Sources */,
+				E159996023CBAFE7005CB8EE /* StaticSprite.cpp in Sources */,
 				E159994323C8ACD8005CB8EE /* Enemy.cpp in Sources */,
 				E159994F23C8D5A9005CB8EE /* StatusInfo.cpp in Sources */,
 			);

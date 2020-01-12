@@ -2,8 +2,7 @@
 #include "Bullet.h"
 
 Bullet* Bullet::getInstance(int x, int y, int speed, Direction dir) {
-    return new Bullet(x/System::SQUARE_SIZE, y/System::SQUARE_SIZE, 1, 1, speed, dir);
-    //TODO: vackrare lösning
+    return new Bullet(x, y, 1, 1, speed, dir);
 }
 
 void Bullet::draw() const{
@@ -15,10 +14,10 @@ void Bullet::tick(std::vector<Sprite*> sprites) {
     counter++;
     if(counter % 5 == 0) {
         switch(facing) {
-            case UP: rect.y -= getSpeed(); break;
-            case RIGHT: rect.x += getSpeed(); break;
-            case DOWN: rect.y += getSpeed(); break;
-            case LEFT: rect.x -= getSpeed(); break;
+            case UP: moveUp(); break;
+            case RIGHT: moveRight(); break;
+            case DOWN: moveDown(); break;
+            case LEFT: moveLeft(); break;
         }
     }
     for(Sprite* s: sprites) {
@@ -26,19 +25,17 @@ void Bullet::tick(std::vector<Sprite*> sprites) {
             if(Enemy* e = dynamic_cast<Enemy*>(s)) {
                 ses.removeSprite(e);
                 ses.removeSprite(this);
-             //   delete this;
 
             }
-            if(Wall* w = dynamic_cast<Wall*>(s)){
+            if(Wall* w = dynamic_cast<Wall*>(s))
                 ses.removeSprite(this);
-             //   delete this;
-            }
+
         }
     }
     
-    if(rect.x < 0 || rect.x + rect.w > sys.getWindowWidth() || rect.y < 0 || rect.y + rect.h > sys.getWindowHeight())
+    if(!ses.isWithinWindow(&rect))
         ses.removeSprite(this);
-    
+
 }
 
 Bullet::~Bullet() {
@@ -46,5 +43,5 @@ Bullet::~Bullet() {
 }
 
 Bullet::Bullet(int x, int y, int w, int h, int s, Direction dir): DynamicSprite(x, y, w, h, s, dir) {
-    texture = IMG_LoadTexture(sys.ren, "/Users/paulinakekkonen/Pictures/Game/downBtn.jpeg");
+    texture = IMG_LoadTexture(sys.ren, "/Users/paulinakekkonen/Pictures/Game/bullet.jpg");
 }

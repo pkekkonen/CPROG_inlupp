@@ -2,16 +2,14 @@
 #define Door_h
 
 #include "System.h"
-#include "Sprite.h"
+#include "StaticSprite.h"
 
-class Door: public Sprite {
+class Door: public StaticSprite {
 public:
     static Door* getInstance(int x, int y);
     
     void draw() const;
-    
-    void tick(std::vector<Sprite*> sprites);
-    
+        
     ~Door() {SDL_DestroyTexture(texture);}
 private:
     Door(int x, int y);

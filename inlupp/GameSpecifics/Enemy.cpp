@@ -11,7 +11,7 @@ void Enemy::draw() const{
 }
 
 void Enemy::tick(std::vector<Sprite*> sprites) {
-    counter++; //kan ta bort????
+    counter++;
     if(counter % 5 == 0) {
         switch (facing) {
             case UP: moveUp();break;

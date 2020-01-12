@@ -8,8 +8,6 @@ public:
     
     void draw() const;
     
-    void tick(std::vector<Sprite*> sprites);
-    
     ~Ammo() {SDL_DestroyTexture(texture);}
 private:
     Ammo(int x, int y);

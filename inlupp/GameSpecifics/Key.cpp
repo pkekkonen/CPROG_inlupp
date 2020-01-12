@@ -9,15 +9,6 @@ void Key::draw() const{
     SDL_RenderCopy(sys.ren, texture, NULL, &r);
 }
 
-void Key::tick(std::vector<Sprite*> sprites) {
-//    for(Sprite* s: sprites) {
-//        if(Collision::collided(getRect(), s -> getRect()))
-//            if(MainPlayer* m = dynamic_cast<MainPlayer*>(s))
-//                ses.removeSprite(this);
-//    }
-    
-}
-
 Key::Key(int x, int y): CollectableSprite(x, y, 1, 1, KEY) {
     SDL_Surface* surf = IMG_Load("/Users/paulinakekkonen/Pictures/Game/key.jpeg");
     Uint32 white = SDL_MapRGB(surf->format, 255, 255, 255);

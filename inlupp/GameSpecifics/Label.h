@@ -3,13 +3,12 @@
 
 #include <string>
 
-#include "Sprite.h"
+#include "StaticSprite.h"
 #include "System.h"
 
-class Label: public Sprite {
+class Label: public StaticSprite {
 public:
     static Label* getInstance(int x, int y, int w, int h, std::string t);
-    void tick(std::vector<Sprite*> sprites);
     ~Label();
     void draw() const;
 private:

@@ -10,9 +10,7 @@ public:
     static Key* getInstance(int x, int y);
     
     void draw() const;
-    
-    void tick(std::vector<Sprite*> sprites);
-    
+        
     ~Key() {SDL_DestroyTexture(texture); }
 private:
     Key(int x, int y);
@@ -20,4 +18,4 @@ private:
 };
 
 
-#endif /* Key_h */
+#endif

@@ -15,13 +15,6 @@ Wall::~Wall() {
     SDL_DestroyTexture(texture);
 }
 
-void Wall::tick(std::vector<Sprite*> sprites) {
-    for(Sprite* s : sprites) {
-        if(Collision::collided(getRect(), s-> getRect())) {
-        }
-    }
-}
-
 Wall::Wall(int x, int y, int w, int h): Sprite(x,y,w,h) {
     SDL_Surface* surf = IMG_Load("/Users/paulinakekkonen/Pictures/Game/squareBrick.jpg");
     Uint32 white = SDL_MapRGB(surf->format, 255, 255, 255);
