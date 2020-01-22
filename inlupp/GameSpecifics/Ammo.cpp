@@ -12,7 +12,7 @@ void Ammo::draw() const{
 }
 
 Ammo::Ammo(int x, int y): CollectableSprite(x, y, 1, 1, BULLET) {
-    SDL_Surface* surf = IMG_Load("IMAGE_PATH/GameImages/bullet.png");
+    SDL_Surface* surf = IMG_Load("/Users/paulinakekkonen/Pictures/GameImages/bullet.png");
     Uint32 white = SDL_MapRGB(surf->format, 255, 255, 255);
     SDL_SetColorKey(surf, true, white);
     texture = SDL_CreateTextureFromSurface(sys.ren, surf);

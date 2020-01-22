@@ -16,7 +16,7 @@ Wall::~Wall() {
 }
 
 Wall::Wall(int x, int y, int w, int h): StaticSprite(x,y,w,h) {
-    SDL_Surface* surf = IMG_Load("IMAGE_PATH/GameImages/squareBrick.jpg");
+    SDL_Surface* surf = IMG_Load("/Users/paulinakekkonen/Pictures/GameImages/squareBrick.jpg");
     Uint32 white = SDL_MapRGB(surf->format, 255, 255, 255);
     SDL_SetColorKey(surf, true, white);
     texture = SDL_CreateTextureFromSurface(sys.ren, surf);

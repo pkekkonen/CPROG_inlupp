@@ -11,7 +11,7 @@ void Door::draw() const{
 }
 
 Door::Door(int x, int y): StaticSprite(x, y, 1, 1) {
-    SDL_Surface* surf = IMG_Load("IMAGE_PATH/GameImages/door.png");
+    SDL_Surface* surf = IMG_Load("/Users/paulinakekkonen/Pictures/GameImages/door.png");
     Uint32 white = SDL_MapRGB(surf->format, 255, 255, 255);
     SDL_SetColorKey(surf, true, white);
     texture = SDL_CreateTextureFromSurface(sys.ren, surf);

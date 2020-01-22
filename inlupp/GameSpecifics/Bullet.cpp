@@ -43,5 +43,5 @@ Bullet::~Bullet() {
 }
 
 Bullet::Bullet(int x, int y, int w, int h, int s, Direction dir): DynamicSprite(x, y, w, h, s, dir) {
-    texture = IMG_LoadTexture(sys.ren, "IMAGE_PATH/GameImages/bullet.png");
+    texture = IMG_LoadTexture(sys.ren, "/Users/paulinakekkonen/Pictures/GameImages/bullet.png");
 }
